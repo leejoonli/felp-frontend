@@ -41,6 +41,7 @@ function State(props) {
                         return (
                             <Link to={`/${state}/${user.user.name}`} key={`${user.user.name}-${index}`}>
                                 <li>
+                                    {/* Add name and YoR label */}
                                     <h3>{user.user.name}</h3>
                                     <h3>{user.years_of_residence}</h3>
                                 </li>
