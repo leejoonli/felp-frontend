@@ -15,7 +15,7 @@ function Users(props) {
 
     // useEffect to fetch all the posts of the user in a location
     useEffect(() => {
-        getPosts();
+        // getPosts();
     }, [user]);
 
     // async await for axios fetch request

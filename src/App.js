@@ -5,6 +5,7 @@ import About from './components/About/About';
 import Users from './components/Users/Users';
 import Posts from './components/Posts/Posts';
 import Create from './components/Create/Create';
+import State from './components/State/State';
 
 // Dependencies
 import { Routes, Route, Link } from 'react-router-dom';
@@ -18,8 +19,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/about' element={<About />} />
-        <Route path='/:state' element={<Users />} />
-        <Route path='/:state/:user' element={<Posts />} /> 
+        <Route path='/:state' element={<State />} />
+        <Route path='/:state/:user' element={<Users />} /> 
         <Route path='/create' element={<Create />} />
       </Routes>
     </main>
