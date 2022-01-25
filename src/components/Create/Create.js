@@ -4,23 +4,58 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function Create(props) {
+	// reference useNavigate with const navigate
+	const navigate = useNavigate();
+
+	// state variable to hold all the information from the user
 	const [newPost, setNewPost] = useState({
 		state: '',
 		city: '',
 		title: '',
-		years_of_residence: 0,
+		years_of_residence: undefined,
 		// date: new Date(),
 		message: '',
-		type: 'food',
+		type: '',
 		user: { name: '' },
 	});
 
-	const handleChange = () => {};
+	// handle change function to keep track of user input
+	const handleChange = (e) => {
+		// sets newPost key values with what the user inputs
+		if(e.target.id === 'name') {
+			let temp = {...newPost};
+			temp.user.name = e.target.value;
+			setNewPost(temp);
+		}
+		else {
+			setNewPost({...newPost, [e.target.id]: e.target.value});
+		}
+	};
+
+	// submit function for axios post request
+	const handleSubmit = (e) => {
+		// prevent default to not refresh the page
+		e.preventDefault();
+		sendPost();
+	};
+
+	const sendPost = async () => {
+		try {
+			// comment this line back in when connecting to backend
+			// await axios.post(`http://localhost:3001/`);
+			navigate('/');
+		} catch (error) {
+			console.log(error);
+		}
+	}
 
 	return (
-		<form>
+		<form onSubmit={handleSubmit}>
+			<label htmlFor='name'>Name:</label>
+			<input onChange={handleChange} id='name' value={newPost.user.name} />
 			<label htmlFor='state'>State:</label>
 			<select onChange={handleChange} id='state'>
+				<option value=''></option>
 				<option value='NY'>New York</option>
 				<option value='NJ'>New Jersey</option>
 				<option value='PA'>Pennsylvania</option>
@@ -32,12 +67,17 @@ function Create(props) {
 			<input onChange={handleChange} id='city' value={newPost.city} />
 			<label htmlFor='title'>Title:</label>
 			<input onChange={handleChange} id='title' value={newPost.title} />
-			<label htmlFor='YoR'>YoR:</label>
-			<input onChange={handleChange} id='YoR' value={newPost.YoR} />
-			<label htmlFor='messge'>messge:</label>
-			<input onChange={handleChange} id='messge' value={newPost.messge} />
-			<label htmlFor='type'>type:</label>
-			<input onChange={handleChange} id='type' value={newPost.type} />
+			<label htmlFor='years_of_residence'>Years of Residence:</label>
+			<input onChange={handleChange} id='years_of_residence' value={newPost.years_of_residence} type='number' min={0} />
+			<label htmlFor='message'>Message:</label>
+			<input onChange={handleChange} id='message' value={newPost.message} />
+			<label htmlFor='type'>Type:</label>
+			<select onChange={handleChange} id='type'>
+				<option value=''></option>
+				<option value='food'>Food</option>
+				{/* <option value='experience'>Experience</option> */}
+			</select>
+			<button type='submit'>Submit</button>
 		</form>
 	);
 }
