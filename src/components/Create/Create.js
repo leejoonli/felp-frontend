@@ -13,7 +13,8 @@ function Create(props) {
 		city: '',
 		title: '',
 		years_of_residence: undefined,
-		// date: new Date(),
+		// can call Date() on submit and try to get it without the time
+		date: new Date(),
 		message: '',
 		type: '',
 		user: { name: '' },
@@ -42,7 +43,7 @@ function Create(props) {
 	const sendPost = async () => {
 		try {
 			// comment this line back in when connecting to backend
-			// await axios.post(`http://localhost:3001/`);
+			await axios.post(`http://localhost:3001/api/posts`, newPost);
 			navigate('/');
 		} catch (error) {
 			console.log(error);
