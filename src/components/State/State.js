@@ -22,8 +22,9 @@ function State(props) {
     const getUsers = async () => {
         try {
             // change fetch request path to localhost:3001/posts/state
-            const res = axios.get(`http://localhost:3001/${state}`);
-            setUsers(res);
+            const res = await axios.get(`http://localhost:3001/api/posts/state/${state}`);
+            setUsers(res.data);
+            // console.log(res.data);
         } catch (error) {
             console.log(error);
         }
@@ -35,9 +36,16 @@ function State(props) {
             {users ? (
             <>
                 <ul>
-                    {users.map((user) => {
+                    {users.map((user, index) => {
                         // add more user info like city, years of residence, etc
-                        return <li><Link path={`/${state}/${user}`}>{user}</Link></li>
+                        return (
+                            <Link to={`/${state}/${user.user.name}`} key={`${user.user.name}-${index}`}>
+                                <li>
+                                    <h3>{user.user.name}</h3>
+                                    <h3>{user.years_of_residence}</h3>
+                                </li>
+                            </Link>
+                        )
                     })}
                 </ul>
             </>
