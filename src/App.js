@@ -22,7 +22,6 @@ function App() {
         <Route path='/:state/:user' element={<Posts />} /> 
         <Route path='/create' element={<Create />} />
       </Routes>
-
     </main>
   );
 }
