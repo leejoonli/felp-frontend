@@ -11,6 +11,7 @@ function Navigation(props) {
                     {/* <li>Experience</li> */}
                 </ul>
             </nav>
+            <h2><Link to='/create'>New Post</Link></h2>
             <h2><Link to='/about'>About</Link></h2>
         </div>
     );
