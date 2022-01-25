@@ -1,11 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+// Components
+import Navigation from './components/Navigation/Navigation';
+
+// Dependencies
+import { Routes, Route, Link } from 'react-router-dom';
+
+// Styling
 
 function App() {
   return (
-    <div>
-      hello world
-    </div>
+    <main>
+      Hello World
+      <Navigation />
+      <Routes></Routes>
+    </main>
   );
 }
 
