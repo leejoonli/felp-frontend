@@ -12,8 +12,8 @@ function Users(props) {
 	const [updateModal, setUpdateModal] = useState(false);
 	const [deleteModal, setDeleteModal] = useState(false);
 	const [updatePost, setUpdatePost] = useState();
+
 	// useParams to hold the id of the user
-	// const { state } = useParams();
 	const { user } = useParams();
 
 	// useEffect to fetch all the posts of the user in a location
@@ -22,9 +22,6 @@ function Users(props) {
 	}, [user]);
 
 	// Create a modal to edit a post
-    // useParams to hold the id of the user
-    // const { state } = useParams();
-    const { user } = useParams();
 
     // useEffect to fetch all the posts of the user in a location
     useEffect(() => {
@@ -35,7 +32,6 @@ function Users(props) {
 
 	// Create a handleClick
 	const handleClick = async (id) => {
-        // console.log(id);
         try {
             const res = await axios.get(
 				`https://felp-coders.herokuapp.com/api/posts/id/${id}`
@@ -51,12 +47,10 @@ function Users(props) {
 	// async await for axios fetch request
 	const getPosts = async () => {
 		try {
-			// change fetch request path to localhost:3001/posts/user
 			const res = await axios.get(
 				`https://felp-coders.herokuapp.com/api/posts/user/${user}`
 			);
 			setPosts(res.data);
-			console.log(res.data);
 		} catch (error) {
 			console.log(error);
 		}
@@ -95,19 +89,18 @@ function Users(props) {
 				<>
 					<div>
 						{/* <form onSubmit={handleSubmit}>
-			<label htmlFor='title'>Title:</label>
-			<input onChange={handleChange} id='title' value={newPost.title} />
-			<label htmlFor='message'>Message:</label>
-			<input onChange={handleChange} id='message' value={newPost.message} />
-			<label htmlFor='type'>Type:</label>
-			<select onChange={handleChange} id='type'>
-				<option value=''></option>
-				<option value='food'>Food</option>
-				{/* <option value='experience'>Experience</option> */}
-						{/* </select>
-			<button type='submit'>Submit</button>
-		</form> */}{' '}
-						*/}
+                        <label htmlFor='title'>Title:</label>
+                        <input onChange={handleChange} id='title' value={newPost.title} />
+                        <label htmlFor='message'>Message:</label>
+                        <input onChange={handleChange} id='message' value={newPost.message} />
+                        <label htmlFor='type'>Type:</label>
+                        <select onChange={handleChange} id='type'>
+                        <option value=''></option>
+                        <option value='food'>Food</option>
+                        <option value='experience'>Experience</option>
+						</select>
+                        <button type='submit'>Submit</button>
+                        </form> */}
 					</div>
 				</>
 			) : (
@@ -115,8 +108,8 @@ function Users(props) {
 					<h2>Loading...</h2>
 				</>
 			)}
-			{/* <Posts /> */}
 		</div>
 	);
-  
+}
+
 export default Users;
