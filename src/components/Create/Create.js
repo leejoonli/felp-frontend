@@ -14,7 +14,7 @@ function Create(props) {
 		title: '',
 		years_of_residence: undefined,
 		// can call Date() on submit and try to get it without the time
-		date: new Date(),
+		date: new Date().toISOString().split('T')[0],
 		message: '',
 		type: '',
 		user: { name: '' },
