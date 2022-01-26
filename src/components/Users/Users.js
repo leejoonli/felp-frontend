@@ -22,6 +22,14 @@ function Users(props) {
 	}, [user]);
 
 	// Create a modal to edit a post
+    // useParams to hold the id of the user
+    // const { state } = useParams();
+    const { user } = useParams();
+
+    // useEffect to fetch all the posts of the user in a location
+    useEffect(() => {
+        getPosts();
+    }, [user]);
 
 	// Create a modal to delete a post
 
@@ -110,6 +118,5 @@ function Users(props) {
 			{/* <Posts /> */}
 		</div>
 	);
-}
-
+  
 export default Users;
