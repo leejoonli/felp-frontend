@@ -23,7 +23,7 @@ function Users(props) {
     const getPosts = async () => {
         try {
             // change fetch request path to localhost:3001/posts/user
-            const res = await axios.get(`http://localhost:3001/api/posts/user/${user}`);
+            const res = await axios.get(`https://felp-coders.herokuapp.com/api/posts/user/${user}`);
             setPosts(res.data);
             // console.log(res.data);
         } catch (error) {
