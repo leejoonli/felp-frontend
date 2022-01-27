@@ -1,5 +1,4 @@
 // Components
-import Navigation from './components/Navigation/Navigation';
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import Users from './components/Users/Users';

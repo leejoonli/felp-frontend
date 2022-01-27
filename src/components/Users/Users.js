@@ -20,15 +20,19 @@ function Users(props) {
 	// useEffect to fetch all the posts of the user in a location
 	useEffect(() => {
 		getPosts();
-	}, [posts]);
+	}, []);
 
-	// Create a modal to edit a post
+	// Function change the state of updatePost
+	const handleChange = (e) => {
+		setUpdatePost({...updatePost, [e.target.id]: e.target.value})
+	}
 
 	// Function to send DELETE request to the api using the id
 	const handleDelete = async () => {
 		try {
 			// DELETE request to api
 			await axios.delete(`https://felp-coders.herokuapp.com/api/posts/id/${toDeletePostId}`);
+			// Close the delete modal
 			setDeleteModal(false);
 		} catch (error) {
 			console.log(error);
@@ -38,21 +42,32 @@ function Users(props) {
 	// Create a handleClick to open the update modal
 	const openUpdateModal = async (id) => {
         try {
+			// GET request for specific post
             const res = await axios.get(
 				`https://felp-coders.herokuapp.com/api/posts/id/${id}`
 			);
+			// setting state to the response data
             setUpdatePost(res.data);
+			// Open the update modal
 			setUpdateModal(true);
         } catch (error) {
             console.log(error);
         }
     };
 	
-	// Create a handleSubmit
+	// Create a handleSubmit to edit a post
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// PATCH request
 		setUpdateModal(false);
+	}
+	
+	// PATCH request
+	const sendUpdatedPost = async () => {
+		try {
+			
+		} catch (error) {
+			console.log(error);
+		}
 	}
 	
 	// Create a handleClick to open the delete modal
@@ -121,14 +136,14 @@ function Users(props) {
 				<div>
 					<form onSubmit={handleSubmit}>
 						<label htmlFor='title'>Title:</label>
-						<input id='title' />
+						<input id='title' value={updatePost.title} onChange={handleChange}/>
 						<label htmlFor='message'>Message:</label>
-						<input id='message' />
+						<input id='message' value={updatePost.message} onChange={handleChange}/>
 						<label htmlFor='type'>Type:</label>
 						<select id='type'>
-						<option value=''></option>
-						<option value='food'>Food</option>
-						<option value='experience'>Experience</option>
+							<option value=''></option>
+							<option value='food'>Food</option>
+							{/* <option value='experience'>Experience</option> */}
 						</select>
 						<button type='submit'>Submit</button>
 					</form>
@@ -137,7 +152,7 @@ function Users(props) {
 			)}
 			{deleteModal && (
 				<div>
-					<h3>Are you sure yo want to delete?</h3>
+					<h3>Are you sure you want to delete?</h3>
 					<button onClick={() => {handleDelete()}}>Yes</button>
 					<button onClick={() => {closeDeleteModal()}}>No</button>
 				</div>
