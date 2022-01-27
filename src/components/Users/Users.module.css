@@ -1,11 +1,9 @@
 .editModal {
-    /* position: absolute; */
-    /* top: 20%; */
+    /* position: absolute;
+    top: 10%; */
+    background-color: lemonchiffon;
+    display: block;
     z-index: 1;
     overflow: auto;
     padding: 10px;
-}
-
-div {
-    border: 1px solid red;
 }

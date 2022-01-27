@@ -15,6 +15,7 @@ function Users(props) {
 	const [toDeletePostId, setToDeletePostId] = useState(null);
 	const [updatePost, setUpdatePost] = useState();
 	const [loading, setLoading] = useState(true);
+	const [disabled, setDisabled] = useState(false);
 
 	// useParams to hold the id of the user
 	const { user } = useParams();
@@ -87,6 +88,7 @@ function Users(props) {
             setUpdatePost(res.data);
 			// Open the update modal
 			setUpdateModal(true);
+			setDisabled(true);
         } catch (error) {
             console.log(error);
         }
@@ -96,16 +98,19 @@ function Users(props) {
 	const openDeleteModal = (id) => {
 		setDeleteModal(true);
 		setToDeletePostId(id);
+		setDisabled(true);
 	};
 
 	// Set updateModal to false to close the modal
 	const closeUpdateModal = () => {
 		setUpdateModal(false);
+		setDisabled(false);
 	}
 
 	// Set deleteModal to false to close the modal
 	const closeDeleteModal = () => {
 		setDeleteModal(false);
+		setDisabled(false);
 	}
 
 	return (
@@ -125,13 +130,18 @@ function Users(props) {
 									<h3>{post.type}</h3>
 									<h3>{post.date}</h3>
 									<p>{post.message}</p>
-									<button 
+									<button disabled={disabled}
 										onClick={() => {
 											openUpdateModal(post._id);
 										}}>
 										Edit
 									</button>
-									<button onClick={() => {openDeleteModal(post._id)}}>Delete</button>
+									<button disabled={disabled}
+										onClick={() => {
+											openDeleteModal(post._id)
+										}}>
+										Delete
+									</button>
 								</div>
 							);
 						})}
