@@ -4,7 +4,7 @@
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	top: 26%;
+	top: 21%;
 	left: 50%;
 	/* bring your own prefixes */
 	transform: translate(-50%, -50%);
@@ -84,7 +84,7 @@
 
 .welcome_img {
 	object-fit: fill;
-	height: 25vh;
+	height: 20vh;
 	width: 100%;
 	border-radius: 3px;
 	/* opacity: 0.8; */
