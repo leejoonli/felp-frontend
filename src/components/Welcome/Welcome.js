@@ -42,6 +42,50 @@ function Welcome(props) {
 					<h3 className={styles.welcome_h3}>Click Here to Enter!</h3>
 				</Link>
 			</div>
+			<footer>
+				<div className={styles.footer_div}>
+					<a
+						href="http://www.linkedin.com/in/andrew-kal"
+						target="_blank"
+						rel="noreferrer">
+						<img
+							src="https://i.imgur.com/pTbVufE.png"
+							alt="andrew"
+							className={styles.footer_img}
+						/>
+					</a>
+					<a
+						href="https://www.linkedin.com/in/frankz-condori/"
+						target="_blank"
+						rel="noreferrer">
+						<img
+							src="https://i.imgur.com/L7pvOeR.jpg"
+							alt="frankz"
+							className={styles.footer_img}
+						/>
+					</a>
+					<a
+						href="https://www.linkedin.com/in/jhwlee/"
+						target="_blank"
+						rel="noreferrer">
+						<img
+							src="https://i.imgur.com/FMh86FR.png"
+							alt="jeremiah"
+							className={styles.footer_img}
+						/>
+					</a>
+					<a
+						href="https://www.linkedin.com/in/justin-lombardi/"
+						target="_blank"
+						rel="noreferrer">
+						<img
+							src="https://i.imgur.com/sTG3UGN.jpg"
+							alt="justin"
+							className={styles.footer_img}
+						/>
+					</a>
+				</div>
+			</footer>
 		</div>
 	);
 }
