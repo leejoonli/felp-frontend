@@ -8,12 +8,18 @@ import axios from 'axios';
 function State(props) {
     // state variable to hold list of users
     const [ users, setUsers ] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     // useParams to hold state parameter for fetch request
     const { state } = useParams();
 
     // fetch request for list of users in location
     useEffect(() => {
+        setTimeout(() => {
+			if (!users.length) {
+				setLoading(false);
+			}
+		}, 5000);
         getUsers();
     }, [state]);
 
@@ -30,7 +36,7 @@ function State(props) {
 
     return (
         <div>
-            {users ? (
+            {users.length ? (
             <>
                 <ul>
                     {users.map((user, index) => {
@@ -47,11 +53,16 @@ function State(props) {
                     })}
                 </ul>
             </>
-            ) : (
+            ) : (!users.length && loading) ? (
             <>
                 <h2>Loading...</h2>
             </>
-            )}
+            ) : (!users.length && !loading) ? (
+                <>
+                    <h2>No users in this area.</h2>
+                    <Link to='/create'><h2>Be the first to post in this area!</h2></Link>
+                </>
+            ) : null}
             {/* <Users /> */}
         </div>
     );

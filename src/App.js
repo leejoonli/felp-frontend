@@ -6,6 +6,7 @@ import Posts from './components/Posts/Posts';
 import Create from './components/Create/Create';
 import State from './components/State/State';
 import Welcome from './components/Welcome/Welcome';
+import Navigation from './components/Navigation/Navigation';
 
 // Dependencies
 import { Routes, Route, Link } from 'react-router-dom';

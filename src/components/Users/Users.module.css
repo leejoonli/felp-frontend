@@ -1,0 +1,11 @@
+.editModal {
+    /* position: absolute; */
+    /* top: 20%; */
+    z-index: 1;
+    overflow: auto;
+    padding: 10px;
+}
+
+div {
+    border: 1px solid red;
+}

@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from './Users.module.css';
 // import Posts from '../Posts/Posts';
 
 // Dependencies
 import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 function Users(props) {
@@ -29,7 +30,7 @@ function Users(props) {
 	}, [posts]);
 
 	// async await for axios fetch request
-	const getPosts = async (isMounted) => {
+	const getPosts = async () => {
 		try {
 			const res = await axios.get(
 				`https://felp-coders.herokuapp.com/api/posts/user/${user}`
@@ -124,7 +125,7 @@ function Users(props) {
 									<h3>{post.type}</h3>
 									<h3>{post.date}</h3>
 									<p>{post.message}</p>
-									<button
+									<button 
 										onClick={() => {
 											openUpdateModal(post._id);
 										}}>
@@ -140,12 +141,11 @@ function Users(props) {
 				<h2>Loading...</h2>
 			) : (!posts.length && !loading) ? (
 				<>
-					<h2>No users in this area.</h2>
-					<Link to='/create'><h3>Be the first to post!</h3></Link>
+					<h2>No posts currently.</h2>
 				</>
 			) : null}
 			{updateModal && (
-				<div>
+				<div className={styles.editModal}>
 					<form onSubmit={handleSubmit}>
 						<label htmlFor='title'>Title:</label>
 						<input id='title' value={updatePost.title} onChange={handleChange}/>
@@ -163,7 +163,7 @@ function Users(props) {
 				</div>
 			)}
 			{deleteModal && (
-				<div>
+				<div className={styles.deleteModal}>
 					<h3>Are you sure you want to delete?</h3>
 					<button onClick={() => {handleDelete()}}>Yes</button>
 					<button onClick={() => {closeDeleteModal()}}>No</button>
