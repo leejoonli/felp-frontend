@@ -1,6 +1,6 @@
 * {
 	box-sizing: border-box;
-	transition: ease all 0.5s;
+	transition: ease all 1s;
 }
 
 html {
@@ -13,7 +13,7 @@ html {
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	top: 200px;
+	top: 180px;
 	left: 50%;
 	/* bring your own prefixes */
 	transform: translate(-50%, -50%);
@@ -59,6 +59,7 @@ html {
 	animation: fadeinlong 6s;
 	padding-top: 20px;
 	color: #edf6f9;
+	text-align: center;
 }
 
 @keyframes pulse {
@@ -130,6 +131,10 @@ html {
 	width: 50px;
 }
 
+.welcome_logo {
+	display: none;
+}
+
 @media (min-width: 600px) {
 	.welcome_container {
 		display: grid;
@@ -139,7 +144,9 @@ html {
 		padding: auto;
 	}
 	.welcome_title_container {
-		display: grid;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
 		position: static;
 		top: auto;
 		left: auto;
@@ -162,12 +169,13 @@ html {
 		align-items: center;
 		text-align: center;
 		margin-bottom: 10px;
+		font-size: 1.3rem;
 	}
 
 	.welcome_img {
 		object-fit: fill;
 		height: 20vh;
-		width: 450px;
+		width: 350px;
 		border-radius: 3px;
 		border: 2px solid white;
 	}
@@ -229,5 +237,13 @@ html {
 		border: 2px solid white;
 		height: 50px;
 		width: 50px;
+	}
+	.welcome_logo {
+		display: block;
+		height: 150px;
+	}
+	.welcome_text {
+		display: flex;
+		flex-direction: column;
 	}
 }
