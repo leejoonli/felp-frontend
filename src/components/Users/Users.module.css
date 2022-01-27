@@ -1,36 +1,51 @@
-.editModal {
+.editModal, .deleteModal {
     margin-left: 5%;
     margin-right: 5%;
     width: 90%;
     position: absolute;
-    top: 10%;
+    top: 15%;
     background-color: lemonchiffon;
-    display: block;
     z-index: 1;
     overflow: auto;
     padding: 3%;
     border-radius: 5px;
 }
 
-.editForm {
-    display: flex;
-    flex-direction: column;
+.deleteModal {
+    top: 20%;
+}
+
+.deleteModalButton {
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.deleteModalHeader {
+    font-size: 1.5rem;
+    margin-bottom: 2%;
 }
 
 .formTitle, .formType, .formMessage {
     display: flex;
     flex-direction: column;
-    padding-bottom: 3%;
+    padding-bottom: 1.5%;
+}
+
+.formHeadings {
+    font-size: 1.3rem;
+    padding-bottom: 7px;
 }
 
 .titleInput {
-    width: 20%;
+    width: 30%;
     border-radius: 5px;
+    padding: 3px;
 }
 
 .typeInput {
-    width: 100px;
+    width: 30%;
     border-radius: 5px;
+    padding: 3px;
 }
 
 .messageInput {
@@ -39,14 +54,82 @@
     width: 100%;
     height: 100px;
     border-radius: 5px;
-}
-
-.submitButton, .cancelButton {
-    width: 100px;
-    border-radius: 5px;
+    padding: 3px;
 }
 
 .editModalButtons {
     display: flex;
     justify-content: right;
+    margin-top: 3%;
+}
+
+.submitButton, .cancelButton {
+    border-radius: 5px;
+    margin-left: 10px;
+    padding: 3px 20px 3px 20px;
+}
+
+@media (min-width: 600px) {
+    .editModal, .deleteModal {
+        margin-left: 20%;
+        margin-right: 20%;
+        width: 60%;
+        position: absolute;
+        top: 20%;
+        background-color: lemonchiffon;
+        display: block;
+        z-index: 1;
+        overflow: auto;
+        padding: 3%;
+        border-radius: 5px;
+    }
+
+    .formTitle, .formType, .formMessage {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 1%;
+    }
+
+    .titleInput {
+        width: 20%;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .typeInput {
+        width: 100px;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .messageInput {
+        resize: none;
+        font-family: 'exo 2', 'sans-serif';
+        width: 100%;
+        height: 100px;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .submitButton, .cancelButton {
+        border-radius: 5px;
+        margin-left: 5px;
+        padding: 5px 20px 5px 20px;
+    }
+
+    .editModalButtons {
+        display: flex;
+        justify-content: right;
+    }
+
+    .deleteModalHeader {
+        font-size: 1.8rem;
+        margin-bottom: 2.5%;
+    }
+
+    .deleteModalButton {
+        margin-right: 5px;
+        border-radius: 5px;
+        padding: 5px 20px 5px 20px;
+    }
 }

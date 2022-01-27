@@ -114,7 +114,7 @@ function Users(props) {
 	}
 
 	return (
-		<div>
+		<div className={styles.postsList}>
 			{posts.length ? (
 				<>
 					<h2>{user}</h2>
@@ -158,11 +158,11 @@ function Users(props) {
 				<div className={styles.editModal}>
 					<form onSubmit={handleSubmit} className={styles.editForm}>
 						<div className={styles.formTitle}>
-							<label htmlFor='title'>Title:</label>
+							<label htmlFor='title' className={styles.formHeadings}>Title:</label>
 							<input id='title' className={styles.titleInput} value={updatePost.title} onChange={handleChange}/>
 						</div>
 						<div className={styles.formType}>
-							<label htmlFor='type'>Type:</label>
+							<label htmlFor='type' className={styles.formHeadings}>Type:</label>
 							<select id='type' className={styles.typeInput}>
 								<option value=''></option>
 								<option value='food'>Food</option>
@@ -170,21 +170,21 @@ function Users(props) {
 							</select>
 						</div>
 						<div className={styles.formMessage}>
-							<label htmlFor='message'>Message:</label>
+							<label htmlFor='message' className={styles.formHeadings}>Message:</label>
 							<textarea id='message' className={styles.messageInput} value={updatePost.message} onChange={handleChange}/>
 						</div>
 						<div className={styles.editModalButtons}>
-						<button type='submit' className={styles.submitButton}>Submit</button>
-						<button className={styles.cancelButton} onClick={() => {closeUpdateModal()}}>Cancel</button>
+							<button type='submit' className={styles.submitButton}>Submit</button>
+							<button className={styles.cancelButton} onClick={() => {closeUpdateModal()}}>Cancel</button>
 						</div>
 					</form>
 				</div>
 			)}
 			{deleteModal && (
 				<div className={styles.deleteModal}>
-					<h3>Are you sure you want to delete?</h3>
-					<button onClick={() => {handleDelete()}}>Yes</button>
-					<button onClick={() => {closeDeleteModal()}}>No</button>
+					<h3 className={styles.deleteModalHeader}>Are you sure you want to delete?</h3>
+					<button className={styles.deleteModalButton} onClick={() => {handleDelete()}}>Yes</button>
+					<button className={styles.deleteModalButton} onClick={() => {closeDeleteModal()}}>No</button>
 				</div>
 			)}
 		</div>
