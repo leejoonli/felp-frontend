@@ -5,7 +5,7 @@ function Navigation(props) {
 	return (
 		<div>
 			<h1>
-				<Link to="/home">Felp</Link>
+				<Link to="/Home">Felp</Link>
 			</h1>
 			<nav>
 				<ul>
