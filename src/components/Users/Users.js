@@ -11,6 +11,7 @@ function Users(props) {
 	const [posts, setPosts] = useState([]);
 	const [updateModal, setUpdateModal] = useState(false);
 	const [deleteModal, setDeleteModal] = useState(false);
+	const [toDeletePostId, setToDeletePostId] = useState(null);
 	const [updatePost, setUpdatePost] = useState();
 
 	// useParams to hold the id of the user
@@ -19,30 +20,56 @@ function Users(props) {
 	// useEffect to fetch all the posts of the user in a location
 	useEffect(() => {
 		getPosts();
-	}, [user]);
+	}, [posts]);
 
 	// Create a modal to edit a post
 
-    // useEffect to fetch all the posts of the user in a location
-    useEffect(() => {
-        getPosts();
-    }, [user]);
+	// Function to send DELETE request to the api using the id
+	const handleDelete = async () => {
+		try {
+			// DELETE request to api
+			await axios.delete(`https://felp-coders.herokuapp.com/api/posts/id/${toDeletePostId}`);
+			setDeleteModal(false);
+		} catch (error) {
+			console.log(error);
+		}
+	}
 
-	// Create a modal to delete a post
-
-	// Create a handleClick
-	const handleClick = async (id) => {
+	// Create a handleClick to open the update modal
+	const openUpdateModal = async (id) => {
         try {
             const res = await axios.get(
 				`https://felp-coders.herokuapp.com/api/posts/id/${id}`
 			);
             setUpdatePost(res.data);
+			setUpdateModal(true);
         } catch (error) {
             console.log(error);
         }
     };
-
+	
 	// Create a handleSubmit
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		// PATCH request
+		setUpdateModal(false);
+	}
+	
+	// Create a handleClick to open the delete modal
+	const openDeleteModal = (id) => {
+		setDeleteModal(true);
+		setToDeletePostId(id);
+	};
+
+	// Set updateModal to false to close the modal
+	const closeUpdateModal = () => {
+		setUpdateModal(false);
+	}
+
+	// Set deleteModal to false to close the modal
+	const closeDeleteModal = () => {
+		setDeleteModal(false);
+	}
 
 	// async await for axios fetch request
 	const getPosts = async () => {
@@ -75,38 +102,45 @@ function Users(props) {
 									<p>{post.message}</p>
 									<button
 										onClick={() => {
-											handleClick(post._id);
+											openUpdateModal(post._id);
 										}}>
 										Edit
 									</button>
-									<button>Delete</button>
+									<button onClick={() => {openDeleteModal(post._id)}}>Delete</button>
 								</div>
 							);
 						})}
-					</div>
-				</>
-			) : updateModal ? (
-				<>
-					<div>
-						{/* <form onSubmit={handleSubmit}>
-                        <label htmlFor='title'>Title:</label>
-                        <input onChange={handleChange} id='title' value={newPost.title} />
-                        <label htmlFor='message'>Message:</label>
-                        <input onChange={handleChange} id='message' value={newPost.message} />
-                        <label htmlFor='type'>Type:</label>
-                        <select onChange={handleChange} id='type'>
-                        <option value=''></option>
-                        <option value='food'>Food</option>
-                        <option value='experience'>Experience</option>
-						</select>
-                        <button type='submit'>Submit</button>
-                        </form> */}
 					</div>
 				</>
 			) : (
 				<>
 					<h2>Loading...</h2>
 				</>
+			)}
+			{updateModal && (
+				<div>
+					<form onSubmit={handleSubmit}>
+						<label htmlFor='title'>Title:</label>
+						<input id='title' />
+						<label htmlFor='message'>Message:</label>
+						<input id='message' />
+						<label htmlFor='type'>Type:</label>
+						<select id='type'>
+						<option value=''></option>
+						<option value='food'>Food</option>
+						<option value='experience'>Experience</option>
+						</select>
+						<button type='submit'>Submit</button>
+					</form>
+						<button onClick={() => {closeUpdateModal()}}>Cancel</button>
+				</div>
+			)}
+			{deleteModal && (
+				<div>
+					<h3>Are you sure yo want to delete?</h3>
+					<button onClick={() => {handleDelete()}}>Yes</button>
+					<button onClick={() => {closeDeleteModal()}}>No</button>
+				</div>
 			)}
 		</div>
 	);
