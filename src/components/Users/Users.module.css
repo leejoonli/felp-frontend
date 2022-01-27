@@ -1,3 +1,87 @@
+.nameAndYears {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5%;
+}
+
+.name {
+    font-size: 2rem;
+}
+
+.years {
+    font-size: 1.2rem;
+}
+
+.postsList {
+    padding: 0 2% 2% 2%;
+}
+
+.post {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 5%;
+}
+
+.postHeader {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    border: 1px solid red;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.postTitleAndType {
+    display: flex;
+    flex-basis: 50%;
+    align-items: end;
+}
+
+.postTitle {
+    font-size: 1.8rem;
+    padding: 0px 10px 10px 0px;
+}
+
+.postType {
+    font-size: 1.2rem;
+    padding: 0px 5px 10px 0px;
+    opacity: .6;
+}
+
+.postDate {
+    flex-basis: 50%;
+    text-align: end;
+}
+
+.postCity {
+    font-size: 1.2rem;
+}
+
+.postMessage {
+    border: 1px solid red;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 10px;
+    flex-basis: 100%;
+}
+
+.postButtons {
+    padding-top: 15px;
+    flex-basis: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+.postButton {
+    border-radius: 5px;
+    margin-left: 10px;
+    width: 75px;
+}
+
 .editModal, .deleteModal {
     margin-left: 5%;
     margin-right: 5%;
@@ -12,17 +96,32 @@
 }
 
 .deleteModal {
-    top: 20%;
+    top: 21%;
+    height: 20%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.deleteModalButtonsContainer {
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .deleteModalButton {
-    margin-right: 5px;
+    padding: 10px 20px 10px 20px;
     border-radius: 5px;
 }
 
 .deleteModalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 1.5rem;
     margin-bottom: 2%;
+    text-align: center;
+    flex-basis: 100%;
 }
 
 .formTitle, .formType, .formMessage {

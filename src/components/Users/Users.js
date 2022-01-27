@@ -114,34 +114,42 @@ function Users(props) {
 	}
 
 	return (
-		<div className={styles.postsList}>
+		<div>
 			{posts.length ? (
 				<>
-					<h2>{user}</h2>
-					<h3>
-						{posts[0].years_of_residence} years in {posts[0].state}
-					</h3>
-					<div>
+					<div className={styles.nameAndYears}>
+						<h2 className={styles.name}>{user}</h2>
+						<h3 className={styles.years}>
+							{posts[0].years_of_residence} years in {posts[0].state}
+						</h3>
+					</div>
+					<div className={styles.postsList}>
 						{posts.map((post, index) => {
 							return (
-								<div key={`${post.user.name}-${index}`}>
-									<h2>{post.title}</h2>
-									<h3>{post.city}</h3>
-									<h3>{post.type}</h3>
-									<h3>{post.date}</h3>
-									<p>{post.message}</p>
-									<button disabled={disabled}
-										onClick={() => {
-											openUpdateModal(post._id);
-										}}>
-										Edit
-									</button>
-									<button disabled={disabled}
-										onClick={() => {
-											openDeleteModal(post._id)
-										}}>
-										Delete
-									</button>
+								<div key={`${post.user.name}-${index}`} className={styles.post}>
+									<div className={styles.postHeader}>
+										<div className={styles.postTitleAndType}>
+											<h2 className={styles.postTitle}>{post.title}</h2>
+											<h3 className={styles.postType}>{post.type}</h3>
+										</div>
+										<h3 className={styles.postDate}>{post.date}</h3>
+										<h3 className={styles.postCity}>{post.city}</h3>
+									</div>
+									<p className={styles.postMessage}>{post.message}</p>
+									<div className={styles.postButtons}>
+										<button className={styles.postButton} disabled={disabled}
+											onClick={() => {
+												openUpdateModal(post._id);
+											}}>
+											Edit
+										</button>
+										<button className={styles.postButton} disabled={disabled}
+											onClick={() => {
+												openDeleteModal(post._id)
+											}}>
+											Delete
+										</button>
+									</div>
 								</div>
 							);
 						})}
@@ -165,7 +173,7 @@ function Users(props) {
 							<label htmlFor='type' className={styles.formHeadings}>Type:</label>
 							<select id='type' className={styles.typeInput}>
 								<option value=''></option>
-								<option value='food'>Food</option>
+								<option value='Food'>Food</option>
 								{/* <option value='experience'>Experience</option> */}
 							</select>
 						</div>
@@ -183,8 +191,10 @@ function Users(props) {
 			{deleteModal && (
 				<div className={styles.deleteModal}>
 					<h3 className={styles.deleteModalHeader}>Are you sure you want to delete?</h3>
-					<button className={styles.deleteModalButton} onClick={() => {handleDelete()}}>Yes</button>
-					<button className={styles.deleteModalButton} onClick={() => {closeDeleteModal()}}>No</button>
+					<div className={styles.deleteModalButtonsContainer}>
+						<button className={styles.deleteModalButton} onClick={() => {handleDelete()}}>Yes</button>
+						<button className={styles.deleteModalButton} onClick={() => {closeDeleteModal()}}>No</button>
+					</div>
 				</div>
 			)}
 		</div>
