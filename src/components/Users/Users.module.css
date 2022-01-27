@@ -14,25 +14,31 @@
 }
 
 .postsList {
-    padding: 0 2% 2% 2%;
+    padding: 0 5% 5% 5%;
 }
 
 .post {
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid red;
+    /* border: 1px solid white; */
     border-radius: 5px;
     padding: 5%;
+    background-color: #83c5be;
+    box-shadow: 5px 5px rgba(0,109,119,.7);
+    /* transition: ease-in;
+    transition-duration: 1s;
+    transition-delay: 2s; */
 }
 
 .postHeader {
     display: flex;
     flex-wrap: wrap;
     flex-basis: 100%;
-    border: 1px solid red;
+    border: 2px solid white;
     border-radius: 5px;
     margin-bottom: 10px;
     padding: 10px;
+    background-color: #006d77;
 }
 
 .postTitleAndType {
@@ -44,29 +50,36 @@
 .postTitle {
     font-size: 1.8rem;
     padding: 0px 10px 10px 0px;
+    color: #e29578;
+    font-family: 'Exo 2', 'sans-serif';
 }
 
 .postType {
     font-size: 1.2rem;
     padding: 0px 5px 10px 0px;
     opacity: .6;
+    color: #ffddd2;
 }
 
 .postDate {
     flex-basis: 50%;
     text-align: end;
+    color: #ffddd2;
 }
 
 .postCity {
     font-size: 1.2rem;
+    color: #ffddd2;
 }
 
 .postMessage {
-    border: 1px solid red;
+    border: 2px solid white;
     border-radius: 5px;
     font-size: 1rem;
     padding: 10px;
     flex-basis: 100%;
+    background-color: #006d77;
+    color: #ffddd2;
 }
 
 .postButtons {
