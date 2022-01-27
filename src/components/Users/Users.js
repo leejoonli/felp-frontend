@@ -13,12 +13,18 @@ function Users(props) {
 	const [deleteModal, setDeleteModal] = useState(false);
 	const [toDeletePostId, setToDeletePostId] = useState(null);
 	const [updatePost, setUpdatePost] = useState();
+	const [loading, setLoading] = useState(true);
 
 	// useParams to hold the id of the user
 	const { user } = useParams();
 
 	// useEffect to fetch all the posts of the user in a location
 	useEffect(() => {
+		const handleLoadingTimeOut = setTimeout(() => {
+			if (!posts.length) {
+				setLoading(false);
+			}
+		}, 5000);
 		getPosts();
 	}, [posts]);
 
@@ -103,7 +109,7 @@ function Users(props) {
 
 	return (
 		<div>
-			{posts.length > 0 ? (
+			{posts.length ? (
 				<>
 					<h2>{user}</h2>
 					<h3>
@@ -130,11 +136,11 @@ function Users(props) {
 						})}
 					</div>
 				</>
-			) : (
-				<>
-					<h2>Loading...</h2>
-				</>
-			)}
+			) : (!posts.length && loading) ? (
+				<h2>Loading...</h2>
+			) : (!posts.length && !loading) ? (
+				<h2>Oops! Something went wrong.</h2>
+			) : null}
 			{updateModal && (
 				<div>
 					<form onSubmit={handleSubmit}>
