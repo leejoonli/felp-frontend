@@ -20,7 +20,7 @@ function Users(props) {
 
 	// useEffect to fetch all the posts of the user in a location
 	useEffect(() => {
-		const handleLoadingTimeOut = setTimeout(() => {
+		setTimeout(() => {
 			if (!posts.length) {
 				setLoading(false);
 			}
@@ -29,7 +29,7 @@ function Users(props) {
 	}, [posts]);
 
 	// async await for axios fetch request
-	const getPosts = async () => {
+	const getPosts = async (isMounted) => {
 		try {
 			const res = await axios.get(
 				`https://felp-coders.herokuapp.com/api/posts/user/${user}`
