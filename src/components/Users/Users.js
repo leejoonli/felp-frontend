@@ -156,20 +156,28 @@ function Users(props) {
 			) : null}
 			{updateModal && (
 				<div className={styles.editModal}>
-					<form onSubmit={handleSubmit}>
-						<label htmlFor='title'>Title:</label>
-						<input id='title' value={updatePost.title} onChange={handleChange}/>
-						<label htmlFor='message'>Message:</label>
-						<input id='message' value={updatePost.message} onChange={handleChange}/>
-						<label htmlFor='type'>Type:</label>
-						<select id='type'>
-							<option value=''></option>
-							<option value='food'>Food</option>
-							{/* <option value='experience'>Experience</option> */}
-						</select>
-						<button type='submit'>Submit</button>
+					<form onSubmit={handleSubmit} className={styles.editForm}>
+						<div className={styles.formTitle}>
+							<label htmlFor='title'>Title:</label>
+							<input id='title' className={styles.titleInput} value={updatePost.title} onChange={handleChange}/>
+						</div>
+						<div className={styles.formType}>
+							<label htmlFor='type'>Type:</label>
+							<select id='type' className={styles.typeInput}>
+								<option value=''></option>
+								<option value='food'>Food</option>
+								{/* <option value='experience'>Experience</option> */}
+							</select>
+						</div>
+						<div className={styles.formMessage}>
+							<label htmlFor='message'>Message:</label>
+							<textarea id='message' className={styles.messageInput} value={updatePost.message} onChange={handleChange}/>
+						</div>
+						<div className={styles.editModalButtons}>
+						<button type='submit' className={styles.submitButton}>Submit</button>
+						<button className={styles.cancelButton} onClick={() => {closeUpdateModal()}}>Cancel</button>
+						</div>
 					</form>
-						<button onClick={() => {closeUpdateModal()}}>Cancel</button>
 				</div>
 			)}
 			{deleteModal && (
