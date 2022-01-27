@@ -3,7 +3,7 @@ import React from 'react';
 
 // Dependencies
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
 function Users(props) {
@@ -139,7 +139,10 @@ function Users(props) {
 			) : (!posts.length && loading) ? (
 				<h2>Loading...</h2>
 			) : (!posts.length && !loading) ? (
-				<h2>Oops! Something went wrong.</h2>
+				<>
+					<h2>No users in this area.</h2>
+					<Link to='/create'><h3>Be the first to post!</h3></Link>
+				</>
 			) : null}
 			{updateModal && (
 				<div>
