@@ -20,11 +20,29 @@ function Users(props) {
 	// useEffect to fetch all the posts of the user in a location
 	useEffect(() => {
 		getPosts();
-	}, []);
+	}, [posts]);
 
-	// Function change the state of updatePost
-	const handleChange = (e) => {
-		setUpdatePost({...updatePost, [e.target.id]: e.target.value})
+	// async await for axios fetch request
+	const getPosts = async () => {
+		try {
+			const res = await axios.get(
+				`https://felp-coders.herokuapp.com/api/posts/user/${user}`
+			);
+			setPosts(res.data);
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	// PATCH request
+	const sendUpdatedPost = async () => {
+		try {
+			await axios.patch(
+				`https://felp-coders.herokuapp.com/api/posts/id/${updatePost._id}`, updatePost
+			);
+		} catch (error) {
+			console.log(error);
+		}
 	}
 
 	// Function to send DELETE request to the api using the id
@@ -39,6 +57,18 @@ function Users(props) {
 		}
 	}
 
+	// Function change the state of updatePost
+	const handleChange = (e) => {
+		setUpdatePost({...updatePost, [e.target.id]: e.target.value})
+	}
+	
+	// Create a handleSubmit to edit a post
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		sendUpdatedPost();
+		setUpdateModal(false);
+	}
+	
 	// Create a handleClick to open the update modal
 	const openUpdateModal = async (id) => {
         try {
@@ -53,23 +83,8 @@ function Users(props) {
         } catch (error) {
             console.log(error);
         }
-    };
-	
-	// Create a handleSubmit to edit a post
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		setUpdateModal(false);
-	}
-	
-	// PATCH request
-	const sendUpdatedPost = async () => {
-		try {
-			
-		} catch (error) {
-			console.log(error);
-		}
-	}
-	
+    }
+
 	// Create a handleClick to open the delete modal
 	const openDeleteModal = (id) => {
 		setDeleteModal(true);
@@ -85,18 +100,6 @@ function Users(props) {
 	const closeDeleteModal = () => {
 		setDeleteModal(false);
 	}
-
-	// async await for axios fetch request
-	const getPosts = async () => {
-		try {
-			const res = await axios.get(
-				`https://felp-coders.herokuapp.com/api/posts/user/${user}`
-			);
-			setPosts(res.data);
-		} catch (error) {
-			console.log(error);
-		}
-	};
 
 	return (
 		<div>
