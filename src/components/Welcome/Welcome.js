@@ -39,7 +39,7 @@ function Welcome(props) {
 				<h1 className={styles.welcome_title}>F E L P</h1>
 				<h2 className={styles.welcome_h2}>A place to share your favorites!</h2>
 				<Link to="/home" className={styles.welcome_enter}>
-					<h3 className={styles.welcome_h3}>Enter Here!</h3>
+					<h3 className={styles.welcome_h3}>Click Here to Enter!</h3>
 				</Link>
 			</div>
 		</div>

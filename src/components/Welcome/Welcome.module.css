@@ -4,7 +4,7 @@
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	top: 27%;
+	top: 26%;
 	left: 50%;
 	/* bring your own prefixes */
 	transform: translate(-50%, -50%);
@@ -14,20 +14,72 @@
 
 .welcome_title {
 	padding: 20px;
-	font-size: 4rem;
+	font-size: 5rem;
+	font-family: 'Exo 2', sans-serif;
+	font-weight: 800;
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+		1px 1px 0 #000;
+	animation: fadeinlong 2s;
+}
+
+@keyframes fadeinshort {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeinlong {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 .welcome_h2 {
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	padding: 20px;
+	font-family: 'Exo 2', sans-serif;
+	font-weight: 400;
+	animation: fadeinlong 4s;
 }
 
 .welcome_enter {
+	/* opacity: 1; */
 	text-decoration: none;
+	font-family: 'Exo 2', sans-serif;
+	animation: fadeinlong 6s;
+}
+
+@keyframes pulse {
+	0% {
+		opacity: 1;
+	}
+	25% {
+		opacity: 0.5;
+	}
+	50% {
+		opacity: 0;
+	}
+	75% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 .welcome_h3 {
 	color: #edf6f9;
+	animation: pulse 1500ms infinite;
+	animation-delay: 6s;
 }
 
 .welcome_img {
@@ -41,16 +93,24 @@
 .welcome_foodimg {
 	background-color: #006d77;
 	padding: 10px;
+	border-radius: 3px;
+	margin: 5px;
 }
 .welcome_expimg {
 	background-color: #83c5be;
 	padding: 10px;
+	border-radius: 3px;
+	margin: 5px;
 }
 .welcome_likeimg {
 	background-color: #ffddd2;
 	padding: 10px;
+	border-radius: 3px;
+	margin: 5px;
 }
 .welcome_postimg {
 	background-color: #e29578;
 	padding: 10px;
+	border-radius: 3px;
+	margin: 5px;
 }
