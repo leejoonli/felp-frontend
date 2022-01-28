@@ -60,3 +60,10 @@
     font-size: 2rem;
     margin-bottom: 5%;
 }
+
+@media (min-width: 600px) {
+    .loading, .linkToCreate {
+        margin: 5% 5% 0% 5%;
+        box-shadow: 10px 10px rgba(131,197,188,.8);
+    }
+}
