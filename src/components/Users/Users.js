@@ -117,11 +117,13 @@ function Users(props) {
 		<div>
 			{posts.length ? (
 				<>
-					<div className={styles.nameAndYears}>
-						<h2 className={styles.name}>{user}</h2>
-						<h3 className={styles.years}>
-							{posts[0].years_of_residence} years in {posts[0].state}
-						</h3>
+					<div className={styles.nameAndYearsContainer}>
+						<div className={styles.nameAndYears}>
+							<h2 className={styles.name}>{user}</h2>
+							<h3 className={styles.years}>
+								{posts[0].years_of_residence} years in {posts[0].state}
+							</h3>
+						</div>
 					</div>
 					<div className={styles.postsList}>
 						{posts.map((post, index) => {
