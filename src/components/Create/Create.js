@@ -75,8 +75,8 @@ function Create(props) {
 				<label htmlFor='type' className={styles.formLabel}>Type:</label>
 				<select onChange={handleChange} id='type' className={styles.typeInput}>
 					<option value='' className={styles.option}></option>
-					<option value='food' className={styles.option}>Food</option>
-					{/* <option value='experience'>Experience</option> */}
+					<option value='Food' className={styles.option}>Food</option>
+					<option value='Experience'>Experience</option>
 				</select>
 				<label htmlFor='message' className={styles.formLabel}>Message:</label>
 				<textarea onChange={handleChange} id='message' value={newPost.message} className={styles.messageInput}/>

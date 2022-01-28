@@ -177,7 +177,7 @@ function Users(props) {
 							<select id='type' className={styles.typeInput}>
 								<option value=''></option>
 								<option value='Food'>Food</option>
-								{/* <option value='experience'>Experience</option> */}
+								<option value='Experience'>Experience</option>
 							</select>
 						</div>
 						<div className={styles.formMessage}>

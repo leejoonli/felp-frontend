@@ -119,6 +119,11 @@
     color: #edf6f9;
 }
 
+@keyframes fadeout {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
 .editModal, .deleteModal {
     border: 5px solid rgba(0,109,119,.7);
     margin-left: 5%;
@@ -131,6 +136,7 @@
     overflow: auto;
     padding: 3%;
     border-radius: 5px;
+    animation: fadein .5s;
 }
 
 .deleteModal {

@@ -4,6 +4,12 @@
     border-radius: 5px;
     padding: 5%;
     box-shadow: 5px 5px rgba(0,109,119,.7);
+    animation: slidein 1s;
+}
+
+@keyframes slidein {
+    from {transform: translateX(-100%);}
+    to {transform: translateX(0%);}
 }
 
 .form {
