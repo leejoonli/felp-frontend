@@ -7,7 +7,7 @@ import axios from 'axios';
 
 function Home(props) {
 	// Set log in state to be false
-	const [ loggedIn, setLoggedIn ] = useState(true);
+	const [ loggedIn, setLoggedIn ] = useState(false);
 	const [ signUpModal, setSignUpModal ] = useState(false);
 	const [ loginModal, setLoginModal ] = useState(false);
 
@@ -28,9 +28,17 @@ function Home(props) {
 		try {
 			e.preventDefault();
 			const res = await axios.post(`http://localhost:3001/api/signup`, signUpForm);
-			await console.log(res);
+			const loginRes = await axios.post(`http://localhost:3001/api/signin`, signUpForm);
+			const data = loginRes.data;
+			if(data) {
+				window.localStorage.setItem('token', data.token);
+				window.localStorage.setItem('userId', data.userId);
+				setLoggedIn(true);
+				setSignUpModal(false);
+				setLoginModal(false);
+			}
 		} catch (error) {
-			
+			console.log(error);
 		}
 	}
 
@@ -64,8 +72,8 @@ function Home(props) {
 				<input type="text" id="email" value={signUpForm.email} onChange={handleSignUpChange}/>
 				<label htmlFor="password">Password:</label>
 				<input type="text" id="password" value={signUpForm.password} onChange={handleSignUpChange}/>
-				<label htmlFor="confirm_password">Confirm Password:</label>
-				<input type="text" id="confirm_password" value={signUpForm.confirm_password} onChange={handleSignUpChange}/>
+				{/* <label htmlFor="confirm_password">Confirm Password:</label>
+				<input type="text" id="confirm_password" value={signUpForm.confirm_password} onChange={handleSignUpChange}/> */}
 				<button type='submit'>Sign Up</button>
 			</form>
 			{/* log in form */}
@@ -76,7 +84,21 @@ function Home(props) {
 				<input type="text" id="password"/>
 				<button>Log In</button>
 			</form> */}
+<<<<<<< HEAD
 >>>>>>> Add sign up auth post request
+=======
+			{loggedIn ? (
+				<div>
+					<h2>You Are Currently Logged In!</h2>
+					<button>Log Out</button>
+				</div>
+				) : (
+				<div>
+					<h2>You Are Not Currently Logged In!</h2>
+					<button>Log In</button>
+				</div>
+				)}
+>>>>>>> Add signup state with login
 		<div className={styles.home_container}>
 
 			<div className={styles.home}>
