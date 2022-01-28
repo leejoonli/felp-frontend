@@ -184,22 +184,14 @@
     padding-bottom: 7px;
 }
 
-.titleInput {
+.titleInput, .typeInput {
     width: 30%;
     border: 2px solid #edf6f9;
     border-radius: 5px;
     padding: 3px;
     background-color: #006d77;
     color: #e29578;
-}
-
-.typeInput {
-    width: 30%;
-    border: 2px solid #edf6f9;
-    border-radius: 5px;
-    padding: 3px;
-    background-color: #006d77;
-    color: #e29578;
+    outline: none;
 }
 
 .messageInput {
@@ -212,6 +204,7 @@
     padding: 3px;
     background-color: #006d77;
     color: #e29578;
+    outline: none;
 }
 
 .editModalButtons {

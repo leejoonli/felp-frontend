@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import styles from './Create.module.css';
 
 function Create(props) {
 	// reference useNavigate with const navigate
@@ -51,35 +52,37 @@ function Create(props) {
 	}
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<label htmlFor='name'>Name:</label>
-			<input onChange={handleChange} id='name' value={newPost.user.name} />
-			<label htmlFor='state'>State:</label>
-			<select onChange={handleChange} id='state'>
-				<option value=''></option>
-				<option value='NY'>New York</option>
-				<option value='NJ'>New Jersey</option>
-				<option value='PA'>Pennsylvania</option>
-				<option value='MD'>Maryland</option>
-				<option value='CA'>California</option>
-				<option value='GA'>Georgia</option>
-			</select>
-			<label htmlFor='city'>City:</label>
-			<input onChange={handleChange} id='city' value={newPost.city} />
-			<label htmlFor='title'>Title:</label>
-			<input onChange={handleChange} id='title' value={newPost.title} />
-			<label htmlFor='years_of_residence'>Years of Residence:</label>
-			<input onChange={handleChange} id='years_of_residence' value={newPost.years_of_residence} type='number' min={0} />
-			<label htmlFor='message'>Message:</label>
-			<input onChange={handleChange} id='message' value={newPost.message} />
-			<label htmlFor='type'>Type:</label>
-			<select onChange={handleChange} id='type'>
-				<option value=''></option>
-				<option value='food'>Food</option>
-				{/* <option value='experience'>Experience</option> */}
-			</select>
-			<button type='submit'>Submit</button>
-		</form>
+		<div className={styles.formContainer}>
+			<form onSubmit={handleSubmit} className={styles.form}>
+				<label htmlFor='name'>Name:</label>
+				<input onChange={handleChange} id='name' value={newPost.user.name} className={styles.nameInput}/>
+				<label htmlFor='state'>State:</label>
+				<select onChange={handleChange} id='state' className={styles.stateInput}>
+					<option value=''></option>
+					<option value='NY'>New York</option>
+					<option value='NJ'>New Jersey</option>
+					<option value='PA'>Pennsylvania</option>
+					<option value='MD'>Maryland</option>
+					<option value='CA'>California</option>
+					<option value='GA'>Georgia</option>
+				</select>
+				<label htmlFor='city'>City:</label>
+				<input onChange={handleChange} id='city' value={newPost.city} className={styles.cityInput}/>
+				<label htmlFor='title'>Title:</label>
+				<input onChange={handleChange} id='title' value={newPost.title} className={styles.titleInput}/>
+				<label htmlFor='years_of_residence'>Years of Residence:</label>
+				<input onChange={handleChange} id='years_of_residence' value={newPost.years_of_residence} type='number' min={0} className={styles.yearsInput}/>
+				<label htmlFor='type'>Type:</label>
+				<select onChange={handleChange} id='type' className={styles.typeInput}>
+					<option value=''></option>
+					<option value='food'>Food</option>
+					{/* <option value='experience'>Experience</option> */}
+				</select>
+				<label htmlFor='message'>Message:</label>
+				<textarea onChange={handleChange} id='message' value={newPost.message} className={styles.messageInput}/>
+				<button type='submit'>Submit</button>
+			</form>
+		</div>
 	);
 }
 
