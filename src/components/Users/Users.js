@@ -22,6 +22,7 @@ function Users(props) {
 
 	// useEffect to fetch all the posts of the user in a location
 	useEffect(() => {
+		// set timeout for when there's nothing in the response to load the no posts element
 		setTimeout(() => {
 			if (!posts.length) {
 				setLoading(false);
@@ -158,11 +159,9 @@ function Users(props) {
 					</div>
 				</>
 			) : (!posts.length && loading) ? (
-				<h2>Loading...</h2>
+				<h2 className={styles.loading}>Loading...</h2>
 			) : (!posts.length && !loading) ? (
-				<>
-					<h2>No posts currently.</h2>
-				</>
+				<h2 className={styles.loading}>No posts currently</h2>
 			) : null}
 			{updateModal && (
 				<div className={styles.editModal}>

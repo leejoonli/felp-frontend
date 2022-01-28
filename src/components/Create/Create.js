@@ -44,7 +44,7 @@ function Create(props) {
 		try {
 			// comment this line back in when connecting to backend
 			await axios.post(`https://felp-coders.herokuapp.com/api/posts`, newPost);
-			navigate('/');
+			navigate('/home');
 		} catch (error) {
 			console.log(error);
 		}
