@@ -39,15 +39,16 @@ function State(props) {
         <div>
             {users.length ? (
             <>
-                <ul>
+                <ul className={styles.users}>
                     {users.map((user, index) => {
                         // add more user info like city, years of residence, etc
                         return (
                             <Link to={`/${state}/${user.user.name}`} key={`${user.user.name}-${index}`}>
-                                <li>
-                                    {/* Add name and YoR label */}
-                                    <h3>{user.user.name}</h3>
-                                    <h3>{user.years_of_residence}</h3>
+                                <li className={styles.user}>
+                                    <div className={styles.userData}>
+                                        <h3 className={styles.headerSpacer}>{user.user.name}</h3>
+                                        <h3>{user.years_of_residence} Years of Residence</h3>
+                                    </div>
                                 </li>
                             </Link>
                         )
