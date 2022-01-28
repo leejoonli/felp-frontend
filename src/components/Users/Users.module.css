@@ -4,6 +4,7 @@
     margin: 5%;
     padding: 3% 5% 3% 5%;
     box-shadow: 5px 5px rgba(0,109,119,.7);
+    animation: fadein 1s;
 }
 
 .nameAndYears {
