@@ -1,13 +1,82 @@
-import React from 'react';
-import Navigation from '../Navigation/Navigation';
+import React, { useState } from 'react';
 import styles from './Home.module.css';
 
 // Dependencies
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function Home(props) {
+	// Set log in state to be false
+	const [ loggedIn, setLoggedIn ] = useState(true);
+	const [ signUpModal, setSignUpModal ] = useState(false);
+	const [ loginModal, setLoginModal ] = useState(false);
+
+	// state variable to keep track of login form
+	const [ signUpForm, setSignUpForm] = useState({
+		email: '',
+		password: '',
+		// confirm_password: '',
+	});
+
+	// function to set loginForm state
+	const handleSignUpChange = (e) => {
+		setSignUpForm({...signUpForm, [e.target.id]: e.target.value});
+	}
+
+	// function for loginForm submit
+	const handleSignUpFormSubmit = async(e) => {
+		try {
+			e.preventDefault();
+			const res = await axios.post(`http://localhost:3001/api/signup`, signUpForm);
+			await console.log(res);
+		} catch (error) {
+			
+		}
+	}
+
+	// if logged in is true then display logged in as "email"
+
+	// sign up
+	// email
+	// password
+	// confirm password
+	// sign up
+
+	// sign in form
+	// email
+	// password
+	// login
+
+	// logout button to erase local storage token and info
+
 	return (
 		<div>
+<<<<<<< HEAD
+=======
+			{/* <form>
+				<button>Sign Up</button>
+				<button>Sign In</button>
+				<button>Continue as Guest</button>
+			</form> */}
+			{/* sign up form */}
+			<form onSubmit={handleSignUpFormSubmit}>
+				<label htmlFor="email">E-mail:</label>
+				<input type="text" id="email" value={signUpForm.email} onChange={handleSignUpChange}/>
+				<label htmlFor="password">Password:</label>
+				<input type="text" id="password" value={signUpForm.password} onChange={handleSignUpChange}/>
+				<label htmlFor="confirm_password">Confirm Password:</label>
+				<input type="text" id="confirm_password" value={signUpForm.confirm_password} onChange={handleSignUpChange}/>
+				<button type='submit'>Sign Up</button>
+			</form>
+			{/* log in form */}
+			{/* <form>
+				<label htmlFor="email">E-mail:</label>
+				<input type="text" id="email"/>
+				<label htmlFor="password">Password:</label>
+				<input type="text" id="password"/>
+				<button>Log In</button>
+			</form> */}
+>>>>>>> Add sign up auth post request
 		<div className={styles.home_container}>
 
 			<div className={styles.home}>
