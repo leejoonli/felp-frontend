@@ -19,10 +19,11 @@ function App() {
 	const { pathname } = useLocation();
 	return (
 		<main>
-			{pathname !== '/' && <Navigation>
-				<NavigationBar>
-				</NavigationBar>
-				</Navigation>}
+			{pathname !== '/' && (
+				<Navigation>
+					<NavigationBar></NavigationBar>
+				</Navigation>
+			)}
 			<Routes>
 				<Route path='/' element={<Welcome />} />
 				<Route path='/home' element={<Home />} />
