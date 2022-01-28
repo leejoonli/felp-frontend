@@ -61,6 +61,7 @@ function Users(props) {
 			await axios.delete(`https://felp-coders.herokuapp.com/api/posts/id/${toDeletePostId}`);
 			// Close the delete modal
 			setDeleteModal(false);
+			setDisabled(false);
 		} catch (error) {
 			console.log(error);
 		}
@@ -76,6 +77,7 @@ function Users(props) {
 		e.preventDefault();
 		sendUpdatedPost();
 		setUpdateModal(false);
+		setDisabled(false);
 	}
 	
 	// Create a handleClick to open the update modal
