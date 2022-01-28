@@ -32,6 +32,11 @@ span {
     text-align: center;
 }
 
+ .imgHidden{
+        margin-top: 7.5px;
+        height: 75px;
+        width: 150px;
+    }  
 
 @media (min-width: 600px){
     img:hover{
@@ -39,6 +44,11 @@ span {
     }
     .home_container{
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+     .imgHidden{
+        height: 25px;
+        width: 50px;
+        visibility: hidden;
     }  
     .img {
         height: 125px;

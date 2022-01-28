@@ -8,9 +8,7 @@ import { Link } from 'react-router-dom';
 function Home(props) {
 	return (
 		<div>
-			<div>
-				<Navigation />
-			</div>
+			<br></br>
 		<div className={styles.home_container}>
 
 			<div className={styles.home}>
@@ -199,7 +197,10 @@ function Home(props) {
 			<div className={styles.home}><Link to='/WY'><img className={styles.img}src="https://i.imgur.com/3Z14OQo.jpg"
 			alt=""/><span>Wyoming</span></Link></div>
 
-			
+			<div className={styles.home}><Link to='/About'></Link>
+			<img className={styles.imgHidden} src="https://i.imgur.com/30HQeC9.png" alt=""/>
+			</div>
+			<br></br>
 		</div>
 	</div>
 	);
