@@ -25,9 +25,11 @@
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
-input:-webkit-autofill:active{
+input:-webkit-autofill:active
+input:-webkit-scrollbar{
     -webkit-text-fill-color: #ffddd2;
     background-color: #006d77;
+    display: none;
 }
 
 .nameInput, .stateInput, .cityInput, .titleInput, .yearsInput, .messageInput, .typeInput {
@@ -89,4 +91,31 @@ input:-webkit-autofill:active{
     cursor: pointer;
     background-color: rgba(131,197,188,.3);
     color: #edf6f9;
+}
+
+@media (min-width: 600px) {
+    .formContainer {
+        margin: 2% 33% 0% 33%;
+        padding: 2%;
+        box-shadow: 10px 10px rgba(0,109,119,.7);
+        scrollbar-width: none;
+    }
+
+    .form {
+        padding: 3%;
+    }
+
+    .formLabel {
+        font-size: 2rem;
+        padding-bottom: 1%;
+    }
+
+    .nameInput, .stateInput, .cityInput, .titleInput, .yearsInput, .messageInput, .typeInput {
+        padding: 5px;
+        margin-bottom: 1.5%;
+    }
+
+    .formButton {
+        font-size: 1.5rem;
+    }
 }
