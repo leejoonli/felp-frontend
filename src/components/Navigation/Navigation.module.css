@@ -1,0 +1,14 @@
+.siteHeader {
+    display: flex;
+    background-color: black;
+    font-size: 5rem;
+    padding: 1%;
+    justify-content: space-between;
+}
+
+.subHeader {
+    display: flex;
+    font-size: 2rem;
+    flex-direction: column;
+    justify-content: flex-end;
+}

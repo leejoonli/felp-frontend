@@ -1,0 +1,69 @@
+.loading, .linkToCreate {
+    font-size: 3rem;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #006d77;
+    box-shadow: 5px 5px rgba(131,197,188,.8);
+    color: #e29578;
+    margin: 25% 5% 0% 5%;
+    padding: 3%;
+    animation: fadein 1s;
+}
+
+.linkToCreate {
+    font-size: 1.8rem;
+    margin: 5% 5% 0% 5%;
+    padding: 3%;
+}
+
+.linkToCreate:hover {
+    font-weight: 600;
+}
+
+@keyframes slidein {
+    from {transform: translateX(-100%);}
+    to {transform: translateX(0%);}
+}
+
+@keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.users {
+    padding: 5%;
+    animation: slidein 1s;
+}
+
+.user {
+    font-size: 1.3rem;
+    padding: 5%;
+    background-color: #83c5be;
+    border-radius: 5px;
+    box-shadow: 5px 5px rgba(0,109,119,.7);
+    margin-bottom: 5%;
+}
+
+.user:hover {
+    background-color: rgba(0,109,119,.8);
+}
+
+.userData {
+    background-color: #006d77;
+    border: 2px solid #edf6f9;
+    border-radius: 5px;
+    padding: 5%;
+    color: #e29578;
+}
+
+.headerSpacer {
+    font-size: 2rem;
+    margin-bottom: 5%;
+}
+
+@media (min-width: 600px) {
+    .loading, .linkToCreate {
+        margin: 5% 5% 0% 5%;
+        box-shadow: 10px 10px rgba(131,197,188,.8);
+    }
+}

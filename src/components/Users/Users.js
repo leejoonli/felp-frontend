@@ -22,6 +22,7 @@ function Users(props) {
 
 	// useEffect to fetch all the posts of the user in a location
 	useEffect(() => {
+		// set timeout for when there's nothing in the response to load the no posts element
 		setTimeout(() => {
 			if (!posts.length) {
 				setLoading(false);
@@ -60,6 +61,7 @@ function Users(props) {
 			await axios.delete(`https://felp-coders.herokuapp.com/api/posts/id/${toDeletePostId}`);
 			// Close the delete modal
 			setDeleteModal(false);
+			setDisabled(false);
 		} catch (error) {
 			console.log(error);
 		}
@@ -75,6 +77,7 @@ function Users(props) {
 		e.preventDefault();
 		sendUpdatedPost();
 		setUpdateModal(false);
+		setDisabled(false);
 	}
 	
 	// Create a handleClick to open the update modal
@@ -117,66 +120,84 @@ function Users(props) {
 		<div>
 			{posts.length ? (
 				<>
-					<h2>{user}</h2>
-					<h3>
-						{posts[0].years_of_residence} years in {posts[0].state}
-					</h3>
-					<div>
+					<div className={styles.nameAndYearsContainer}>
+						<div className={styles.nameAndYears}>
+							<h2 className={styles.name}>{user}</h2>
+							<h3 className={styles.years}>
+								{posts[0].years_of_residence} years in {posts[0].state}
+							</h3>
+						</div>
+					</div>
+					<div className={styles.postsList}>
 						{posts.map((post, index) => {
 							return (
-								<div key={`${post.user.name}-${index}`}>
-									<h2>{post.title}</h2>
-									<h3>{post.city}</h3>
-									<h3>{post.type}</h3>
-									<h3>{post.date}</h3>
-									<p>{post.message}</p>
-									<button disabled={disabled}
-										onClick={() => {
-											openUpdateModal(post._id);
-										}}>
-										Edit
-									</button>
-									<button disabled={disabled}
-										onClick={() => {
-											openDeleteModal(post._id)
-										}}>
-										Delete
-									</button>
+								<div key={`${post.user.name}-${index}`} className={styles.post}>
+									<div className={styles.postHeader}>
+										<div className={styles.postTitleAndType}>
+											<h2 className={styles.postTitle}>{post.title}</h2>
+											<h3 className={styles.postType}>{post.type}</h3>
+										</div>
+										<h3 className={styles.postDate}>{post.date}</h3>
+										<h3 className={styles.postCity}>{post.city}</h3>
+									</div>
+									<p className={styles.postMessage}>{post.message}</p>
+									<div className={styles.postButtons}>
+										<button className={styles.postButton} disabled={disabled}
+											onClick={() => {
+												openUpdateModal(post._id);
+											}}>
+											Edit
+										</button>
+										<button className={styles.postButton} disabled={disabled}
+											onClick={() => {
+												openDeleteModal(post._id)
+											}}>
+											Delete
+										</button>
+									</div>
 								</div>
 							);
 						})}
 					</div>
 				</>
 			) : (!posts.length && loading) ? (
-				<h2>Loading...</h2>
+				<h2 className={styles.loading}>Loading...</h2>
 			) : (!posts.length && !loading) ? (
-				<>
-					<h2>No posts currently.</h2>
-				</>
+				<h2 className={styles.loading}>No posts currently</h2>
 			) : null}
 			{updateModal && (
 				<div className={styles.editModal}>
-					<form onSubmit={handleSubmit}>
-						<label htmlFor='title'>Title:</label>
-						<input id='title' value={updatePost.title} onChange={handleChange}/>
-						<label htmlFor='message'>Message:</label>
-						<input id='message' value={updatePost.message} onChange={handleChange}/>
-						<label htmlFor='type'>Type:</label>
-						<select id='type'>
-							<option value=''></option>
-							<option value='food'>Food</option>
-							{/* <option value='experience'>Experience</option> */}
-						</select>
-						<button type='submit'>Submit</button>
+					<form onSubmit={handleSubmit} className={styles.editForm}>
+						<div className={styles.formTitle}>
+							<label htmlFor='title' className={styles.formHeadings}>Title:</label>
+							<input id='title' className={styles.titleInput} value={updatePost.title} onChange={handleChange}/>
+						</div>
+						<div className={styles.formType}>
+							<label htmlFor='type' className={styles.formHeadings}>Type:</label>
+							<select id='type' className={styles.typeInput}>
+								<option value=''></option>
+								<option value='Food'>Food</option>
+								<option value='Experience'>Experience</option>
+							</select>
+						</div>
+						<div className={styles.formMessage}>
+							<label htmlFor='message' className={styles.formHeadings}>Message:</label>
+							<textarea id='message' className={styles.messageInput} value={updatePost.message} onChange={handleChange}/>
+						</div>
+						<div className={styles.editModalButtons}>
+							<button type='submit' className={styles.submitButton}>Submit</button>
+							<button className={styles.cancelButton} onClick={() => {closeUpdateModal()}}>Cancel</button>
+						</div>
 					</form>
-						<button onClick={() => {closeUpdateModal()}}>Cancel</button>
 				</div>
 			)}
 			{deleteModal && (
 				<div className={styles.deleteModal}>
-					<h3>Are you sure you want to delete?</h3>
-					<button onClick={() => {handleDelete()}}>Yes</button>
-					<button onClick={() => {closeDeleteModal()}}>No</button>
+					<h3 className={styles.deleteModalHeader}>Are you sure you want to delete?</h3>
+					<div className={styles.deleteModalButtonsContainer}>
+						<button className={styles.deleteModalButton} onClick={() => {handleDelete()}}>Yes</button>
+						<button className={styles.deleteModalButton} onClick={() => {closeDeleteModal()}}>No</button>
+					</div>
 				</div>
 			)}
 		</div>
