@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './State.module.css';
 
 // Dependencies
 import { useEffect, useState } from 'react';
@@ -54,13 +55,11 @@ function State(props) {
                 </ul>
             </>
             ) : (!users.length && loading) ? (
-            <>
-                <h2>Loading...</h2>
-            </>
+                <h2 className={styles.loading}>Loading...</h2>
             ) : (!users.length && !loading) ? (
                 <>
-                    <h2>No users in this area.</h2>
-                    <Link to='/create'><h2>Be the first to post in this area!</h2></Link>
+                    <h2 className={styles.loading}>No users in this area...</h2>
+                    <Link to='/create'><h2 className={styles.linkToCreate}>Be the first to post in this area!</h2></Link>
                 </>
             ) : null}
             {/* <Users /> */}

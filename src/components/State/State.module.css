@@ -1,0 +1,16 @@
+.loading, .linkToCreate {
+    font-size: 3rem;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #006d77;
+    box-shadow: 5px 5px rgba(131,197,188,.8);
+    color: #e29578;
+    margin: 25% 5% 0% 5%;
+    padding: 3%;
+}
+
+.linkToCreate {
+    font-size: 1.8rem;
+    margin: 5% 5% 0% 5%;
+    padding: 3%;
+}
