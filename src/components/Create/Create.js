@@ -54,33 +54,33 @@ function Create(props) {
 	return (
 		<div className={styles.formContainer}>
 			<form onSubmit={handleSubmit} className={styles.form}>
-				<label htmlFor='name'>Name:</label>
+				<label htmlFor='name' className={styles.formLabel}>Name:</label>
 				<input onChange={handleChange} id='name' value={newPost.user.name} className={styles.nameInput}/>
-				<label htmlFor='state'>State:</label>
+				<label htmlFor='state' className={styles.formLabel}>State:</label>
 				<select onChange={handleChange} id='state' className={styles.stateInput}>
-					<option value=''></option>
-					<option value='NY'>New York</option>
-					<option value='NJ'>New Jersey</option>
-					<option value='PA'>Pennsylvania</option>
-					<option value='MD'>Maryland</option>
-					<option value='CA'>California</option>
-					<option value='GA'>Georgia</option>
+					<option value='' className={styles.option}></option>
+					<option value='NY' className={styles.option}>New York</option>
+					<option value='NJ' className={styles.option}>New Jersey</option>
+					<option value='PA' className={styles.option}>Pennsylvania</option>
+					<option value='MD' className={styles.option}>Maryland</option>
+					<option value='CA' className={styles.option}>California</option>
+					<option value='GA' className={styles.option}>Georgia</option>
 				</select>
-				<label htmlFor='city'>City:</label>
+				<label htmlFor='city' className={styles.formLabel}>City:</label>
 				<input onChange={handleChange} id='city' value={newPost.city} className={styles.cityInput}/>
-				<label htmlFor='title'>Title:</label>
+				<label htmlFor='title' className={styles.formLabel}>Title:</label>
 				<input onChange={handleChange} id='title' value={newPost.title} className={styles.titleInput}/>
-				<label htmlFor='years_of_residence'>Years of Residence:</label>
+				<label htmlFor='years_of_residence' className={styles.formLabel}>Years of Residence:</label>
 				<input onChange={handleChange} id='years_of_residence' value={newPost.years_of_residence} type='number' min={0} className={styles.yearsInput}/>
-				<label htmlFor='type'>Type:</label>
+				<label htmlFor='type' className={styles.formLabel}>Type:</label>
 				<select onChange={handleChange} id='type' className={styles.typeInput}>
-					<option value=''></option>
-					<option value='food'>Food</option>
+					<option value='' className={styles.option}></option>
+					<option value='food' className={styles.option}>Food</option>
 					{/* <option value='experience'>Experience</option> */}
 				</select>
-				<label htmlFor='message'>Message:</label>
+				<label htmlFor='message' className={styles.formLabel}>Message:</label>
 				<textarea onChange={handleChange} id='message' value={newPost.message} className={styles.messageInput}/>
-				<button type='submit'>Submit</button>
+				<button type='submit' className={styles.formButton}>Submit</button>
 			</form>
 		</div>
 	);

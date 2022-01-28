@@ -31,6 +31,7 @@ input:-webkit-autofill:active{
     background-color: #006d77;
     color: #ffddd2;
     outline: none;
+    margin-bottom: 2%;
 }
 
 .nameInput:-webkit-autofill, .stateInput:-webkit-autofill, .cityInput:-webkit-autofill, .messageInput:-webkit-autofill {
@@ -38,12 +39,18 @@ input:-webkit-autofill:active{
     -webkit-text-fill-color: #ffddd2 !important;
 }
 
-.nameInput {
+.nameInput, .cityInput, .titleInput {
     width: 50%;
 }
 
 .stateInput, .typeInput {
     width: 35%;
+}
+
+.option {
+    background-color: #006d77;
+    font-family: 'exo 2', 'sans-serif';
+    color: #ffddd2;
 }
 
 .yearsInput {
@@ -55,4 +62,25 @@ input:-webkit-autofill:active{
     font-family: 'exo 2', 'sans-serif';
     width: 100%;
     height: 100px;
+}
+
+.formLabel {
+    font-size: 1.5rem;
+    color: #e29578;
+    padding-bottom: 2%;
+}
+
+.formButton {
+    width: 25%;
+    outline: none;
+    background-color: #006d77;
+    border: 2px solid #edf6f9;
+    border-radius: 5px;
+    color: #e29578;
+}
+
+.formButton:hover {
+    cursor: pointer;
+    background-color: rgba(131,197,188,.3);
+    color: #edf6f9;
 }
