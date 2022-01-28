@@ -22,7 +22,9 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-  box-sizing: border-box;
+  	box-sizing: border-box;
+	font-family: 'Exo 2', 'sans-serif';
+	text-decoration: none;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -31,6 +33,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-color: #edf6f9;
 }
 ol, ul {
 	list-style: none;
