@@ -27,12 +27,13 @@ function Home(props) {
 	const handleSignUpFormSubmit = async(e) => {
 		try {
 			e.preventDefault();
+			// 
 			const res = await axios.post(`http://localhost:3001/api/signup`, signUpForm);
 			const loginRes = await axios.post(`http://localhost:3001/api/signin`, signUpForm);
 			const data = loginRes.data;
 			if(data) {
 				window.localStorage.setItem('token', data.token);
-				window.localStorage.setItem('userId', data.userId);
+				// window.localStorage.setItem('userId', data.userId);
 				setLoggedIn(true);
 				setSignUpModal(false);
 				setLoginModal(false);
