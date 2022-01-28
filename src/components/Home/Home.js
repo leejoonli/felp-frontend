@@ -9,6 +9,7 @@ function Home(props) {
 	return (
 		<div>
 			<br></br>
+			  <button type="button" id="play" onClick="window.scrollTo(0,0);">Play</button>
 		<div className={styles.home_container}>
 
 			<div className={styles.home}>
@@ -197,8 +198,7 @@ function Home(props) {
 			<div className={styles.home}><Link to='/WY'><img className={styles.img}src="https://i.imgur.com/3Z14OQo.jpg"
 			alt=""/><span>Wyoming</span></Link></div>
 
-			<div className={styles.home}><Link to='/About'></Link>
-			<img className={styles.imgHidden} src="https://i.imgur.com/30HQeC9.png" alt=""/>
+			<div className={styles.home}><Link to='/about'><img className={styles.imgHidden} src="https://i.imgur.com/30HQeC9.png" alt=""/></Link>
 			</div>
 			<br></br>
 		</div>

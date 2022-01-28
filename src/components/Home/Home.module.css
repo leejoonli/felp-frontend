@@ -39,8 +39,8 @@ span {
     }  
 
 @media (min-width: 600px){
-    img:hover{
-    opacity: .75;
+    .img:hover{
+        opacity: .75;
     }
     .home_container{
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;

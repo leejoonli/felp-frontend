@@ -1,0 +1,28 @@
+h1 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 20px;
+    font-weight: 1000;;
+}
+
+.img_container{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.img_container:hover{
+    animation: shake 0.75s cubic-bezier(0.35, 0.05, 0.2, 0.95) both;
+	transform: translate3d(0, 0, 0);
+	backface-visibility: hidden;
+	perspective: 1000px;
+	animation-duration: 2s;
+}
+
+@keyframes shake {
+    0% {
+		transform: translate(1px, 1px) rotate(0deg);
+	}
+	25% {
+		transform: translate(-3px, 0px) rotate(12.5deg);
+	}
+}
