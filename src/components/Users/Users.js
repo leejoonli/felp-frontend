@@ -125,7 +125,7 @@ function Users(props) {
 	return (
 		<div>
 			{posts.length ? (
-				<>
+				<div style={{filter: (updateModal || deleteModal) && 'blur(4px)', pointerEvents: (updateModal || deleteModal) && 'none'}}>
 					<div className={styles.nameAndYearsContainer}>
 						<div className={styles.nameAndYears}>
 							<h2></h2>
@@ -169,7 +169,7 @@ function Users(props) {
 							);
 						})}
 					</div>
-				</>
+				</div>
 			) : !posts.length && loading ? (
 				<h2 className={styles.loading}>Loading...</h2>
 			) : !posts.length && !loading ? (
