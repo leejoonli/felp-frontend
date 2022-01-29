@@ -25,14 +25,14 @@ function App() {
 				</Navigation>
 			)}
 			<Routes>
-				<Route path='/' element={<Welcome />} />
-				<Route path='/home' element={<Home />} />
-				<Route path='/about' element={<About />} />
-				<Route path='/:state' element={<State />} />
-				<Route path='/:state/:user' element={<Users />} />
-				<Route path='/create' element={<Create />} />
+				<Route path="/" element={<Welcome />} />
+				<Route path="/home" element={<Home />} />
+				<Route path="/about" element={<About />} />
+				<Route path="/:state" element={<State />} />
+				<Route path="/:state/:user" element={<Users />} />
+				<Route path="/create" element={<Create />} />
 			</Routes>
-			<Footer />
+			{pathname !== '/' && <Footer />}
 		</main>
 	);
 }
