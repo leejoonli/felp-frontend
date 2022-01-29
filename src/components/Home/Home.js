@@ -161,31 +161,38 @@ function Home(props) {
 			</div>
 			}
 			{/* log in form */}
-			<div className={styles.LoginModal}>
-				<form onSubmit={handleLoginFormSubmit}>
-					<label htmlFor="email">E-mail:</label>
-					<input
-						type="text"
-						id="email"
-						value={LoginForm.email}
-						onChange={handleLoginChange}
-					/>
-					<label htmlFor="password">Password:</label>
-					<input
-						type="text"
-						id="password"
-						value={LoginForm.password}
-						onChange={handleLoginChange}
-					/>
-					<button type="submit">Log In</button>
-					<button
-						onClick={() => {
-							handleLoginModalClose();
-						}}>
-						Cancel
-					</button>
-				</form>
-			</div>
+			{loginModal &&
+				<div className={styles.LoginModalContainer}>
+					<form onSubmit={handleLoginFormSubmit} className={styles.loginModalForm}>
+						<label htmlFor="email" className={styles.loginLabel}>E-mail:</label>
+						<input
+							type="text"
+							id="email"
+							value={LoginForm.email}
+							onChange={handleLoginChange}
+							className={styles.loginModalEmail}
+						/>
+						<label htmlFor="password" className={styles.loginLabel}>Password:</label>
+						<input
+							type="text"
+							id="password"
+							value={LoginForm.password}
+							onChange={handleLoginChange}
+							className={styles.loginModalPassword}
+						/>
+						<div className={styles.loginFormButtons}>
+							<button type="submit" className={styles.loginFormButton}>Log In</button>
+							<button
+								onClick={() => {
+									handleLoginModalClose();
+								}}
+								className={styles.loginFormButton}>
+								Cancel
+							</button>
+						</div>
+					</form>
+				</div>
+			}
 			{loggedIn ? (
 				<div>
 					<h2>You Are Currently Logged In!</h2>
@@ -197,7 +204,7 @@ function Home(props) {
 					</button>
 				</div>
 			) : (
-				<div className={styles.loginHeading} style={{filter: signUpModal && 'blur(4px)', pointerEvents: signUpModal && 'none'}}>
+				<div className={styles.loginHeading} style={{filter: (signUpModal || loginModal) && 'blur(4px)', pointerEvents: (signUpModal || loginModal) && 'none'}}>
 					<div className={styles.loginHeadingBackground}>
 						<h2 className={styles.loginHeader}>You Are Not Currently Logged In!</h2>
 						<div className={styles.loginButtons}>
@@ -219,7 +226,7 @@ function Home(props) {
 					</div>
 				</div>
 			)}
-			<div className={styles.home_container} style={{filter: signUpModal && 'blur(4px)', pointerEvents: signUpModal && 'none'}}>
+			<div className={styles.home_container} style={{filter: (signUpModal || loginModal) && 'blur(4px)', pointerEvents: (signUpModal || loginModal) && 'none'}}>
 				<div className={styles.home}>
 					<Link to="/AL">
 						<img

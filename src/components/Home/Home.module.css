@@ -32,11 +32,11 @@ span {
 	text-align: center;
 }
 
-.signUpModalContainer {
+.signUpModalContainer, .LoginModalContainer {
 	border-radius: 5px;
 	margin: 15% 10% 5% 10%;
 	background-color: #83c5be;
-	box-shadow: 5px 5px rgba(0,109,119,.7);
+	box-shadow: 5px 5px rgba(0,109,119,1);
 	padding: 5%;
 	position: absolute;
 	width: 60%;
@@ -45,7 +45,7 @@ span {
 	overflow: auto;
 }
 
-.signUpModal {
+.signUpModal, .loginModalForm {
 	display: flex;
 	flex-direction: column;
 	border: 2px solid #edf6f9;
@@ -54,7 +54,7 @@ span {
 	padding: 5%;
 }
 
-.signUpLabel {
+.signUpLabel, .loginLabel {
 	font-size: 1.5rem;
 	color: #e29578;
 	margin-bottom: 2%;
@@ -71,7 +71,7 @@ input:-webkit-scrollbar{
     display: none;
 }
 
-.signUpModalUsername, .signUpModalEmail, .signUpModalPassword {
+.signUpModalUsername, .signUpModalEmail, .signUpModalPassword, .loginModalEmail, .loginModalPassword {
 	padding: 2%;
 	border: 2px solid #edf6f9;
 	border-radius: 5px;
@@ -82,12 +82,12 @@ input:-webkit-scrollbar{
 	font-family: 'exo 2', 'sans-serif';
 }
 
-.signUpModalUsername:-webkit-autofill, .signUpModalEmail:-webkit-autofill, .signUpModalPassword:-webkit-autofill {
+.signUpModalUsername:-webkit-autofill, .signUpModalEmail:-webkit-autofill, .signUpModalPassword:-webkit-autofill, .loginModalEmail:-webkit-autofill, .loginModalPassword:-webkit-autofill {
 	-webkit-background-clip: text;
     -webkit-text-fill-color: #ffddd2 !important;
 }
 
-.signUpFormButton {
+.signUpFormButton, .loginFormButton {
 	border: 2px solid #edf6f9;
 	border-radius: 5px;
 	background-color: #006d77;
@@ -98,7 +98,7 @@ input:-webkit-scrollbar{
 	margin-right: 2%;
 }
 
-.signUpFormButton:hover {
+.signUpFormButton:hover, .loginFormButton:hover {
 	cursor: pointer;
 	background-color: rgba(131,197,188,.5);
     color: #edf6f9;
