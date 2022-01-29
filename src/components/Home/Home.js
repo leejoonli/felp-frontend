@@ -8,9 +8,6 @@ import { Link } from 'react-router-dom';
 function Home(props) {
 	return (
 		<div>
-			<div>
-				<Navigation />
-			</div>
 		<div className={styles.home_container}>
 
 			<div className={styles.home}>

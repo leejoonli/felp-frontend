@@ -3,7 +3,7 @@ import styles from '../Welcome/Welcome.module.css';
 
 function Footer(props) {
     return (
-			<div>
+			<div className={styles.footer}>
 				<footer>
 					<div className={styles.footer_div}>
 						<a
