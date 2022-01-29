@@ -19,6 +19,7 @@ function Users(props) {
 
 	// useParams to hold the id of the user
 	const { user } = useParams();
+	const { state } = useParams();
 
 	// useEffect to fetch all the posts of the user in a location
 	useEffect(() => {
@@ -29,15 +30,16 @@ function Users(props) {
 			}
 		}, 5000);
 		getPosts();
-	}, [posts]);
+	}, []);
 
 	// async await for axios fetch request
 	const getPosts = async () => {
 		try {
 			const res = await axios.get(
-				`https://felp-coders.herokuapp.com/api/posts/user/${user}`
+				`https://felp-coders.herokuapp.com/api/posts/state/${state}`
 			);
-			setPosts(res.data);
+			const data = res.data.filter((e) => e.owner.username === user);
+			setPosts(data);
 		} catch (error) {
 			console.log(error);
 		}
@@ -122,7 +124,7 @@ function Users(props) {
 				<>
 					<div className={styles.nameAndYearsContainer}>
 						<div className={styles.nameAndYears}>
-							<h2 className={styles.name}>{user}</h2>
+							<h2></h2>
 							<h3 className={styles.years}>
 								{posts[0].years_of_residence} years in {posts[0].state}
 							</h3>
@@ -131,7 +133,7 @@ function Users(props) {
 					<div className={styles.postsList}>
 						{posts.map((post, index) => {
 							return (
-								<div key={`${post.user.name}-${index}`} className={styles.post}>
+								<div key={`${index}`} className={styles.post}>
 									<div className={styles.postHeader}>
 										<div className={styles.postTitleAndType}>
 											<h2 className={styles.postTitle}>{post.title}</h2>

@@ -18,7 +18,6 @@ function Create(props) {
 		date: new Date().toISOString().split('T')[0],
 		message: '',
 		type: '',
-		user: { name: '' },
 	});
 
 	// handle change function to keep track of user input
@@ -44,7 +43,14 @@ function Create(props) {
 	const sendPost = async () => {
 		try {
 			// comment this line back in when connecting to backend
-			await axios.post(`https://felp-coders.herokuapp.com/api/posts`, newPost);
+			await axios({
+				url: `https://felp-coders.herokuapp.com/api/posts`,
+				method: 'POST',
+				headers: {
+					'Authorization': `Bearer ${window.localStorage.getItem('token')}`
+				},
+				data: newPost,
+			});
 			navigate('/home');
 		} catch (error) {
 			console.log(error);
@@ -54,8 +60,8 @@ function Create(props) {
 	return (
 		<div className={styles.formContainer}>
 			<form onSubmit={handleSubmit} className={styles.form}>
-				<label htmlFor='name' className={styles.formLabel}>Name:</label>
-				<input onChange={handleChange} id='name' value={newPost.user.name} className={styles.nameInput}/>
+				{/* <label htmlFor='name' className={styles.formLabel}>Name:</label>
+				<input onChange={handleChange} id='name' value={newPost.user.name} className={styles.nameInput}/> */}
 				<label htmlFor='state' className={styles.formLabel}>State:</label>
 				<select onChange={handleChange} id='state' className={styles.stateInput}>
 					<option value='' className={styles.option}></option>
