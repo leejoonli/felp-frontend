@@ -102,8 +102,6 @@ function Home(props) {
 
 	return (
 		<div>
-<<<<<<< HEAD
-=======
 			{/* <form>
 				<button>Sign Up</button>
 				<button>Sign In</button>
@@ -127,19 +125,10 @@ function Home(props) {
 				<label htmlFor="email">E-mail:</label>
 				<input type="text" id="email" value={LoginForm.email} onChange={handleLoginChange}/>
 				<label htmlFor="password">Password:</label>
-<<<<<<< HEAD
-				<input type="text" id="password"/>
-				<button>Log In</button>
-			</form> */}
-<<<<<<< HEAD
->>>>>>> Add sign up auth post request
-=======
-=======
 				<input type="text" id="password" value={LoginForm.password} onChange={handleLoginChange}/>
 				<button type='submit'>Log In</button>
 				<button onClick={()=>{handleLoginModalClose()}}>Cancel</button>
 			</form>
->>>>>>> Edit GET request from users component
 			{loggedIn ? (
 				<div>
 					<h2>You Are Currently Logged In!</h2>
@@ -152,7 +141,6 @@ function Home(props) {
 					<button onClick={()=>{handleSingUpModal()}}>Sign Up</button>
 				</div>
 				)}
->>>>>>> Add signup state with login
 		<div className={styles.home_container}>
 
 			<div className={styles.home}>
