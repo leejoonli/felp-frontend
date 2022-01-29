@@ -154,6 +154,7 @@ input:-webkit-scrollbar{
 	img:hover {
 		opacity: 0.75;
 	}
+
 	.home_container {
 		display: flex;
 		flex-direction: row;
@@ -182,5 +183,67 @@ input:-webkit-scrollbar{
 
 	span {
 		font-size: 1.5rem;
+	}
+
+	.loginHeading {
+		margin: 2% 15% 2% 15%;
+		box-shadow: 10px 10px rgba(0,109,119,.9);
+		padding: 1%;
+	}
+
+	.loginHeadingBackground {
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		border: 2px solid #edf6f9;
+		background-color: #006d77;
+		border-radius: 5px;
+		padding: 1%;
+	}
+
+	.loginHeader {
+		font-size: 2.5rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		color: #e29578;
+		margin-bottom: 0;
+		flex-basis: 70%;
+	}
+
+	.loginButtons {
+		flex-basis: 30%;
+		justify-content: flex-end;
+	}
+
+	.loginButton {
+		font-size: 1.2rem;
+		padding: 1% 8%;
+		margin-right: 10%;
+	}
+
+	.signUpModalContainer, .LoginModalContainer {
+		margin: auto;
+		box-shadow: 10px 10px rgba(0,109,119,1);
+		padding: 2%;
+		width: 30%;
+		top: 10%;
+		left: 35%;
+	}
+
+	.signUpLabel, .loginLabel {
+		font-size: 2rem;
+	}
+
+	.signUpModalUsername, .signUpModalEmail, .signUpModalPassword, .loginModalEmail, .loginModalPassword {
+		font-size: 1.2rem;
+		padding: 2%;
+	}
+
+	.signUpFormButton, .loginFormButton {
+		font-size: 1.2rem;
+		margin-top: 2%;
+		margin-right: 5%;
 	}
 }
