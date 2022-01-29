@@ -305,6 +305,7 @@
         top: 22%;
         left: 30%;
         padding: 2%;
+        border: 10px solid rgba(0,109,119,.7);
     }
 
     .deleteModal {
@@ -313,6 +314,7 @@
         height: 25%;
         left: 32.5%;
         padding: 2%;
+        border: 10px solid rgba(0,109,119,.7);
     }
 
     .formHeadings {
