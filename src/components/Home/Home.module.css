@@ -53,6 +53,7 @@ span {
 		object-fit: fill;
 		height: 150px;
 		width: 100%;
+		margin: 20px 0px;
 	}
 
 	.img {
@@ -62,6 +63,6 @@ span {
 	}
 
 	span {
-		font-size: 1rem;
+		font-size: 1.5rem;
 	}
 }
