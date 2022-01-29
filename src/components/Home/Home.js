@@ -231,8 +231,8 @@ function Home(props) {
 					<Link to="/AL">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/sv2QmHe.jpg"
-							alt=""
+							src={require("./img/AL.png")}
+							alt="City in Alabama"
 						/>
 						<span>Alabama</span>
 					</Link>
@@ -242,8 +242,8 @@ function Home(props) {
 					<Link to="/AK">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/V5YLine.jpg"
-							alt=""
+							src={require("./img/AK.jpg")}
+							alt="City in Alaska"
 						/>
 						<span>Alaska</span>
 					</Link>
@@ -253,8 +253,8 @@ function Home(props) {
 					<Link to="/AZ">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/iEReH0Q.jpg"
-							alt=""
+							src={require("./img/AZ.jpg")}
+							alt="City in Arizona"
 						/>
 						<span>Arizona</span>
 					</Link>
@@ -264,8 +264,8 @@ function Home(props) {
 					<Link to="/AR">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/UZ8Kn7N.jpg"
-							alt=""
+							src={require("./img/AR.jpg")}
+							alt="City in Arkansas"
 						/>
 						<span>Arkansas</span>
 					</Link>
@@ -275,8 +275,8 @@ function Home(props) {
 					<Link to="/CA">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/eStls44.jpg"
-							alt=""
+							src={require("./img/CA.jpg")}
+							alt="City in California"
 						/>
 						<span>California</span>
 					</Link>
@@ -286,8 +286,8 @@ function Home(props) {
 					<Link to="/CO">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/jn8tmfK.jpg"
-							alt=""
+							src={require("./img/CO.jpg")}
+							alt="City in Colorado"
 						/>
 						<span>Colorado</span>
 					</Link>
@@ -297,8 +297,8 @@ function Home(props) {
 					<Link to="/CT">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/1w81Stb.jpg"
-							alt=""
+							src={require("./img/CT.jpg")}
+							alt="City in Connecticut"
 						/>
 						<span>Connecticut</span>
 					</Link>
@@ -308,8 +308,8 @@ function Home(props) {
 					<Link to="/DE">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/4FSLo41.jpg"
-							alt=""
+							src={require("./img/DE.jpg")}
+							alt="City in Delaware"
 						/>
 						<span>Delaware</span>
 					</Link>
@@ -319,8 +319,8 @@ function Home(props) {
 					<Link to="/FL">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/3LvOBvC.jpg"
-							alt=""
+							src={require("./img/FL.jpg")}
+							alt="City in Florida"
 						/>
 						<span>Florida</span>
 					</Link>
@@ -330,8 +330,8 @@ function Home(props) {
 					<Link to="/GA">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/jmqg99P.jpg"
-							alt=""
+							src={require("./img/GA.jpg")}
+							alt="City in Georgia"
 						/>
 						<span>Georgia</span>
 					</Link>
@@ -341,8 +341,8 @@ function Home(props) {
 					<Link to="/HI">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/QvprXlx.jpg"
-							alt=""
+							src={require("./img/HI.jpg")}
+							alt="City in Hawaii"
 						/>
 						<span>Hawaii</span>
 					</Link>
@@ -352,8 +352,8 @@ function Home(props) {
 					<Link to="/ID">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/ugeywLH.jpg"
-							alt=""
+							src={require("./img/ID.jpg")}
+							alt="City in Idaho"
 						/>
 						<span>Idaho</span>
 					</Link>
@@ -363,8 +363,8 @@ function Home(props) {
 					<Link to="/IL">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/4xdnarf.jpg"
-							alt=""
+							src={require("./img/IL.jpg")}
+							alt="City in Illinois"
 						/>
 						<span>Illinois</span>
 					</Link>
@@ -374,8 +374,8 @@ function Home(props) {
 					<Link to="/IN">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/ugeywLH.jpg"
-							alt=""
+							src={require("./img/IN.jpg")}
+							alt="City in Indiana"
 						/>
 						<span>Indiana</span>
 					</Link>
@@ -385,8 +385,8 @@ function Home(props) {
 					<Link to="/IA">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/Trd8uBg.jpg"
-							alt=""
+							src={require("./img/IA.jpg")}
+							alt="City in Iowa"
 						/>
 						<span>Iowa</span>
 					</Link>
@@ -396,8 +396,8 @@ function Home(props) {
 					<Link to="/KS">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/FFLYQPK.jpg"
-							alt=""
+							src={require("./img/KS.jpg")}
+							alt="City in Kansas"
 						/>
 						<span>Kansas</span>
 					</Link>
@@ -407,8 +407,8 @@ function Home(props) {
 					<Link to="/KY">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/a3MwNlN.jpg"
-							alt=""
+							src={require("./img/KY.jpg")}
+							alt="City in Kentucky"
 						/>
 						<span>Kentucky</span>
 					</Link>
@@ -418,19 +418,19 @@ function Home(props) {
 					<Link to="/LA">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/uvMafEi.jpg"
-							alt=""
+							src={require("./img/LA.jpg")}
+							alt="City in Louisiana"
 						/>
 						<span>Louisiana</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/MN">
+					<Link to="/ME">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/Lw855RF.jpg"
-							alt=""
+							src={require("./img/ME.jpg")}
+							alt="City in Maine"
 						/>
 						<span>Maine</span>
 					</Link>
@@ -440,8 +440,8 @@ function Home(props) {
 					<Link to="/MD">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/iCidArB.jpg"
-							alt=""
+							src={require("./img/MD.jpg")}
+							alt="City in Maryland"
 						/>
 						<span>Maryland</span>
 					</Link>
@@ -451,8 +451,8 @@ function Home(props) {
 					<Link to="/MA">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/ZGjt0WJ.jpg"
-							alt=""
+							src={require("./img/MA.jpg")}
+							alt="City in Massachusetts"
 						/>
 						<span>Massachusetts</span>
 					</Link>
@@ -462,8 +462,8 @@ function Home(props) {
 					<Link to="/MI">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/TY5bVOe.jpg"
-							alt=""
+							src={require("./img/MI.jpg")}
+							alt="City in Michigan"
 						/>
 						<span>Michigan</span>
 					</Link>
@@ -473,8 +473,8 @@ function Home(props) {
 					<Link to="/MN">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/oXuLGGV.jpg"
-							alt=""
+							src={require("./img/MN.jpg")}
+							alt="City in Minnesota"
 						/>
 						<span>Minnesota</span>
 					</Link>
@@ -484,8 +484,8 @@ function Home(props) {
 					<Link to="/MS">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/hKliEIp.jpg"
-							alt=""
+							src={require("./img/MS.jpg")}
+							alt="City in Mississippi"
 						/>
 						<span>Mississippi</span>
 					</Link>
@@ -495,19 +495,19 @@ function Home(props) {
 					<Link to="/MO">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/tFpThgE.jpg"
-							alt=""
+							src={require("./img/MO.jpg")}
+							alt="City in Missouri"
 						/>
 						<span>Missouri</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/MO">
+					<Link to="/MT">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/UVM73GF.jpg"
-							alt=""
+							src={require("./img/MT.jpg")}
+							alt="City in Montana"
 						/>
 						<span>Montana</span>
 					</Link>
@@ -517,8 +517,8 @@ function Home(props) {
 					<Link to="/NE">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/CRs6DlH.jpg"
-							alt=""
+							src={require("./img/NE.jpg")}
+							alt="City in Nebraska"
 						/>
 						<span>Nebraska</span>
 					</Link>
@@ -528,8 +528,8 @@ function Home(props) {
 					<Link to="/NV">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/7SdJSOd.jpg"
-							alt=""
+							src={require("./img/NV.jpg")}
+							alt="City in Nevada"
 						/>
 						<span>Nevada</span>
 					</Link>
@@ -539,8 +539,8 @@ function Home(props) {
 					<Link to="/NH">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/maYXy17.jpg"
-							alt=""
+							src={require("./img/NH.jpg")}
+							alt="City in New Hampshire"
 						/>
 						<span>New Hampshire</span>
 					</Link>
@@ -550,8 +550,8 @@ function Home(props) {
 					<Link to="/NJ">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/qRtWSsb.jpg"
-							alt=""
+							src={require("./img/NJ.jpg")}
+							alt="City in New Jersey"
 						/>
 						<span>New Jersey</span>
 					</Link>
@@ -561,8 +561,8 @@ function Home(props) {
 					<Link to="/NM">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/u1d1enm.jpg"
-							alt=""
+							src={require("./img/NM.jpg")}
+							alt="City in New Mexico"
 						/>
 						<span>New Mexico</span>
 					</Link>
@@ -572,8 +572,8 @@ function Home(props) {
 					<Link to="/NY">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/y3CmiuX.jpg"
-							alt=""
+							src={require("./img/NY.jpg")}
+							alt="City in New York"
 						/>
 						<span>New York</span>
 					</Link>
@@ -583,8 +583,8 @@ function Home(props) {
 					<Link to="/NC">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/3LvOBvC.jpg"
-							alt=""
+							src={require("./img/NC.jpg")}
+							alt="City in North Carolina"
 						/>
 						<span>North Carolina</span>
 					</Link>
@@ -594,8 +594,8 @@ function Home(props) {
 					<Link to="/ND">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/zctD0sa.jpg"
-							alt=""
+							src={require("./img/ND.jpg")}
+							alt="City in North Dakota"
 						/>
 						<span>North Dakota</span>
 					</Link>
@@ -605,8 +605,8 @@ function Home(props) {
 					<Link to="/OH">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/keKbVgJ.jpg"
-							alt=""
+							src={require("./img/OH.jpg")}
+							alt="City in Ohio"
 						/>
 						<span>Ohio</span>
 					</Link>
@@ -616,8 +616,8 @@ function Home(props) {
 					<Link to="/OK">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/KzTyiaU.jpg"
-							alt=""
+							src={require("./img/OK.jpg")}
+							alt="City in Oklahoma"
 						/>
 						<span>Oklahoma</span>
 					</Link>
@@ -627,8 +627,8 @@ function Home(props) {
 					<Link to="/OR">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/DRdJ24i.jpg"
-							alt=""
+							src={require("./img/OR.jpg")}
+							alt="City in Oregon"
 						/>
 						<span>Oregon</span>
 					</Link>
@@ -638,8 +638,8 @@ function Home(props) {
 					<Link to="/PA">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/bYpdyVD.jpg"
-							alt=""
+							src={require("./img/PA.jpg")}
+							alt="City in Pennsylvania"
 						/>
 						<span>Pennsylvania</span>
 					</Link>
@@ -649,8 +649,8 @@ function Home(props) {
 					<Link to="/RI">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/2pPzyqJ.jpg"
-							alt=""
+							src={require("./img/RI.jpg")}
+							alt="City in Rhode Island"
 						/>
 						<span>Rhode Island</span>
 					</Link>
@@ -660,8 +660,8 @@ function Home(props) {
 					<Link to="/SC">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/Uqdi2Y9.jpg"
-							alt=""
+							src={require("./img/SC.jpg")}
+							alt="City in South Carolina"
 						/>
 						<span>South Carolina</span>
 					</Link>
@@ -671,8 +671,8 @@ function Home(props) {
 					<Link to="/SD">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/E4Wy58r.jpg"
-							alt=""
+							src={require("./img/SD.jpg")}
+							alt="City in South Dakota"
 						/>
 						<span>South Dakota</span>
 					</Link>
@@ -682,8 +682,8 @@ function Home(props) {
 					<Link to="/TN">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/v3A8jyT.jpg"
-							alt=""
+							src={require("./img/TN.jpg")}
+							alt="City in Tennessee"
 						/>
 						<span>Tennessee</span>
 					</Link>
@@ -693,8 +693,8 @@ function Home(props) {
 					<Link to="/TX">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/HsmoBNS.jpg"
-							alt=""
+							src={require("./img/TX.jpg")}
+							alt="City in Texas"
 						/>
 						<span>Texas</span>
 					</Link>
@@ -704,8 +704,8 @@ function Home(props) {
 					<Link to="/UT">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/rQrwEJI.jpg"
-							alt=""
+							src={require("./img/UT.jpg")}
+							alt="City in Utah"
 						/>
 						<span>Utah</span>
 					</Link>
@@ -715,8 +715,8 @@ function Home(props) {
 					<Link to="/VT">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/i1XLBfF.jpg"
-							alt=""
+							src={require("./img/VT.jpg")}
+							alt="City in Vermont"
 						/>
 						<span>Vermont</span>
 					</Link>
@@ -726,8 +726,8 @@ function Home(props) {
 					<Link to="/VA">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/KVZBvHf.jpg"
-							alt=""
+							src={require("./img/VA.jpg")}
+							alt="City in Virginia"
 						/>
 						<span>Virginia</span>
 					</Link>
@@ -737,8 +737,8 @@ function Home(props) {
 					<Link to="/WA">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/KsZGfVH.jpg"
-							alt=""
+							src={require("./img/WA.jpg")}
+							alt="City in Washington"
 						/>
 						<span>Washington</span>
 					</Link>
@@ -748,8 +748,8 @@ function Home(props) {
 					<Link to="/WV">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/9E5BbE9.jpg"
-							alt=""
+							src={require("./img/WV.jpg")}
+							alt="City in West Virginia"
 						/>
 						<span>West Virginia</span>
 					</Link>
@@ -759,8 +759,8 @@ function Home(props) {
 					<Link to="/WI">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/W6GNtRX.jpg"
-							alt=""
+							src={require("./img/WI.jpg")}
+							alt="City in Wisconsin"
 						/>
 						<span>Wisconsin</span>
 					</Link>
@@ -770,8 +770,8 @@ function Home(props) {
 					<Link to="/WY">
 						<img
 							className={styles.img}
-							src="https://i.imgur.com/3Z14OQo.jpg"
-							alt=""
+							src={require("./img/WY.jpg")}
+							alt="City in Wyoming"
 						/>
 						<span>Wyoming</span>
 					</Link>
