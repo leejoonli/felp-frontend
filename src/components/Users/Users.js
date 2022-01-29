@@ -38,66 +38,70 @@ function Users(props) {
 			const res = await axios.get(
 				`https://felp-coders.herokuapp.com/api/posts/state/${state}`
 			);
+			// filter through frontend because we didn't know how to filter with nested username in owner property on backend
 			const data = res.data.filter((e) => e.owner.username === user);
 			setPosts(data);
 		} catch (error) {
 			console.log(error);
 		}
-	}
+	};
 
 	// PATCH request
 	const sendUpdatedPost = async () => {
 		try {
 			await axios.patch(
-				`https://felp-coders.herokuapp.com/api/posts/id/${updatePost._id}`, updatePost
+				`https://felp-coders.herokuapp.com/api/posts/id/${updatePost._id}`,
+				updatePost
 			);
 		} catch (error) {
 			console.log(error);
 		}
-	}
+	};
 
 	// Function to send DELETE request to the api using the id
 	const handleDelete = async () => {
 		try {
 			// DELETE request to api
-			await axios.delete(`https://felp-coders.herokuapp.com/api/posts/id/${toDeletePostId}`);
+			await axios.delete(
+				`https://felp-coders.herokuapp.com/api/posts/id/${toDeletePostId}`
+			);
 			// Close the delete modal
 			setDeleteModal(false);
 			setDisabled(false);
 		} catch (error) {
 			console.log(error);
 		}
-	}
+	};
 
 	// Function change the state of updatePost
 	const handleChange = (e) => {
-		setUpdatePost({...updatePost, [e.target.id]: e.target.value})
-	}
-	
+		setUpdatePost({ ...updatePost, [e.target.id]: e.target.value });
+	};
+
 	// Create a handleSubmit to edit a post
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		sendUpdatedPost();
 		setUpdateModal(false);
 		setDisabled(false);
-	}
-	
+	};
+
 	// Create a handleClick to open the update modal
 	const openUpdateModal = async (id) => {
-        try {
+		try {
 			// GET request for specific post
-            const res = await axios.get(
+			const res = await axios.get(
 				`https://felp-coders.herokuapp.com/api/posts/id/${id}`
 			);
 			// setting state to the response data
-            setUpdatePost(res.data);
+			setUpdatePost(res.data);
 			// Open the update modal
 			setUpdateModal(true);
 			setDisabled(true);
-        } catch (error) {
-            console.log(error);
-        }
-    }
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	// Create a handleClick to open the delete modal
 	const openDeleteModal = (id) => {
@@ -110,13 +114,13 @@ function Users(props) {
 	const closeUpdateModal = () => {
 		setUpdateModal(false);
 		setDisabled(false);
-	}
+	};
 
 	// Set deleteModal to false to close the modal
 	const closeDeleteModal = () => {
 		setDeleteModal(false);
 		setDisabled(false);
-	}
+	};
 
 	return (
 		<div>
@@ -144,15 +148,19 @@ function Users(props) {
 									</div>
 									<p className={styles.postMessage}>{post.message}</p>
 									<div className={styles.postButtons}>
-										<button className={styles.postButton} disabled={disabled}
+										<button
+											className={styles.postButton}
+											disabled={disabled}
 											onClick={() => {
 												openUpdateModal(post._id);
 											}}>
 											Edit
 										</button>
-										<button className={styles.postButton} disabled={disabled}
+										<button
+											className={styles.postButton}
+											disabled={disabled}
 											onClick={() => {
-												openDeleteModal(post._id)
+												openDeleteModal(post._id);
 											}}>
 											Delete
 										</button>
@@ -162,43 +170,81 @@ function Users(props) {
 						})}
 					</div>
 				</>
-			) : (!posts.length && loading) ? (
+			) : !posts.length && loading ? (
 				<h2 className={styles.loading}>Loading...</h2>
-			) : (!posts.length && !loading) ? (
+			) : !posts.length && !loading ? (
 				<h2 className={styles.loading}>No posts currently</h2>
 			) : null}
 			{updateModal && (
 				<div className={styles.editModal}>
 					<form onSubmit={handleSubmit} className={styles.editForm}>
 						<div className={styles.formTitle}>
-							<label htmlFor='title' className={styles.formHeadings}>Title:</label>
-							<input id='title' className={styles.titleInput} value={updatePost.title} onChange={handleChange}/>
+							<label htmlFor="title" className={styles.formHeadings}>
+								Title:
+							</label>
+							<input
+								id="title"
+								className={styles.titleInput}
+								value={updatePost.title}
+								onChange={handleChange}
+							/>
 						</div>
 						<div className={styles.formType}>
-							<label htmlFor='type' className={styles.formHeadings}>Type:</label>
-							<select id='type' className={styles.typeInput}>
-								<option value=''></option>
-								<option value='Food'>Food</option>
-								<option value='Experience'>Experience</option>
+							<label htmlFor="type" className={styles.formHeadings}>
+								Type:
+							</label>
+							<select id="type" className={styles.typeInput}>
+								<option value=""></option>
+								<option value="Food">Food</option>
+								<option value="Experience">Experience</option>
 							</select>
 						</div>
 						<div className={styles.formMessage}>
-							<label htmlFor='message' className={styles.formHeadings}>Message:</label>
-							<textarea id='message' className={styles.messageInput} value={updatePost.message} onChange={handleChange}/>
+							<label htmlFor="message" className={styles.formHeadings}>
+								Message:
+							</label>
+							<textarea
+								id="message"
+								className={styles.messageInput}
+								value={updatePost.message}
+								onChange={handleChange}
+							/>
 						</div>
 						<div className={styles.editModalButtons}>
-							<button type='submit' className={styles.submitButton}>Submit</button>
-							<button className={styles.cancelButton} onClick={() => {closeUpdateModal()}}>Cancel</button>
+							<button type="submit" className={styles.submitButton}>
+								Submit
+							</button>
+							<button
+								className={styles.cancelButton}
+								onClick={() => {
+									closeUpdateModal();
+								}}>
+								Cancel
+							</button>
 						</div>
 					</form>
 				</div>
 			)}
 			{deleteModal && (
 				<div className={styles.deleteModal}>
-					<h3 className={styles.deleteModalHeader}>Are you sure you want to delete?</h3>
+					<h3 className={styles.deleteModalHeader}>
+						Are you sure you want to delete?
+					</h3>
 					<div className={styles.deleteModalButtonsContainer}>
-						<button className={styles.deleteModalButton} onClick={() => {handleDelete()}}>Yes</button>
-						<button className={styles.deleteModalButton} onClick={() => {closeDeleteModal()}}>No</button>
+						<button
+							className={styles.deleteModalButton}
+							onClick={() => {
+								handleDelete();
+							}}>
+							Yes
+						</button>
+						<button
+							className={styles.deleteModalButton}
+							onClick={() => {
+								closeDeleteModal();
+							}}>
+							No
+						</button>
 					</div>
 				</div>
 			)}
