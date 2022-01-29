@@ -16,6 +16,7 @@ function Home(props) {
 		username: '',
 		email: '',
 		password: '',
+		// setting confirm password for later implementation
 		// confirm_password: '',
 	});
 
@@ -35,7 +36,7 @@ function Home(props) {
 		setLoginForm({ ...LoginForm, [e.target.id]: e.target.value });
 	};
 
-	// function for singUpForm submit
+	// function for signUpForm submit
 	const handleSignUpFormSubmit = async (e) => {
 		try {
 			e.preventDefault();
@@ -100,7 +101,7 @@ function Home(props) {
 	};
 
 	// function to show sign up modal
-	const handleSingUpModal = () => {
+	const handleSignUpModal = () => {
 		setSignUpModal(true);
 	};
 
@@ -111,73 +112,80 @@ function Home(props) {
 
 	return (
 		<div>
-			{/* <form>
-				<button>Sign Up</button>
-				<button>Sign In</button>
-				<button>Continue as Guest</button>
-			</form> */}
 			{/* sign up form */}
-			<form onSubmit={handleSignUpFormSubmit}>
-				<label htmlFor="username">Username:</label>
-				<input
-					type="text"
-					id="username"
-					value={signUpForm.username}
-					onChange={handleSignUpChange}
-				/>
-				<label htmlFor="email">E-mail:</label>
-				<input
-					type="text"
-					id="email"
-					value={signUpForm.email}
-					onChange={handleSignUpChange}
-				/>
-				<label htmlFor="password">Password:</label>
-				<input
-					type="text"
-					id="password"
-					value={signUpForm.password}
-					onChange={handleSignUpChange}
-				/>
-				<label htmlFor="confirm_password">Confirm Password:</label>
-				<input
-					type="text"
-					id="confirm_password"
-					value={signUpForm.confirm_password}
-					onChange={handleSignUpChange}
-				/>
-				<button type="submit">Sign Up</button>
-				<button
-					onClick={() => {
-						handleSignUpModalClose();
-					}}>
-					Cancel
-				</button>
-			</form>
+			{signUpModal &&
+			<div className={styles.signUpModalContainer}>
+				<form onSubmit={handleSignUpFormSubmit} className={styles.signUpModal}>
+					<label htmlFor="username" className={styles.signUpLabel}>Username:</label>
+					<input
+						type="text"
+						id="username"
+						value={signUpForm.username}
+						onChange={handleSignUpChange}
+						className={styles.signUpModalUsername}
+					/>
+					<label htmlFor="email" className={styles.signUpLabel}>E-mail:</label>
+					<input
+						type="text"
+						id="email"
+						value={signUpForm.email}
+						onChange={handleSignUpChange}
+						className={styles.signUpModalEmail}
+					/>
+					<label htmlFor="password" className={styles.signUpLabel}>Password:</label>
+					<input
+						type="text"
+						id="password"
+						value={signUpForm.password}
+						onChange={handleSignUpChange}
+						className={styles.signUpModalPassword}
+					/>
+					{/* <label htmlFor="confirm_password" className={styles.signUpLabel}>Confirm Password:</label>
+					<input
+						type="text"
+						id="confirm_password"
+						value={signUpForm.confirm_password}
+						onChange={handleSignUpChange}
+					/> */}
+					<div className={styles.signUpFormButtons}>
+						<button type="submit" className={styles.signUpFormButton}>Sign Up</button>
+						<button
+							onClick={() => {
+								handleSignUpModalClose();
+							}}
+							className={styles.signUpFormButton}>
+							Cancel
+						</button>
+					</div>
+				</form>
+			</div>
+			}
 			{/* log in form */}
-			<form onSubmit={handleLoginFormSubmit}>
-				<label htmlFor="email">E-mail:</label>
-				<input
-					type="text"
-					id="email"
-					value={LoginForm.email}
-					onChange={handleLoginChange}
-				/>
-				<label htmlFor="password">Password:</label>
-				<input
-					type="text"
-					id="password"
-					value={LoginForm.password}
-					onChange={handleLoginChange}
-				/>
-				<button type="submit">Log In</button>
-				<button
-					onClick={() => {
-						handleLoginModalClose();
-					}}>
-					Cancel
-				</button>
-			</form>
+			<div className={styles.LoginModal}>
+				<form onSubmit={handleLoginFormSubmit}>
+					<label htmlFor="email">E-mail:</label>
+					<input
+						type="text"
+						id="email"
+						value={LoginForm.email}
+						onChange={handleLoginChange}
+					/>
+					<label htmlFor="password">Password:</label>
+					<input
+						type="text"
+						id="password"
+						value={LoginForm.password}
+						onChange={handleLoginChange}
+					/>
+					<button type="submit">Log In</button>
+					<button
+						onClick={() => {
+							handleLoginModalClose();
+						}}>
+						Cancel
+					</button>
+				</form>
+			</div>
 			{loggedIn ? (
 				<div>
 					<h2>You Are Currently Logged In!</h2>
@@ -189,23 +197,29 @@ function Home(props) {
 					</button>
 				</div>
 			) : (
-				<div>
-					<h2>You Are Not Currently Logged In!</h2>
-					<button
-						onClick={() => {
-							handleLoginModal();
-						}}>
-						Log In
-					</button>
-					<button
-						onClick={() => {
-							handleSingUpModal();
-						}}>
-						Sign Up
-					</button>
+				<div className={styles.loginHeading} style={{filter: signUpModal && 'blur(4px)', pointerEvents: signUpModal && 'none'}}>
+					<div className={styles.loginHeadingBackground}>
+						<h2 className={styles.loginHeader}>You Are Not Currently Logged In!</h2>
+						<div className={styles.loginButtons}>
+							<button
+								onClick={() => {
+									handleLoginModal();
+								}}
+								className={styles.loginButton}>
+								Log In
+							</button>
+							<button
+								onClick={() => {
+									handleSignUpModal();
+								}}
+								className={styles.loginButton}>
+								Sign Up
+							</button>
+						</div>
+					</div>
 				</div>
 			)}
-			<div className={styles.home_container}>
+			<div className={styles.home_container} style={{filter: signUpModal && 'blur(4px)', pointerEvents: signUpModal && 'none'}}>
 				<div className={styles.home}>
 					<Link to="/AL">
 						<img
