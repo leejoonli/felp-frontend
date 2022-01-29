@@ -13,10 +13,9 @@ import Footer from './components/Footer/Footer';
 // Dependencies
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 
-// Styling
-
 function App() {
 	const { pathname } = useLocation();
+
 	return (
 		<main>
 			{pathname !== '/' && (

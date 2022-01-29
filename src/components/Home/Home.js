@@ -18,23 +18,23 @@ function Home(props) {
 		password: '',
 		// setting confirm password for later implementation
 		// confirm_password: '',
-	});
+	})
 
 	// state variable to keep track of log in form
 	const [LoginForm, setLoginForm] = useState({
 		email: '',
 		password: '',
-	});
+	})
 
 	// function to set signUpForm state
 	const handleSignUpChange = (e) => {
 		setSignUpForm({ ...signUpForm, [e.target.id]: e.target.value });
-	};
+	}
 
 	// function to set loginForm state
 	const handleLoginChange = (e) => {
 		setLoginForm({ ...LoginForm, [e.target.id]: e.target.value });
-	};
+	}
 
 	// function for signUpForm submit
 	const handleSignUpFormSubmit = async (e) => {
@@ -60,7 +60,7 @@ function Home(props) {
 		} catch (error) {
 			console.log(error);
 		}
-	};
+	}
 
 	// function for loginForm submit
 	const handleLoginFormSubmit = async (e) => {
@@ -81,34 +81,34 @@ function Home(props) {
 		} catch (error) {
 			console.log(error);
 		}
-	};
+	}
 
 	// function to handle logout
 	const handleLogOut = () => {
 		// clear token in local storage to logout
 		window.localStorage.clear();
 		setLoggedIn(false);
-	};
+	}
 
 	// function to show login modal
 	const handleLoginModal = () => {
 		setLoginModal(true);
-	};
+	}
 
 	// function to close login modal
 	const handleLoginModalClose = () => {
 		setLoginModal(false);
-	};
+	}
 
 	// function to show sign up modal
 	const handleSignUpModal = () => {
 		setSignUpModal(true);
-	};
+	}
 
 	// function to close sign up modal
 	const handleSignUpModalClose = () => {
 		setSignUpModal(false);
-	};
+	}
 
 	return (
 		<div>

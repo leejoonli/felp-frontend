@@ -7,14 +7,14 @@ import styles from './Navigation.module.css';
 
 function Navigation(props) {
 	const [open, setOpen] = useState(false);
+
 	return (
 		<div className={styles.nav}>
 			<h1 className={styles.nav_logo}>
 				<Link to='/Home'>
 					<img
 						className={styles.nav_logob}
-						src='https://i.imgur.com/k8S94K4.png
-'
+						src='https://i.imgur.com/k8S94K4.png'
 						alt='felp-logo'
 					/>
 				</Link>
