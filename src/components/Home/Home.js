@@ -1,13 +1,146 @@
-import React from 'react';
-import Navigation from '../Navigation/Navigation';
+import React, { useState } from 'react';
 import styles from './Home.module.css';
 
 // Dependencies
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function Home(props) {
+	// Set log in state to be false
+	const [ loggedIn, setLoggedIn ] = useState(false);
+	const [ signUpModal, setSignUpModal ] = useState(false);
+	const [ loginModal, setLoginModal ] = useState(false);
+
+	// state variable to keep track of sign up form
+	const [ signUpForm, setSignUpForm] = useState({
+		username: '',
+		email: '',
+		password: '',
+		// confirm_password: '',
+	});
+
+	// state variable to keep track of log in form
+	const [ LoginForm, setLoginForm ] = useState({
+		email: '',
+		password: '',
+	});
+
+	// function to set signUpForm state
+	const handleSignUpChange = (e) => {
+		setSignUpForm({...signUpForm, [e.target.id]: e.target.value});
+	}
+
+	// function to set loginForm state
+	const handleLoginChange = (e) => {
+		setLoginForm({...LoginForm, [e.target.id]: e.target.value});
+	}
+
+	// function for singUpForm submit
+	const handleSignUpFormSubmit = async(e) => {
+		try {
+			e.preventDefault();
+			const res = await axios.post(`https://felp-coders.herokuapp.com/api/signup`, signUpForm);
+			const loginRes = await axios.post(`https://felp-coders.herokuapp.com/api/signin`, signUpForm);
+			const data = loginRes.data;
+			if(data) {
+				// possibly have to change the dot notation for local storage
+				window.localStorage.setItem('token', data.token);
+				window.localStorage.setItem('username', data.username);
+				setLoggedIn(true);
+				setSignUpModal(false);
+				setLoginModal(false);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	// function for loginForm submit
+	const handleLoginFormSubmit = async(e) => {
+		try {
+			e.preventDefault();
+			const res = await axios.post(`https://felp-coders.herokuapp.com/api/signin`, LoginForm);
+			const data = res.data;
+			if(data) {
+				// set token to local storage
+				window.localStorage.setItem('token', data.token);
+				window.localStorage.setItem('username', data.username);
+				setLoggedIn(true);
+				setLoginModal(false);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	// function to handle logout
+	const handleLogOut = () => {
+		// clear token in local storage to logout
+		window.localStorage.clear();
+		setLoggedIn(false);
+	}
+
+	// function to show login modal
+	const handleLoginModal = () => {
+		setLoginModal(true);
+	}
+
+	// function to close login modal
+	const handleLoginModalClose = () => {
+		setLoginModal(false);
+	}
+
+	// function to show sign up modal
+	const handleSingUpModal = () => {
+		setSignUpModal(true);
+	}
+
+	// function to close sign up modal
+	const handleSignUpModalClose = () => {
+		setSignUpModal(false);
+	}
+
 	return (
 		<div>
+			{/* <form>
+				<button>Sign Up</button>
+				<button>Sign In</button>
+				<button>Continue as Guest</button>
+			</form> */}
+			{/* sign up form */}
+			<form onSubmit={handleSignUpFormSubmit}>
+				<label htmlFor='username'>Username:</label>
+				<input type='text' id='username' value={signUpForm.username} onChange={handleSignUpChange}/>
+				<label htmlFor='email'>E-mail:</label>
+				<input type='text' id='email' value={signUpForm.email} onChange={handleSignUpChange}/>
+				<label htmlFor="password">Password:</label>
+				<input type='text' id='password' value={signUpForm.password} onChange={handleSignUpChange}/>
+				<label htmlFor='confirm_password'>Confirm Password:</label>
+				<input type='text' id='confirm_password' value={signUpForm.confirm_password} onChange={handleSignUpChange}/>
+				<button type='submit'>Sign Up</button>
+				<button onClick={()=>{handleSignUpModalClose()}}>Cancel</button>
+			</form>
+			{/* log in form */}
+			<form onSubmit={handleLoginFormSubmit}>
+				<label htmlFor="email">E-mail:</label>
+				<input type="text" id="email" value={LoginForm.email} onChange={handleLoginChange}/>
+				<label htmlFor="password">Password:</label>
+				<input type="text" id="password" value={LoginForm.password} onChange={handleLoginChange}/>
+				<button type='submit'>Log In</button>
+				<button onClick={()=>{handleLoginModalClose()}}>Cancel</button>
+			</form>
+			{loggedIn ? (
+				<div>
+					<h2>You Are Currently Logged In!</h2>
+					<button onClick={()=>{handleLogOut()}}>Log Out</button>
+				</div>
+				) : (
+				<div>
+					<h2>You Are Not Currently Logged In!</h2>
+					<button onClick={()=>{handleLoginModal()}}>Log In</button>
+					<button onClick={()=>{handleSingUpModal()}}>Sign Up</button>
+				</div>
+				)}
 		<div className={styles.home_container}>
 
 			<div className={styles.home}>
