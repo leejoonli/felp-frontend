@@ -7,13 +7,11 @@ import axios from 'axios';
 
 function Home(props) {
 	// Set log in state to be false
-	const [loggedIn, setLoggedIn] = useState(props.test);
+	// const [loggedIn, setLoggedIn] = useState(props.test);
 	const [signUpModal, setSignUpModal] = useState(false);
 	const [loginModal, setLoginModal] = useState(false);
 
-	useEffect(() => {
-		console.log(props.test);
-	}, [props.test]);
+	useEffect(() => {}, [props.test]);
 
 	// state variable to keep track of sign up form
 	const [signUpForm, setSignUpForm] = useState({
@@ -57,7 +55,8 @@ function Home(props) {
 				// possibly have to change the dot notation for local storage
 				window.localStorage.setItem('token', data.token);
 				window.localStorage.setItem('username', data.username);
-				setLoggedIn(true);
+				// setLoggedIn(true);
+				props.testing2();
 				setSignUpModal(false);
 				setLoginModal(false);
 			}
@@ -82,7 +81,8 @@ function Home(props) {
 				window.localStorage.setItem('username', data.username);
 				window.localStorage.setItem('userId', data.userId);
 				// set state for conditional rendering
-				setLoggedIn(true);
+				// setLoggedIn(true);
+				props.testing2();
 				// close login modal
 				setLoginModal(false);
 			}
@@ -95,7 +95,8 @@ function Home(props) {
 	const handleLogOut = () => {
 		// clear token in local storage to logout
 		window.localStorage.clear();
-		setLoggedIn(false);
+		// setLoggedIn(false);
+		props.testing();
 	}
 
 	// function to show login modal
@@ -201,7 +202,7 @@ function Home(props) {
 					</form>
 				</div>
 			}
-			{loggedIn ? (
+			{props.test ? (
 				<div className={styles.currentlyLoggedIn}>
 					<div className={styles.currentlyLoggedInBorder}>
 						<h2 className={styles.currentlyLoggedInHeader}>You Are Currently Logged In!</h2>

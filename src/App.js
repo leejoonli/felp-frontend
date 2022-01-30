@@ -12,15 +12,28 @@ import styles from './App.module.css';
 
 // Dependencies
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
 	const { pathname } = useLocation();
 
-	const [test, setTest] = useState(true);
+	const [test, setTest] = useState(false);
+
+	useEffect(() => {
+		if(window.localStorage.getItem('token')) {
+			setTest(true);
+		}
+		else {
+			setTest(false);
+		}
+	}, []);
 
 	const testing = () => {
 		setTest(false);
+	}
+
+	const testing2 = () => {
+		setTest(true);
 	}
 	
 	return (
@@ -33,7 +46,7 @@ function App() {
 			<div className={styles.fixFooter}>
 				<Routes>
 					<Route path='/' element={<Welcome />} />
-					<Route path='/home' element={<Home test={test} />} />
+					<Route path='/home' element={<Home test={test} testing={testing} testing2={testing2} />} />
 					<Route path='/about' element={<About />} />
 					<Route path='/:state' element={<State />} />
 					<Route path='/:state/:user' element={<Users />} />
