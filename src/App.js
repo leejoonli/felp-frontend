@@ -65,7 +65,7 @@ function App() {
 					<Route path='/create' element={<Create />} />
 				</Routes>
 			</div>
-			<Footer className={styles.footer}/>
+      {pathname !== '/' && <Footer className={styles.footer}/>}
 		</main>
 	);
 }
