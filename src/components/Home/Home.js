@@ -18,13 +18,13 @@ function Home(props) {
 		password: '',
 		// setting confirm password for later implementation
 		// confirm_password: '',
-	})
+	});
 
 	// state variable to keep track of log in form
 	const [LoginForm, setLoginForm] = useState({
 		email: '',
 		password: '',
-	})
+	});
 
 	// function to set signUpForm state
 	const handleSignUpChange = (e) => {
@@ -66,6 +66,7 @@ function Home(props) {
 	const handleLoginFormSubmit = async (e) => {
 		try {
 			e.preventDefault();
+			// POST request for login
 			const res = await axios.post(
 				`https://felp-coders.herokuapp.com/api/signin`,
 				LoginForm
@@ -75,7 +76,10 @@ function Home(props) {
 				// set token to local storage
 				window.localStorage.setItem('token', data.token);
 				window.localStorage.setItem('username', data.username);
+				window.localStorage.setItem('userId', data.userId);
+				// set state for conditional rendering
 				setLoggedIn(true);
+				// close login modal
 				setLoginModal(false);
 			}
 		} catch (error) {

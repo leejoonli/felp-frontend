@@ -127,7 +127,7 @@ function Users(props) {
 				<div style={{filter: (updateModal || deleteModal) && 'blur(4px)', pointerEvents: (updateModal || deleteModal) && 'none'}}>
 					<div className={styles.nameAndYearsContainer}>
 						<div className={styles.nameAndYears}>
-							<h2></h2>
+							<h2 className={styles.name}>{posts[0].owner.username}</h2>
 							<h3 className={styles.years}>
 								{posts[0].years_of_residence} years in {posts[0].state}
 							</h3>
@@ -146,25 +146,26 @@ function Users(props) {
 										<h3 className={styles.postCity}>{post.city}</h3>
 									</div>
 									<p className={styles.postMessage}>{post.message}</p>
-									{/* {(window.localStorage.getItem(''))} */}
-									<div className={styles.postButtons}>
-										<button
-											className={styles.postButton}
-											disabled={disabled}
-											onClick={() => {
-												openUpdateModal(post._id);
-											}}>
-											Edit
-										</button>
-										<button
-											className={styles.postButton}
-											disabled={disabled}
-											onClick={() => {
-												openDeleteModal(post._id);
-											}}>
-											Delete
-										</button>
-									</div>
+									{(window.localStorage.getItem('userId')) === post.owner.id && (
+										<div className={styles.postButtons}>
+											<button
+												className={styles.postButton}
+												disabled={disabled}
+												onClick={() => {
+													openUpdateModal(post._id);
+												}}>
+												Edit
+											</button>
+											<button
+												className={styles.postButton}
+												disabled={disabled}
+												onClick={() => {
+													openDeleteModal(post._id);
+												}}>
+												Delete
+											</button>
+										</div>
+									)}
 								</div>
 							);
 						})}
