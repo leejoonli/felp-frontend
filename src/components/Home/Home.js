@@ -6,10 +6,11 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function Home(props) {
-	// Set log in state to be false
+	// set state variables for modal conditional rendering
 	const [signUpModal, setSignUpModal] = useState(false);
 	const [loginModal, setLoginModal] = useState(false);
 
+	// useEffect to re-render components based on state change
 	useEffect(() => {}, [props.loggedIn]);
 
 	// state variable to keep track of sign up form
@@ -41,23 +42,27 @@ function Home(props) {
 	const handleSignUpFormSubmit = async (e) => {
 		try {
 			e.preventDefault();
+			// POST request for signup
 			const res = await axios.post(
 				`https://felp-coders.herokuapp.com/api/signup`,
 				signUpForm
 			);
+			// POST request for login to auto login after signup
 			const loginRes = await axios.post(
 				`https://felp-coders.herokuapp.com/api/signin`,
 				signUpForm
 			);
+			// get data from login POST request response
 			const data = loginRes.data;
 			if (data) {
-				// possibly have to change the dot notation for local storage
+				// store values to local storage
 				window.localStorage.setItem('token', data.token);
 				window.localStorage.setItem('username', data.username);
 				window.localStorage.setItem('userId', data.userId);
+				// set state to true for conditional rendering
 				props.loggedInTrue();
+				// close modal
 				setSignUpModal(false);
-				setLoginModal(false);
 			}
 		} catch (error) {
 			console.log(error);
@@ -75,7 +80,7 @@ function Home(props) {
 			);
 			const data = res.data;
 			if (data) {
-				// set token to local storage
+				// store values to local storage
 				window.localStorage.setItem('token', data.token);
 				window.localStorage.setItem('username', data.username);
 				window.localStorage.setItem('userId', data.userId);
@@ -93,6 +98,7 @@ function Home(props) {
 	const handleLogOut = () => {
 		// clear token in local storage to logout
 		window.localStorage.clear();
+		// set state to false for conditional rendering
 		props.loggedInFalse();
 	}
 
