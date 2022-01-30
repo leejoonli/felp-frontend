@@ -17,36 +17,36 @@ import { useState, useEffect } from 'react';
 function App() {
 	const { pathname } = useLocation();
 
-	const [test, setTest] = useState(false);
+	const [loggedIn, setLoggedIn] = useState(false);
 
 	useEffect(() => {
 		if(window.localStorage.getItem('token')) {
-			setTest(true);
+			setLoggedIn(true);
 		}
 		else {
-			setTest(false);
+			setLoggedIn(false);
 		}
 	}, []);
 
-	const testing = () => {
-		setTest(false);
+	const loggedInFalse = () => {
+		setLoggedIn(false);
 	}
 
-	const testing2 = () => {
-		setTest(true);
+	const loggedInTrue = () => {
+		setLoggedIn(true);
 	}
 	
 	return (
 		<main>
 			{pathname !== '/' && (
 				<Navigation>
-					<NavigationBar testing={testing}></NavigationBar>
+					<NavigationBar testing={loggedInFalse} test={loggedIn}></NavigationBar>
 				</Navigation>
 			)}
 			<div className={styles.fixFooter}>
 				<Routes>
 					<Route path='/' element={<Welcome />} />
-					<Route path='/home' element={<Home test={test} testing={testing} testing2={testing2} />} />
+					<Route path='/home' element={<Home test={loggedIn} testing={loggedInFalse} testing2={loggedInTrue} />} />
 					<Route path='/about' element={<About />} />
 					<Route path='/:state' element={<State />} />
 					<Route path='/:state/:user' element={<Users />} />
