@@ -17,7 +17,7 @@ function Users(props) {
 	const [disabled, setDisabled] = useState(false);
 
 	// useParams to hold the id of the user
-	const { user } = useParams();
+	const { id } = useParams();
 	const { state } = useParams();
 
 	// useEffect to fetch all the posts of the user in a location
@@ -29,7 +29,7 @@ function Users(props) {
 			}
 		}, 5000);
 		getPosts();
-	}, []);
+	}, [id]);
 
 	// async await for axios fetch request
 	const getPosts = async () => {
@@ -38,7 +38,7 @@ function Users(props) {
 				`https://felp-coders.herokuapp.com/api/posts/state/${state}`
 			);
 			// filter through frontend because we didn't know how to filter with nested username in owner property on backend
-			const data = res.data.filter((el) => el.owner.username === user);
+			const data = res.data.filter((el) => el.owner.id === id);
 			setPosts(data);
 		} catch (error) {
 			console.log(error);

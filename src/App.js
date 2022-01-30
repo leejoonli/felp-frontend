@@ -49,7 +49,7 @@ function App() {
 					<Route path='/home' element={<Home loggedIn={loggedIn} loggedInFalse={loggedInFalse} loggedInTrue={loggedInTrue} />} />
 					<Route path='/about' element={<About />} />
 					<Route path='/:state' element={<State />} />
-					<Route path='/:state/:user' element={<Users />} />
+					<Route path='/:state/:id' element={<Users />} />
 					<Route path='/create' element={<Create />} />
 				</Routes>
 			</div>
