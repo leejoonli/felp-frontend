@@ -11,7 +11,7 @@ function Home(props) {
 	const [signUpModal, setSignUpModal] = useState(false);
 	const [loginModal, setLoginModal] = useState(false);
 
-	useEffect(() => {}, [props.test]);
+	useEffect(() => {}, [props.loggedIn]);
 
 	// state variable to keep track of sign up form
 	const [signUpForm, setSignUpForm] = useState({
@@ -202,7 +202,7 @@ function Home(props) {
 					</form>
 				</div>
 			}
-			{props.test ? (
+			{props.loggedIn ? (
 				<div className={styles.currentlyLoggedIn}>
 					<div className={styles.currentlyLoggedInBorder}>
 						<h2 className={styles.currentlyLoggedInHeader}>You Are Currently Logged In!</h2>

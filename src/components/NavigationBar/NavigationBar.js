@@ -11,7 +11,7 @@ function NavigationBar(props) {
 
     return (
 		<nav className={styles.nav_dropdown}>
-			{props.test && (
+			{props.loggedIn && (
 			<>
 				<h2 className={styles.loggedInAs}>Logged in as: {window.localStorage.getItem('username')}</h2>
 			</>
@@ -26,7 +26,7 @@ function NavigationBar(props) {
 					About
 				</h2>
 			</Link>
-			{props.test && (
+			{props.loggedIn && (
 			<>
 				<h2 className={styles.navLogout} onClick={()=>{handleNavLogout()}}>Logout</h2>
 			</>
