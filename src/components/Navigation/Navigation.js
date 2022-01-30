@@ -1,13 +1,10 @@
 // Dependencies
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 
 // Styling
 import styles from './Navigation.module.css';
 
 function Navigation(props) {
-	// const [open, setOpen] = useState(false);
-
 	return (
 		<div className={styles.nav}>
 			<h1 className={styles.nav_logo}>
