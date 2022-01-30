@@ -31,10 +31,6 @@ function Users(props) {
 		getPosts();
 	}, [id]);
 
-	useEffect(() => {
-
-	},);
-
 	// async await for axios fetch request
 	const getPosts = async () => {
 		try {
@@ -52,11 +48,22 @@ function Users(props) {
 	// PATCH request
 	const sendUpdatedPost = async () => {
 		try {
-			await axios.patch(
+			// PATCH request to partially update post
+			const res = await axios.patch(
 				`https://felp-coders.herokuapp.com/api/posts/id/${updatePost._id}`,
 				updatePost,
 				{headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}`}}
 			);
+			// set variable to save data from response
+			const data = res.data;
+			// create temp array to copy old posts
+			let tempArr = [...posts];
+			// find the index of the updated post
+			const tempIndex = tempArr.findIndex((post) => post._id === data._id);
+			// update the posts array with new updated post response
+			tempArr.splice(tempIndex, 1, data);
+			// update state
+			setPosts(tempArr);
 		} catch (error) {
 			console.log(error);
 		}
