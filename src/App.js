@@ -38,12 +38,12 @@ function App() {
 	
 	return (
 		<main>
+			<div>
 			{pathname !== '/' && (
 				<Navigation>
 					<NavigationBar loggedInFalse={loggedInFalse} loggedIn={loggedIn}></NavigationBar>
 				</Navigation>
 			)}
-			<div className={styles.fixFooter}>
 				<Routes>
 					<Route path='/' element={<Welcome />} />
 					<Route path='/home' element={<Home loggedIn={loggedIn} loggedInFalse={loggedInFalse} loggedInTrue={loggedInTrue} />} />
@@ -53,7 +53,7 @@ function App() {
 					<Route path='/create' element={<Create />} />
 				</Routes>
 			</div>
-			<Footer />
+			<Footer className={styles.footer}/>
 		</main>
 	);
 }
