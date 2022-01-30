@@ -38,7 +38,7 @@ function Users(props) {
 				`https://felp-coders.herokuapp.com/api/posts/state/${state}`
 			);
 			// filter through frontend because we didn't know how to filter with nested username in owner property on backend
-			const data = res.data.filter((e) => e.owner.username === user);
+			const data = res.data.filter((el) => el.owner.username === user);
 			setPosts(data);
 		} catch (error) {
 			console.log(error);
@@ -146,7 +146,7 @@ function Users(props) {
 										<h3 className={styles.postCity}>{post.city}</h3>
 									</div>
 									<p className={styles.postMessage}>{post.message}</p>
-									{(window.localStorage.getItem('userId')) === post.owner.id && (
+									{((window.localStorage.getItem('userId')) === post.owner.id) && (
 										<div className={styles.postButtons}>
 											<button
 												className={styles.postButton}
