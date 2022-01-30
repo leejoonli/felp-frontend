@@ -43,19 +43,19 @@ function Users(props) {
 		} catch (error) {
 			console.log(error);
 		}
-	};
+	}
 
 	// PATCH request
 	const sendUpdatedPost = async () => {
 		try {
 			await axios.patch(
-				`https://felp-coders.herokuapp.com/api/posts/id/${updatePost._id}`,
+				`https://felp-coders.herokuapp.com/api/posts/id/${id}`,
 				updatePost
 			);
 		} catch (error) {
 			console.log(error);
 		}
-	};
+	}
 
 	// Function to send DELETE request to the api using the id
 	const handleDelete = async () => {
@@ -70,12 +70,12 @@ function Users(props) {
 		} catch (error) {
 			console.log(error);
 		}
-	};
+	}
 
 	// Function change the state of updatePost
 	const handleChange = (e) => {
 		setUpdatePost({ ...updatePost, [e.target.id]: e.target.value });
-	};
+	}
 
 	// Create a handleSubmit to edit a post
 	const handleSubmit = (e) => {
@@ -83,43 +83,45 @@ function Users(props) {
 		sendUpdatedPost();
 		setUpdateModal(false);
 		setDisabled(false);
-	};
+	}
 
 	// Create a handleClick to open the update modal
 	const openUpdateModal = async (id) => {
 		try {
 			// GET request for specific post
 			const res = await axios.get(
-				`https://felp-coders.herokuapp.com/api/posts/id/${id}`
+				`https://felp-coders.herokuapp.com/api/posts/state/${state}`
 			);
+			// find post from get request by state because we don't know how to filter with nested user schema in owner property on backend
+			const data = res.data.find((el) => el.owner.id === id);
 			// setting state to the response data
-			setUpdatePost(res.data);
+			setUpdatePost(data);
 			// Open the update modal
 			setUpdateModal(true);
 			setDisabled(true);
 		} catch (error) {
 			console.log(error);
 		}
-	};
+	}
 
 	// Create a handleClick to open the delete modal
 	const openDeleteModal = (id) => {
 		setDeleteModal(true);
 		setToDeletePostId(id);
 		setDisabled(true);
-	};
+	}
 
 	// Set updateModal to false to close the modal
 	const closeUpdateModal = () => {
 		setUpdateModal(false);
 		setDisabled(false);
-	};
+	}
 
 	// Set deleteModal to false to close the modal
 	const closeDeleteModal = () => {
 		setDeleteModal(false);
 		setDisabled(false);
-	};
+	}
 
 	return (
 		<div>
@@ -152,7 +154,7 @@ function Users(props) {
 												className={styles.postButton}
 												disabled={disabled}
 												onClick={() => {
-													openUpdateModal(post._id);
+													openUpdateModal(post.owner.id);
 												}}>
 												Edit
 											</button>
@@ -160,7 +162,7 @@ function Users(props) {
 												className={styles.postButton}
 												disabled={disabled}
 												onClick={() => {
-													openDeleteModal(post._id);
+													openDeleteModal(post.owner.id);
 												}}>
 												Delete
 											</button>
