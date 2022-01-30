@@ -193,7 +193,7 @@ function Home(props) {
 					</form>
 				</div>
 			}
-			{loggedIn ? (
+			{window.localStorage.getItem('token') ? (
 				<div className={styles.currentlyLoggedIn}>
 					<div className={styles.currentlyLoggedInBorder}>
 						<h2 className={styles.currentlyLoggedInHeader}>You Are Currently Logged In!</h2>

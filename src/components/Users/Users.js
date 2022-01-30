@@ -146,6 +146,7 @@ function Users(props) {
 										<h3 className={styles.postCity}>{post.city}</h3>
 									</div>
 									<p className={styles.postMessage}>{post.message}</p>
+									{/* {(window.localStorage.getItem(''))} */}
 									<div className={styles.postButtons}>
 										<button
 											className={styles.postButton}
