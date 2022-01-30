@@ -60,8 +60,6 @@ function Create(props) {
 	return (
 		<div className={styles.formContainer}>
 			<form onSubmit={handleSubmit} className={styles.form}>
-				{/* <label htmlFor='name' className={styles.formLabel}>Name:</label>
-				<input onChange={handleChange} id='name' value={newPost.user.name} className={styles.nameInput}/> */}
 				<label htmlFor='state' className={styles.formLabel}>State:</label>
 				<select onChange={handleChange} id='state' className={styles.stateInput}>
 					<option value='' className={styles.option}></option>
