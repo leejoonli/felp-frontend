@@ -1,57 +1,305 @@
 html {
-    background: #edf6f9;
+	background: #edf6f9;
 }
 
 a {
-    text-decoration: none;
-    color: #006d77;
-}
-.home_container {
-    margin-left: 5px;
-    font-family: 'Exo 2', sans-serif;
-    font-size: 12.5px;
-    font-weight: 1000;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-items: center;
+	text-decoration: none;
+	color: #006d77;
 }
 
-.img{
-    height: 75px;
-    width: 100px;
-    border-radius: 5px;
-    border: 5px solid #83c5be;
-    box-shadow: 5px 5px #006d77;
-    margin-top: 5px;
-    margin-bottom: 5px;
+@keyframes slideInFromSide {
+	from {transform: translateX(-100%);}
+    to {transform: translateX(0%);}
+}
+
+.home_container {
+	font-family: 'Exo 2', sans-serif;
+	font-size: 12.5px;
+	font-weight: 1000;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	justify-items: center;
+	animation: slideInFromSide 1s;
+}
+
+.img {
+	height: 75px;
+	width: 100px;
+	border-radius: 5px;
+	border: 5px solid #83c5be;
+	box-shadow: 5px 5px #006d77;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 span {
-    display: block;
-    margin-bottom: 2.5px;
-    text-align: center;
+	display: block;
+	margin-bottom: 2.5px;
+	text-align: center;
 }
 
- .imgHidden{
-        margin-top: 7.5px;
-        height: 75px;
-        width: 150px;
-    }  
+@keyframes slideInFromTop {
+    from {transform: translateY(-150%);}
+    to {transform: translateY(0%);}
+}
 
-@media (min-width: 600px){
-    .img:hover{
-        opacity: .75;
-    }
-    .home_container{
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    }
-     .imgHidden{
-        height: 25px;
-        width: 50px;
-        visibility: hidden;
-    }  
-    .img {
-        height: 125px;
-        width: 250px; 
-    }
+.signUpModalContainer, .LoginModalContainer {
+	border-radius: 5px;
+	margin: 15% 10% 5% 10%;
+	border: 5px solid rgba(0,109,119,.8);
+	background-color: #83c5be;
+	padding: 5%;
+	position: absolute;
+	width: 60%;
+	left: 10%;
+	z-index: 1;
+	overflow: auto;
+	animation: slideInFromTop 1s;
+}
+
+.signUpModal, .loginModalForm {
+	display: flex;
+	flex-direction: column;
+	border: 2px solid #edf6f9;
+	border-radius: 5px;
+	background-color: #006d77;
+	padding: 5%;
+}
+
+.signUpLabel, .loginLabel {
+	font-size: 1.5rem;
+	color: #e29578;
+	margin-bottom: 2%;
+}
+
+/* https://stackoverflow.com/questions/2781549/removing-input-background-colour-for-chrome-autocomplete */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active
+input:-webkit-scrollbar{
+    -webkit-text-fill-color: #ffddd2;
+    background-color: #006d77;
+    display: none;
+}
+
+.signUpModalUsername, .signUpModalEmail, .signUpModalPassword, .loginModalEmail, .loginModalPassword {
+	padding: 2%;
+	border: 2px solid #edf6f9;
+	border-radius: 5px;
+	background-color: #006d77;
+	outline: none;
+	color: #edf6f9;
+	margin-bottom: 2%;
+	font-family: 'exo 2', 'sans-serif';
+}
+
+.signUpModalUsername:-webkit-autofill, .signUpModalEmail:-webkit-autofill, .signUpModalPassword:-webkit-autofill, .loginModalEmail:-webkit-autofill, .loginModalPassword:-webkit-autofill {
+	-webkit-background-clip: text;
+    -webkit-text-fill-color: #ffddd2 !important;
+}
+
+.signUpFormButton, .loginFormButton {
+	border: 2px solid #edf6f9;
+	border-radius: 5px;
+	background-color: #006d77;
+	color: #e29578;
+	width: 30%;
+	padding: 1%;
+	margin-top: 2%;
+	margin-right: 2%;
+}
+
+.signUpFormButton:hover, .loginFormButton:hover {
+	cursor: pointer;
+	background-color: rgba(131,197,188,.5);
+    color: #edf6f9;
+}
+
+@keyframes fadein {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+.loginHeading, .currentlyLoggedIn {
+	margin: 3% 8% 3% 8%;
+	border-radius: 5px;
+	background-color: #83c5be;
+	box-shadow: 5px 5px rgba(0,109,119,1);
+	padding: 2%;
+	animation: fadein 1s;
+}
+
+.currentlyLoggedInBorder {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	padding: 3%;
+	background: #006d77;
+	border: 2px solid #edf6f9;
+	border-radius: 5px;
+}
+
+.currentlyLoggedIn {
+	display: flex;
+	justify-content: space-between;
+	padding: 3%;
+}
+
+.loginHeadingBackground {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	border: 2px solid #edf6f9;
+	background-color: #006d77;
+	border-radius: 5px;
+	padding: 3%;
+}
+
+.loginHeader {
+	font-size: 1.8rem;
+	text-align: center;
+	color: #e29578;
+	flex-basis: 100%;
+	margin-bottom: 2%;
+}
+
+.currentlyLoggedInHeader {
+	font-size: 1.5rem;
+	color: #e29578;
+}
+
+.loginButtons {
+	flex-basis: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+
+.loginButton, .currentlyLoggedInButton {
+	border: 2px solid #edf6f9;
+	border-radius: 5px;
+	background-color: #006d77;
+	color: #e29578;
+	padding: 1% 3%;
+}
+
+.loginButton:hover, .currentlyLoggedInButton:hover {
+	cursor: pointer;
+	background-color: rgba(131,197,188,.5);
+    color: #edf6f9;
+}
+
+/* .currentlyLoggedIn {
+	border: 1px solid red;
+	border-radius: ;
+} */
+
+@media (min-width: 600px) {
+	img:hover {
+		opacity: 0.75;
+	}
+
+	.home_container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		width: 100%;
+	}
+
+	.home {
+		display: flex;
+		flex-basis: 20%;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		object-fit: fill;
+		height: 150px;
+		width: 100%;
+		margin: 20px 0px;
+	}
+
+	.img {
+		margin-top: auto;
+		height: 120px;
+		width: 200px;
+		box-shadow: 10px 10px rgba(0,109,119,.9);
+	}
+
+	span {
+		font-size: 1.5rem;
+	}
+
+	.loginHeading, .currentlyLoggedIn {
+		margin: 2% 15% 2% 15%;
+		box-shadow: 10px 10px rgba(0,109,119,.9);
+		padding: 1%;
+	}
+
+	.loginHeadingBackground, .currentlyLoggedInBorder {
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		border: 2px solid #edf6f9;
+		background-color: #006d77;
+		border-radius: 5px;
+		padding: 1%;
+	}
+
+	.loginHeader, .currentlyLoggedInHeader {
+		font-size: 2.5rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		color: #e29578;
+		margin-bottom: 0;
+		flex-basis: 70%;
+	}
+
+	.currentlyLoggedInHeader {
+		justify-content: flex-start;
+		margin-left: 5%;
+	}
+
+	.loginButtons {
+		flex-basis: 30%;
+		justify-content: flex-end;
+	}
+
+	.loginButton {
+		font-size: 1.2rem;
+		padding: 1% 8%;
+		margin-right: 10%;
+	}
+
+	.currentlyLoggedInButton {
+		margin-right: 5%;
+		font-size: 1.2rem;
+		padding: 0% 3%;
+	}
+
+	.signUpModalContainer, .LoginModalContainer {
+		margin: auto;
+		border: 10px solid rgba(0,109,119,.8);
+		padding: 2%;
+		width: 30%;
+		top: 10%;
+		left: 35%;
+	}
+
+	.signUpLabel, .loginLabel {
+		font-size: 2rem;
+	}
+
+	.signUpModalUsername, .signUpModalEmail, .signUpModalPassword, .loginModalEmail, .loginModalPassword {
+		font-size: 1.2rem;
+		padding: 2%;
+	}
+
+	.signUpFormButton, .loginFormButton {
+		font-size: 1.2rem;
+		margin-top: 2%;
+		margin-right: 5%;
+	}
 }

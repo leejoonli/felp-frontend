@@ -1,9 +1,9 @@
 .nav {
 	display: flex;
 	flex-direction: row;
-	justify-content: flex-end;
+	justify-content: space-between;
 	font-size: 18px;
-	padding: 1rem;
+	padding: none;
 	background-color: #006d77;
 	text-decoration: none;
 	color: #edf6f9;
@@ -19,18 +19,12 @@ a {
 }
 
 .nav_logo {
-	font-size: 60px;
-	font-weight: bold;
-	margin: 0px;
-}
-
-.nav_dropdown {
+	margin-right: 0px;
 	display: flex;
-	flex-direction: column;
 }
 
 .nav_options {
-	padding: 0px 10px 0px 10px;
+	/* padding: 0px 10px 0px 10px; */
 }
 
 .nav_options :hover {
@@ -40,40 +34,66 @@ a {
 	border-radius: 5px;
 }
 
+.nav_logob {
+	width: 200px;
+}
+
 .nav_img {
+	/* background-size: auto; */
+	width: 45%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.nav_imgb {
 	background-size: auto;
+	border-radius: 8px;
+	border: solid #83c5be 2px;
+	padding: 10%;
 }
 
 .nav_imgb:hover {
 	background-size: auto;
-    background-color: #83c5be;
-    border-radius: 8px;
+	background-color: #83c5be;
+	border-radius: 8px;
 }
 
 .nav_dropdown {
 	position: absolute;
 	top: 50px;
-	width: 100%;
-	transform: translateX(-45%);
 	background-color: #e29578;
-	border: 1px solid #474a4d;
+	border: 2px solid #474a4d;
 	border-radius: 8px;
 	padding: 1rem;
 	overflow: hidden;
 	transition: height 500ms ease;
+	margin-top: 30px;
 }
 
-.menu_item {
-	height: 100px;
+.menu_item, .loggedInAs, .navLogout {
+	font-size: 1.5rem;
+	height: 10%;
 	display: flex;
 	align-items: center;
 	border-radius: 8px;
-	transition: background 500ms;
 	padding: 0.5rem;
+	width: 100%;
 }
 
-.menu_item:hover {
+.menu_item:hover, .navLogout:hover {
 	background-color: #e9af9b;
 	color: #edf6f9;
 	border-radius: 8px;
+	cursor: pointer;
+}
+
+@media (min-width: 1000px) {
+	.nav_img {
+		width: 80%;
+	}
+
+	.menu_item, .navLogout, .loggedInAs {
+		font-size: 2rem;
+	}
 }

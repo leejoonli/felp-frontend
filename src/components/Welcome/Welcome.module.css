@@ -7,27 +7,24 @@ html {
 	background-color: #edf6f9;
 }
 
-.welcome_title_container {
+.welcomeTitleContainer {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	top: 180px;
+	top: 18.5%;
 	left: 50%;
-	/* bring your own prefixes */
 	transform: translate(-50%, -50%);
 	width: 100%;
 	color: #edf6f9;
 }
 
-.welcome_title {
+.welcomeTitle {
 	padding: 20px;
-	font-size: 5rem;
+	font-size: 2.8rem;
 	font-family: 'Exo 2', sans-serif;
 	font-weight: 800;
-	/* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-		1px 1px 0 #000; */
 	animation: fadeinlong 2s;
 	margin-bottom: 30px;
 }
@@ -53,10 +50,9 @@ html {
 	}
 }
 
-.welcome_enter {
+.welcomeEnter {
 	text-decoration: none;
 	font-family: 'Exo 2', sans-serif;
-	animation: fadeinlong 6s;
 	padding-top: 20px;
 	color: #edf6f9;
 	text-align: center;
@@ -80,70 +76,74 @@ html {
 	}
 }
 
-.welcome_h3 {
+.welcomeH3 {
 	color: #edf6f9;
-	animation: pulse 1500ms infinite;
-	animation-delay: 6s;
+	animation-name: fadeinlong, pulse;
+	animation-duration: 4s, 1500ms;
+	animation-iteration-count: 1, infinite;
+	animation-delay: 0s, 4s;
 }
 
-.welcome_img {
+.welcomeImg {
 	object-fit: fill;
 	height: 20vh;
 	width: 100%;
 	border-radius: 3px;
 }
 
-.welcome_foodimg {
+.welcomeFoodImg,
+.welcomeExpImg,
+.welcomeLikeImg,
+.welcomePostImg {
+	padding: 10px;
+	border-radius: 3px;
+	margin: 10px 20px;
+}
+
+.welcomeFoodImg {
 	background-color: #006d77;
-	padding: 10px;
-	border-radius: 3px;
-	margin: 10px 20px;
 }
-.welcome_expimg {
+.welcomeExpImg {
 	background-color: #83c5be;
-	padding: 10px;
-	border-radius: 3px;
-	margin: 10px 20px;
 }
-.welcome_likeimg {
+.welcomeLikeImg {
 	background-color: #ffddd2;
-	padding: 10px;
-	border-radius: 3px;
-	margin: 10px 20px;
 }
-.welcome_postimg {
+.welcomePostImg {
 	background-color: #e29578;
-	padding: 10px;
-	border-radius: 3px;
-	margin: 10px 20px;
 }
-.footer_div {
+.footerDiv {
 	display: flex;
 	flex-direction: row;
 	width: 100%;
 	justify-content: space-evenly;
 	margin: 10px 0px 10px 0px;
 }
-.footer_img {
+.footerImg {
 	object-fit: fill;
 	border-radius: 50%;
 	height: 50px;
 	width: 50px;
 }
 
-.welcome_logo {
+.welcomeLogo {
 	display: none;
 }
 
+@media (min-width: 400px) {
+	.welcomeTitle {
+		font-size: 5rem;
+	}
+}
 @media (min-width: 600px) {
-	.welcome_container {
+	.welcomeContainer {
 		display: grid;
 		grid-template-columns: 0.1fr 0.4fr 40px 0.4fr 0.1fr;
 		grid-template-rows: 0.4fr 0.1fr 0.4fr 40px;
 		height: 100vh;
 		padding: auto;
 	}
-	.welcome_title_container {
+	.welcomeTitleContainer {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-around;
@@ -155,13 +155,15 @@ html {
 		grid-row: 2;
 		grid-column: 1 / 6;
 	}
-	.welcome_title {
+	.welcomeTitle {
 		font-size: 10rem;
 		margin-bottom: auto;
 	}
-	.welcome_h3 {
-		animation: pulse 1500ms infinite;
-		animation-delay: 6s;
+	.welcomeH3 {
+		animation-name: fadeinlong, pulse;
+		animation-duration: 4s, 1500ms;
+		animation-iteration-count: 1, infinite;
+		animation-delay: 0s, 4s;
 		color: black;
 		display: flex;
 		flex-direction: row;
@@ -172,7 +174,7 @@ html {
 		font-size: 1.3rem;
 	}
 
-	.welcome_img {
+	.welcomeImg {
 		object-fit: fill;
 		height: 20vh;
 		width: 350px;
@@ -180,10 +182,10 @@ html {
 		border: 2px solid white;
 	}
 
-	.welcome_foodimg,
-	.welcome_expimg,
-	.welcome_likeimg,
-	.welcome_postimg {
+	.welcomeFoodImg,
+	.welcomeExpImg,
+	.welcomeLikeImg,
+	.welcomePostImg {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -195,12 +197,12 @@ html {
 		margin: 10px 20px;
 	}
 
-	.welcome_foodimg {
+	.welcomeFoodImg {
 		background-color: #006d77;
 		grid-row: 1;
 		grid-column: 2;
 	}
-	.welcome_expimg {
+	.welcomeExpImg {
 		background-color: #83c5be;
 		padding: 10px;
 		border-radius: 3px;
@@ -208,12 +210,12 @@ html {
 		grid-row: 1;
 		grid-column: 4;
 	}
-	.welcome_likeimg {
+	.welcomeLikeImg {
 		background-color: #ffddd2;
 		grid-row: 3;
 		grid-column: 2;
 	}
-	.welcome_postimg {
+	.welcomePostImg {
 		background-color: #e29578;
 		grid-row: 3;
 		grid-column: 4;
@@ -222,7 +224,10 @@ html {
 		grid-row: 4;
 		grid-column: 1 / 6;
 	}
-	.footer_div {
+	.footer {
+		padding-bottom: 2.5rem;
+	}
+	.footerDiv {
 		display: flex;
 		flex-direction: row;
 		width: 100%;
@@ -230,19 +235,23 @@ html {
 		margin: 10px 0px 10px 0px;
 		grid-row: 4;
 		grid-column: 2 / 5;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 1.5rem;
 	}
-	.footer_img {
+	.footerImg {
 		object-fit: fill;
 		border-radius: 50%;
 		border: 2px solid white;
 		height: 50px;
 		width: 50px;
 	}
-	.welcome_logo {
+	.welcomeLogo {
 		display: block;
 		height: 150px;
 	}
-	.welcome_text {
+	.welcomeText {
 		display: flex;
 		flex-direction: column;
 	}

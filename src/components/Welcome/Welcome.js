@@ -5,48 +5,48 @@ import styles from './Welcome.module.css';
 
 function Welcome(props) {
 	return (
-		<div className={styles.welcome_container}>
-			<div className={styles.welcome_foodimg}>
+		<div className={styles.welcomeContainer}>
+			<div className={styles.welcomeFoodImg}>
 				<img
-					className={styles.welcome_img}
+					className={styles.welcomeImg}
 					src="https://i.imgur.com/xA3zulu.jpg"
 					alt=""
 				/>
 			</div>
-			<div className={styles.welcome_expimg}>
+			<div className={styles.welcomeExpImg}>
 				<img
-					className={styles.welcome_img}
+					className={styles.welcomeImg}
 					src="https://i.imgur.com/vyGjufO.jpg"
 					alt=""
 				/>
 			</div>
-			<div className={styles.welcome_likeimg}>
+			<div className={styles.welcomeLikeImg}>
 				<img
-					className={styles.welcome_img}
+					className={styles.welcomeImg}
 					src="https://i.imgur.com/ColQxZo.jpg"
 					alt=""
 				/>
 			</div>
-			<div className={styles.welcome_postimg}>
+			<div className={styles.welcomePostImg}>
 				<img
-					className={styles.welcome_img}
+					className={styles.welcomeImg}
 					src="https://i.imgur.com/zGEmCVG.jpg"
 					alt=""
 				/>
 			</div>
 
-			<div className={styles.welcome_title_container}>
+			<div className={styles.welcomeTitleContainer}>
 				<div>
 					<img
 						src="https://i.imgur.com/ogi8uwx.png"
 						alt="felp-logo"
-						className={styles.welcome_logo}
+						className={styles.welcomeLogo}
 					/>
 				</div>
-				<div className={styles.welcome_text}>
-					<h1 className={styles.welcome_title}>F E L P</h1>
-					<Link to="/home" className={styles.welcome_enter}>
-						<h3 className={styles.welcome_h3}>Click Here to Enter!</h3>
+				<div className={styles.welcomeText}>
+					<h1 className={styles.welcomeTitle}>F E L P</h1>
+					<Link to="/home" className={styles.welcomeEnter}>
+						<h3 className={styles.welcomeH3}>Click Here to Enter!</h3>
 					</Link>
 				</div>
 
@@ -54,7 +54,7 @@ function Welcome(props) {
 					<img
 						src="https://i.imgur.com/ogi8uwx.png"
 						alt="felp-logo"
-						className={styles.welcome_logo}
+						className={styles.welcomeLogo}
 					/>
 				</div>
 			</div>
