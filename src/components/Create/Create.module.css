@@ -33,9 +33,10 @@ input:-webkit-scrollbar{
 }
 
 .nameInput, .stateInput, .cityInput, .titleInput, .yearsInput, .messageInput, .typeInput {
+    font-family: 'exo 2', 'sans-serif';
     border: 2px solid #edf6f9;
     border-radius: 5px;
-    padding: 3px;
+    padding: 5px;
     background-color: #006d77;
     color: #ffddd2;
     outline: none;
@@ -110,8 +111,8 @@ input:-webkit-scrollbar{
         padding-bottom: 1%;
     }
 
-    .nameInput, .stateInput, .cityInput, .titleInput, .yearsInput, .messageInput, .typeInput {
-        padding: 5px;
+    .stateInput, .cityInput, .titleInput, .yearsInput, .messageInput, .typeInput {
+        padding: 10px;
         margin-bottom: 1.5%;
     }
 
