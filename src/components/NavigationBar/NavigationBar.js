@@ -16,6 +16,7 @@ function NavigationBar(props) {
 	const handleNavLogout = () => {
 		window.localStorage.clear();
 		setLoggedIn(false);
+		props.testing();
 	}
 
     return (

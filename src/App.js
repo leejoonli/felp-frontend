@@ -12,21 +12,28 @@ import styles from './App.module.css';
 
 // Dependencies
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { useState } from 'react';
 
 function App() {
 	const { pathname } = useLocation();
 
+	const [test, setTest] = useState(true);
+
+	const testing = () => {
+		setTest(false);
+	}
+	
 	return (
 		<main>
 			{pathname !== '/' && (
 				<Navigation>
-					<NavigationBar></NavigationBar>
+					<NavigationBar testing={testing}></NavigationBar>
 				</Navigation>
 			)}
 			<div className={styles.fixFooter}>
 				<Routes>
 					<Route path='/' element={<Welcome />} />
-					<Route path='/home' element={<Home />} />
+					<Route path='/home' element={<Home test={test} />} />
 					<Route path='/about' element={<About />} />
 					<Route path='/:state' element={<State />} />
 					<Route path='/:state/:user' element={<Users />} />

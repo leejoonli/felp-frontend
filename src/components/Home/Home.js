@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Home.module.css';
 
 // Dependencies
@@ -7,9 +7,13 @@ import axios from 'axios';
 
 function Home(props) {
 	// Set log in state to be false
-	const [loggedIn, setLoggedIn] = useState(false);
+	const [loggedIn, setLoggedIn] = useState(props.test);
 	const [signUpModal, setSignUpModal] = useState(false);
 	const [loginModal, setLoginModal] = useState(false);
+
+	useEffect(() => {
+		console.log(props.test);
+	}, [props.test]);
 
 	// state variable to keep track of sign up form
 	const [signUpForm, setSignUpForm] = useState({
@@ -197,7 +201,7 @@ function Home(props) {
 					</form>
 				</div>
 			}
-			{window.localStorage.getItem('token') ? (
+			{loggedIn ? (
 				<div className={styles.currentlyLoggedIn}>
 					<div className={styles.currentlyLoggedInBorder}>
 						<h2 className={styles.currentlyLoggedInHeader}>You Are Currently Logged In!</h2>
