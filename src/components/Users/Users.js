@@ -31,6 +31,10 @@ function Users(props) {
 		getPosts();
 	}, [id]);
 
+	useEffect(() => {
+
+	},);
+
 	// async await for axios fetch request
 	const getPosts = async () => {
 		try {
@@ -49,8 +53,9 @@ function Users(props) {
 	const sendUpdatedPost = async () => {
 		try {
 			await axios.patch(
-				`https://felp-coders.herokuapp.com/api/posts/id/${id}`,
-				updatePost
+				`https://felp-coders.herokuapp.com/api/posts/id/${updatePost._id}`,
+				updatePost,
+				{headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}`}}
 			);
 		} catch (error) {
 			console.log(error);
@@ -90,12 +95,12 @@ function Users(props) {
 		try {
 			// GET request for specific post
 			const res = await axios.get(
-				`https://felp-coders.herokuapp.com/api/posts/state/${state}`
+				`https://felp-coders.herokuapp.com/api/posts/id/${id}`
 			);
 			// find post from get request by state because we don't know how to filter with nested user schema in owner property on backend
-			const data = res.data.find((el) => el.owner.id === id);
+			// const data = res.data.find((el) => el.owner.id === id);
 			// setting state to the response data
-			setUpdatePost(data);
+			setUpdatePost(res.data);
 			// Open the update modal
 			setUpdateModal(true);
 			setDisabled(true);
@@ -154,7 +159,7 @@ function Users(props) {
 												className={styles.postButton}
 												disabled={disabled}
 												onClick={() => {
-													openUpdateModal(post.owner.id);
+													openUpdateModal(post._id);
 												}}>
 												Edit
 											</button>
@@ -162,7 +167,7 @@ function Users(props) {
 												className={styles.postButton}
 												disabled={disabled}
 												onClick={() => {
-													openDeleteModal(post.owner.id);
+													openDeleteModal(post._id);
 												}}>
 												Delete
 											</button>
