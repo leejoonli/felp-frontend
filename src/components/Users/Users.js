@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Users.module.css';
-// import Posts from '../Posts/Posts';
 
 // Dependencies
 import { useEffect, useState } from 'react';
