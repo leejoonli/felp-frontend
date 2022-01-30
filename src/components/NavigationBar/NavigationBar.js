@@ -22,7 +22,7 @@ function NavigationBar(props) {
 		<nav className={styles.nav_dropdown}>
 			{loggedin && (
 			<>
-				<h2 className={styles.menu_item}>Logged in as: {window.localStorage.getItem('username')}</h2>
+				<h2 className={styles.loggedInAs}>Logged in as: {window.localStorage.getItem('username')}</h2>
 			</>
 			)}
 			<Link to='/create'>
@@ -37,7 +37,7 @@ function NavigationBar(props) {
 			</Link>
 			{loggedin && (
 			<>
-				<h2 className={styles.menu_item} onClick={()=>{handleNavLogout()}}>Logout</h2>
+				<h2 className={styles.navLogout} onClick={()=>{handleNavLogout()}}>Logout</h2>
 			</>
 			)}
 		</nav>

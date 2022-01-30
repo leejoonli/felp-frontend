@@ -71,7 +71,7 @@ a {
 	margin-top: 30px;
 }
 
-.menu_item {
+.menu_item, .loggedInAs, .navLogout {
 	font-size: 1.5rem;
 	height: 10%;
 	display: flex;
@@ -81,10 +81,11 @@ a {
 	width: 100%;
 }
 
-.menu_item:hover {
+.menu_item:hover, .navLogout:hover {
 	background-color: #e9af9b;
 	color: #edf6f9;
 	border-radius: 8px;
+	cursor: pointer;
 }
 
 @media (min-width: 600px) {
