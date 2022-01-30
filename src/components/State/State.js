@@ -46,7 +46,7 @@ function State(props) {
 							// add more user info like city, years of residence, etc
 							return (
 								<Link
-									to={`/${state}/`}
+									to={`/${state}/${user.owner.username}`}
 									key={`${user.owner.username}-${index}`}>
 									<li className={styles.user}>
 										<div className={styles.userData}>

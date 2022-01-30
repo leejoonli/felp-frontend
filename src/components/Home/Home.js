@@ -194,14 +194,17 @@ function Home(props) {
 				</div>
 			}
 			{loggedIn ? (
-				<div>
-					<h2>You Are Currently Logged In!</h2>
-					<button
-						onClick={() => {
-							handleLogOut();
-						}}>
-						Log Out
-					</button>
+				<div className={styles.currentlyLoggedIn}>
+					<div className={styles.currentlyLoggedInBorder}>
+						<h2 className={styles.currentlyLoggedInHeader}>You Are Currently Logged In!</h2>
+						<button
+							onClick={() => {
+								handleLogOut();
+							}}
+							className={styles.currentlyLoggedInButton}>
+							Log Out
+						</button>
+					</div>
 				</div>
 			) : (
 				<div className={styles.loginHeading} style={{filter: (signUpModal || loginModal) && 'blur(4px)', pointerEvents: (signUpModal || loginModal) && 'none'}}>
