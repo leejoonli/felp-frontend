@@ -1,21 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../Navigation/Navigation.module.css';
 
 function NavigationBar(props) {
+	// function to handle logout in the hamburger menu
+	const handleNavLogout = () => {
+		window.localStorage.clear();
+		props.loggedInFalse();
+	}
+
     return (
-			<nav className={styles.nav_dropdown}>
-					<Link to='/create'>
+		<nav className={styles.nav_dropdown} id='closeHamburgerMenu'>
+			{props.loggedIn && (
+			<>
+				<h2 className={styles.loggedInAs}>Logged in as: {window.localStorage.getItem('username')}</h2>
+			</>
+			)}
+			<Link to='/create'>
 				<h2 className={styles.menu_item}>
-                        New Post
+					New Post
 				</h2>
-                        </Link>
-					<Link to='/about'>
+			</Link>
+			<Link to='/about'>
 				<h2 className={styles.menu_item}>
-                        About
+					About
 				</h2>
-                        </Link>
-			</nav>
+			</Link>
+			{props.loggedIn && (
+			<>
+				<h2 className={styles.navLogout} onClick={()=>{handleNavLogout()}}>Logout</h2>
+			</>
+			)}
+		</nav>
     );
 }
 

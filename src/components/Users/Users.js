@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Users.module.css';
-// import Posts from '../Posts/Posts';
 
 // Dependencies
 import { useEffect, useState } from 'react';
@@ -18,7 +17,7 @@ function Users(props) {
 	const [disabled, setDisabled] = useState(false);
 
 	// useParams to hold the id of the user
-	const { user } = useParams();
+	const { id } = useParams();
 	const { state } = useParams();
 
 	// useEffect to fetch all the posts of the user in a location
@@ -30,7 +29,7 @@ function Users(props) {
 			}
 		}, 5000);
 		getPosts();
-	}, []);
+	}, [id]);
 
 	// async await for axios fetch request
 	const getPosts = async () => {
@@ -39,24 +38,36 @@ function Users(props) {
 				`https://felp-coders.herokuapp.com/api/posts/state/${state}`
 			);
 			// filter through frontend because we didn't know how to filter with nested username in owner property on backend
-			const data = res.data.filter((e) => e.owner.username === user);
+			const data = res.data.filter((el) => el.owner.id === id);
 			setPosts(data);
 		} catch (error) {
 			console.log(error);
 		}
-	};
+	}
 
 	// PATCH request
 	const sendUpdatedPost = async () => {
 		try {
-			await axios.patch(
+			// PATCH request to partially update post
+			const res = await axios.patch(
 				`https://felp-coders.herokuapp.com/api/posts/id/${updatePost._id}`,
-				updatePost
+				updatePost,
+				{headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}`}}
 			);
+			// set variable to save data from response
+			const data = res.data;
+			// create temp array to copy old posts
+			let tempArr = [...posts];
+			// find the index of the updated post
+			const tempIndex = tempArr.findIndex((post) => post._id === data._id);
+			// update the posts array with new updated post response
+			tempArr.splice(tempIndex, 1, data);
+			// update state
+			setPosts(tempArr);
 		} catch (error) {
 			console.log(error);
 		}
-	};
+	}
 
 	// Function to send DELETE request to the api using the id
 	const handleDelete = async () => {
@@ -71,12 +82,12 @@ function Users(props) {
 		} catch (error) {
 			console.log(error);
 		}
-	};
+	}
 
 	// Function change the state of updatePost
 	const handleChange = (e) => {
 		setUpdatePost({ ...updatePost, [e.target.id]: e.target.value });
-	};
+	}
 
 	// Create a handleSubmit to edit a post
 	const handleSubmit = (e) => {
@@ -84,7 +95,7 @@ function Users(props) {
 		sendUpdatedPost();
 		setUpdateModal(false);
 		setDisabled(false);
-	};
+	}
 
 	// Create a handleClick to open the update modal
 	const openUpdateModal = async (id) => {
@@ -93,6 +104,8 @@ function Users(props) {
 			const res = await axios.get(
 				`https://felp-coders.herokuapp.com/api/posts/id/${id}`
 			);
+			// find post from get request by state because we don't know how to filter with nested user schema in owner property on backend
+			// const data = res.data.find((el) => el.owner.id === id);
 			// setting state to the response data
 			setUpdatePost(res.data);
 			// Open the update modal
@@ -101,34 +114,34 @@ function Users(props) {
 		} catch (error) {
 			console.log(error);
 		}
-	};
+	}
 
 	// Create a handleClick to open the delete modal
 	const openDeleteModal = (id) => {
 		setDeleteModal(true);
 		setToDeletePostId(id);
 		setDisabled(true);
-	};
+	}
 
 	// Set updateModal to false to close the modal
 	const closeUpdateModal = () => {
 		setUpdateModal(false);
 		setDisabled(false);
-	};
+	}
 
 	// Set deleteModal to false to close the modal
 	const closeDeleteModal = () => {
 		setDeleteModal(false);
 		setDisabled(false);
-	};
+	}
 
 	return (
 		<div>
 			{posts.length ? (
-				<>
+				<div style={{filter: (updateModal || deleteModal) && 'blur(4px)', pointerEvents: (updateModal || deleteModal) && 'none'}}>
 					<div className={styles.nameAndYearsContainer}>
 						<div className={styles.nameAndYears}>
-							<h2></h2>
+							<h2 className={styles.name}>{posts[0].owner.username}</h2>
 							<h3 className={styles.years}>
 								{posts[0].years_of_residence} years in {posts[0].state}
 							</h3>
@@ -147,29 +160,31 @@ function Users(props) {
 										<h3 className={styles.postCity}>{post.city}</h3>
 									</div>
 									<p className={styles.postMessage}>{post.message}</p>
-									<div className={styles.postButtons}>
-										<button
-											className={styles.postButton}
-											disabled={disabled}
-											onClick={() => {
-												openUpdateModal(post._id);
-											}}>
-											Edit
-										</button>
-										<button
-											className={styles.postButton}
-											disabled={disabled}
-											onClick={() => {
-												openDeleteModal(post._id);
-											}}>
-											Delete
-										</button>
-									</div>
+									{((window.localStorage.getItem('userId')) === post.owner.id) && (
+										<div className={styles.postButtons}>
+											<button
+												className={styles.postButton}
+												disabled={disabled}
+												onClick={() => {
+													openUpdateModal(post._id);
+												}}>
+												Edit
+											</button>
+											<button
+												className={styles.postButton}
+												disabled={disabled}
+												onClick={() => {
+													openDeleteModal(post._id);
+												}}>
+												Delete
+											</button>
+										</div>
+									)}
 								</div>
 							);
 						})}
 					</div>
-				</>
+				</div>
 			) : !posts.length && loading ? (
 				<h2 className={styles.loading}>Loading...</h2>
 			) : !posts.length && !loading ? (

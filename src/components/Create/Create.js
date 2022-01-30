@@ -60,17 +60,59 @@ function Create(props) {
 	return (
 		<div className={styles.formContainer}>
 			<form onSubmit={handleSubmit} className={styles.form}>
-				{/* <label htmlFor='name' className={styles.formLabel}>Name:</label>
-				<input onChange={handleChange} id='name' value={newPost.user.name} className={styles.nameInput}/> */}
 				<label htmlFor='state' className={styles.formLabel}>State:</label>
 				<select onChange={handleChange} id='state' className={styles.stateInput}>
 					<option value='' className={styles.option}></option>
-					<option value='NY' className={styles.option}>New York</option>
-					<option value='NJ' className={styles.option}>New Jersey</option>
-					<option value='PA' className={styles.option}>Pennsylvania</option>
-					<option value='MD' className={styles.option}>Maryland</option>
+					<option value='AL' className={styles.option}>Alabama</option>
+					<option value='AK' className={styles.option}>Alaska</option>
+					<option value='AZ' className={styles.option}>Arizona</option>
+					<option value='AR' className={styles.option}>Arkansas</option>
 					<option value='CA' className={styles.option}>California</option>
+					<option value='CO' className={styles.option}>Colorado</option>
+					<option value='CT' className={styles.option}>Connecticut</option>
+					<option value='DE' className={styles.option}>Delaware</option>
+					<option value='FL' className={styles.option}>Florida</option>
 					<option value='GA' className={styles.option}>Georgia</option>
+					<option value='HI' className={styles.option}>Hawaii</option>
+					<option value='ID' className={styles.option}>Idaho</option>
+					<option value='IL' className={styles.option}>Illinois</option>
+					<option value='IN' className={styles.option}>Indiana</option>
+					<option value='IA' className={styles.option}>Iowa</option>
+					<option value='KS' className={styles.option}>Kansas</option>
+					<option value='KY' className={styles.option}>Kentucky</option>
+					<option value='LA' className={styles.option}>Louisiana</option>
+					<option value='ME' className={styles.option}>Maine</option>
+					<option value='MD' className={styles.option}>Maryland</option>
+					<option value='MA' className={styles.option}>Massachusetts</option>
+					<option value='MI' className={styles.option}>Michigan</option>
+					<option value='MN' className={styles.option}>Minnesota</option>
+					<option value='MS' className={styles.option}>Mississippi</option>
+					<option value='MO' className={styles.option}>Missouri</option>
+					<option value='MT' className={styles.option}>Montana</option>
+					<option value='NE' className={styles.option}>Nebraska</option>
+					<option value='NV' className={styles.option}>Nevada</option>
+					<option value='NH' className={styles.option}>New Hampshire</option>
+					<option value='NJ' className={styles.option}>New Jersey</option>
+					<option value='NM' className={styles.option}>New Mexico</option>
+					<option value='NY' className={styles.option}>New York</option>
+					<option value='NC' className={styles.option}>North Carolina</option>
+					<option value='ND' className={styles.option}>North Dakota</option>
+					<option value='OH' className={styles.option}>Ohio</option>
+					<option value='OK' className={styles.option}>Oklahoma</option>
+					<option value='OR' className={styles.option}>Oregon</option>
+					<option value='PA' className={styles.option}>Pennsylvania</option>
+					<option value='RI' className={styles.option}>Rhode Island</option>
+					<option value='SC' className={styles.option}>South Carolina</option>
+					<option value='SD' className={styles.option}>South Dakota</option>
+					<option value='TN' className={styles.option}>Tennessee</option>
+					<option value='TX' className={styles.option}>Texas</option>
+					<option value='UT' className={styles.option}>Utah</option>
+					<option value='VT' className={styles.option}>Vermont</option>
+					<option value='VA' className={styles.option}>Virginia</option>
+					<option value='WA' className={styles.option}>Washington</option>
+					<option value='WV' className={styles.option}>West Virginia</option>
+					<option value='WI' className={styles.option}>Wisconsin</option>
+					<option value='WY' className={styles.option}>Wyoming</option>
 				</select>
 				<label htmlFor='city' className={styles.formLabel}>City:</label>
 				<input onChange={handleChange} id='city' value={newPost.city} className={styles.cityInput}/>
