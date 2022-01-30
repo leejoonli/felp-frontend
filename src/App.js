@@ -19,6 +19,8 @@ function App() {
 
 	const [loggedIn, setLoggedIn] = useState(false);
 
+	const [open, setOpen] = useState(false);
+
 	useEffect(() => {
 		if(window.localStorage.getItem('token')) {
 			setLoggedIn(true);
@@ -35,12 +37,22 @@ function App() {
 	const loggedInTrue = () => {
 		setLoggedIn(true);
 	}
+
+	const openTrue = () => {
+		setOpen(true);
+	}
 	
+	const closeMenu = (e) => {
+		if(!e.target.id) {
+			setOpen(false);
+		}
+	}
+
 	return (
-		<main>
+		<main onClick={(event)=>{closeMenu(event)}}>
 			<div>
 			{pathname !== '/' && (
-				<Navigation>
+				<Navigation openTrue={openTrue} open={open}>
 					<NavigationBar loggedInFalse={loggedInFalse} loggedIn={loggedIn}></NavigationBar>
 				</Navigation>
 			)}

@@ -6,7 +6,7 @@ import { useState } from 'react';
 import styles from './Navigation.module.css';
 
 function Navigation(props) {
-	const [open, setOpen] = useState(false);
+	// const [open, setOpen] = useState(false);
 
 	return (
 		<div className={styles.nav}>
@@ -31,10 +31,11 @@ function Navigation(props) {
 						className={styles.nav_imgb}
 						src='https://img.icons8.com/windows/32/000000/menu--v3.png'
 						alt='dropdown'
-						onClick={() => setOpen(!open)}
+						onClick={() => props.openTrue()}
+						id='closeHamburgerMenu'
 					/>
 				</div>
-				{open && props.children}
+				{props.open && props.children}
 			</div>
 			<div id='root'></div>
 		</div>

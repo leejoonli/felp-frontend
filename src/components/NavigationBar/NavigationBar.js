@@ -10,7 +10,7 @@ function NavigationBar(props) {
 	}
 
     return (
-		<nav className={styles.nav_dropdown}>
+		<nav className={styles.nav_dropdown} id='closeHamburgerMenu'>
 			{props.loggedIn && (
 			<>
 				<h2 className={styles.loggedInAs}>Logged in as: {window.localStorage.getItem('username')}</h2>
