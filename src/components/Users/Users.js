@@ -64,6 +64,8 @@ function Users(props) {
 			tempArr.splice(tempIndex, 1, data);
 			// update state
 			setPosts(tempArr);
+			setUpdateModal(false);
+			setDisabled(false);
 		} catch (error) {
 			console.log(error);
 		}
@@ -73,9 +75,19 @@ function Users(props) {
 	const handleDelete = async () => {
 		try {
 			// DELETE request to api
-			await axios.delete(
-				`https://felp-coders.herokuapp.com/api/posts/id/${toDeletePostId}`
+			const res = await axios.delete(
+				`https://felp-coders.herokuapp.com/api/posts/id/${toDeletePostId}`,
+				{headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}`}}
 			);
+			// set variable for the response data
+			const data = res.data;
+			// create temp array to copy old posts
+			let tempArr = [...posts];
+			// find the index of the deleted post
+			const tempIndex = tempArr.findIndex((post) => post._id === data._id);
+			// update the posts state with the new temp array to update the page
+			tempArr.splice(tempIndex, 1);
+			setPosts(tempArr);
 			// Close the delete modal
 			setDeleteModal(false);
 			setDisabled(false);
@@ -105,7 +117,6 @@ function Users(props) {
 				`https://felp-coders.herokuapp.com/api/posts/id/${id}`
 			);
 			// find post from get request by state because we don't know how to filter with nested user schema in owner property on backend
-			// const data = res.data.find((el) => el.owner.id === id);
 			// setting state to the response data
 			setUpdatePost(res.data);
 			// Open the update modal
