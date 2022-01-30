@@ -40,13 +40,13 @@ function App() {
 		<main>
 			{pathname !== '/' && (
 				<Navigation>
-					<NavigationBar testing={loggedInFalse} loggedIn={loggedIn}></NavigationBar>
+					<NavigationBar loggedInFalse={loggedInFalse} loggedIn={loggedIn}></NavigationBar>
 				</Navigation>
 			)}
 			<div className={styles.fixFooter}>
 				<Routes>
 					<Route path='/' element={<Welcome />} />
-					<Route path='/home' element={<Home loggedIn={loggedIn} testing={loggedInFalse} testing2={loggedInTrue} />} />
+					<Route path='/home' element={<Home loggedIn={loggedIn} loggedInFalse={loggedInFalse} loggedInTrue={loggedInTrue} />} />
 					<Route path='/about' element={<About />} />
 					<Route path='/:state' element={<State />} />
 					<Route path='/:state/:user' element={<Users />} />

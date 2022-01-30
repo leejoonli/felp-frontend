@@ -6,7 +6,7 @@ function NavigationBar(props) {
 	// function to handle logout in the hamburger menu
 	const handleNavLogout = () => {
 		window.localStorage.clear();
-		props.testing();
+		props.loggedInFalse();
 	}
 
     return (

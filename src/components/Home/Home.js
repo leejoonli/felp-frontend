@@ -56,7 +56,7 @@ function Home(props) {
 				window.localStorage.setItem('token', data.token);
 				window.localStorage.setItem('username', data.username);
 				// setLoggedIn(true);
-				props.testing2();
+				props.loggedInTrue();
 				setSignUpModal(false);
 				setLoginModal(false);
 			}
@@ -82,7 +82,7 @@ function Home(props) {
 				window.localStorage.setItem('userId', data.userId);
 				// set state for conditional rendering
 				// setLoggedIn(true);
-				props.testing2();
+				props.loggedInTrue();
 				// close login modal
 				setLoginModal(false);
 			}
@@ -96,7 +96,7 @@ function Home(props) {
 		// clear token in local storage to logout
 		window.localStorage.clear();
 		// setLoggedIn(false);
-		props.testing();
+		props.loggedInFalse();
 	}
 
 	// function to show login modal
