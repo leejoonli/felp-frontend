@@ -223,6 +223,7 @@ input:-webkit-scrollbar{
 		margin-top: auto;
 		height: 120px;
 		width: 200px;
+		box-shadow: 10px 10px rgba(0,109,119,.9);
 	}
 
 	span {
