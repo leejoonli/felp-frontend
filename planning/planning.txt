@@ -1,0 +1,57 @@
+- Install Frontend dependencies:
+    - react
+    - react-dom
+    - react-router-dom
+    - react-scripts
+    - navigate
+    - jest
+    - sass
+    - axios
+    - mapbox-gl
+
+- Components
+    - About
+    - Create
+    - Footer
+    - Home
+    - Maps
+    - Navigation
+    - NavigationBar
+    - State
+    - Users
+    - Welcome
+
+Day one:
+    - Complete Readme and goals
+    - Scaffold out components
+    - Add Router and Routes
+    - Navigation bar created
+    - Links created 
+
+Day two:
+    - Add axios requests
+    - Attend Alumni meeting
+    - Get requests from localhost backend
+
+Day three:
+    - CSS styling webpage
+    - Add States and routes
+    - Landing page implementation
+    - Get/ Post/ Patch/ Delete requests from backend
+    - Create page for post request
+    - Axios request from deployed Heroku api
+
+Day four:
+    - CSS continued
+    - Create logo
+    - Add hamburger menu 
+    - Add modals to edit and delete each Post
+    - Add images for States
+    - Direction for path with no posts
+    - Add footer with info from devs
+
+
+Day five:
+    - About page with our story
+    - Add user auth frontend log-in and log-out
+    - Modal for log in and out and current user
