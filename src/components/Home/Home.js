@@ -8,8 +8,6 @@ import { Link } from 'react-router-dom';
 function Home(props) {
 	return (
 		<div>
-			<br></br>
-			  <button type="button" id="play" onClick="window.scrollTo(0,0);">Play</button>
 		<div className={styles.home_container}>
 
 			<div className={styles.home}>
@@ -17,7 +15,7 @@ function Home(props) {
 			alt=""
 			/><span>Alabama</span></Link></div>
 	
-			<div className={styles.home}><Link to='/AK'><img className={styles.img}src="https://i.imgur.com/V5YLine.jpg"
+			<div className={styles.home}><Link to='/AK'><img className={styles.img}src="https://i.imgur.com/SmdpQDv.jpg"
 			alt=""/><span>Alaska</span></Link></div>
 
 			<div className={styles.home}><Link to='/AZ'><img className={styles.img}src="https://i.imgur.com/iEReH0Q.jpg"
@@ -200,7 +198,6 @@ function Home(props) {
 
 			<div className={styles.home}><Link to='/about'><img className={styles.imgHidden} src="https://i.imgur.com/30HQeC9.png" alt=""/></Link>
 			</div>
-			<br></br>
 		</div>
 	</div>
 	);
