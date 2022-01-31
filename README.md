@@ -1,7 +1,8 @@
-# Felp Frontend
+# FELP Frontend
 
 ## Application Description
-This application is called FELP.  It is a collaboration between a few programmers to create a blog style version of a certain food review site.  The unqiue aspect of our application comes from the idea that the posts are more meaningful in the sense that the user who posts will display their years of residence at a certain location.  Depending on the how long said user lived in the area, anyone can get an idea that the poster will have knowledge of the surrounding environment: places to eat and visit.  The current implementation has a user authentication system that uses a variety of technologies to validate ownership.  For more information on what was used, please visit the link at the end of this section.  This application also has the feature of having a validation requirement to edit and delete posts.  Only the post creator will be able to take such actions.  To be able to post, the user will have to go through our sign up form which will create and save them as a user in our database.  If a user sees on the home page a "You are logged in" message, then the user will be able to contribute to our application.  We hope our enjoy our collaborative effort and happy posting!
+
+This application is called FELP. It is a collaboration between a few programmers to create a blog style version of a certain food review site. The unique aspect of our application comes from the idea that the posts are more meaningful in the sense that the user who posts will display their years of residence at a certain location. Depending on the how long said user lived in the area, anyone can get an idea that the poster will have knowledge of the surrounding environment: places to eat and visit. The current implementation has a user authentication system that uses a variety of technologies to validate ownership. For more information on what was used, please visit the link at the end of this section. This application also has the feature of having a validation requirement to edit and delete posts. Only the post creator will be able to take such actions. To be able to post, the user will have to go through our sign up form which will create and save them as a user in our database. If a user sees on the home page a "You are logged in" message, then the user will be able to contribute to our application. We hope our enjoy our collaborative effort and happy posting!
 
 ### Link to FELP Backend Repository:
 
@@ -34,9 +35,25 @@ https://docs.github.com/en/repositories/creating-and-managing-repositories/cloni
 
 If you would just like to visit the application, please click on this link:
 
-https://felp-beta.netlify.app/
+https://felp-official.netlify.app/
 
 ## Current Application State
+
+![FELP](./planning/FELP-landingpage.png)
+![FELP](./planning/FELP-homepage.png)
+![FELP](./planning/FELP-post.png)
+
+# Future Improvements
+
+- Add validation for sign up (currently any input besides undefined and null will work).
+- Implement a 'like' feature where a logged in user can like a post. They would only be able to 'like' a post once per post.
+- Add a 'My Posts' section in the hamburger menu so the logged in user can view what they've posted.
+- Implement a map feature where users can view where each location is per post.
+- Add a search bar so the user can search by state or by city.
+- Implement a 'Type' tab so the user can filter through 'Food' posts, 'Experience' posts, and 'All' posts.
+- Create a feature to add photos to posts so the user can share.
+
+...for now!
 
 # Contribution Guidelines
 
@@ -48,7 +65,7 @@ https://felp-beta.netlify.app/
 
 ## Description
 
-Felp (name in progress) is an app that allows you to leave food reviews based off locations. The location will be based off City/State, and include an image along with a description
+FELP (name in progress) is an app that allows you to leave food reviews based off locations. The location will be based off City/State, and include an image along with a description
 
 ## User Stories
 
@@ -62,6 +79,7 @@ Felp (name in progress) is an app that allows you to leave food reviews based of
 - As a user, I want to view the Name/Zip Code and "x years", to see how much experience they had in a particular location
 
 Stretch:
+
 - As a user, I want to switch between the experience and food tab, so I can learn about different experiences
 - As a user, I want to look through the map, so I can learn more about experiences in a particular location
 
@@ -72,3 +90,14 @@ Stretch:
 ![Felp](./assets/users.png)
 ![Felp](./assets/posts.png)
 ![Felp](./assets/userAuthentication.png)
+
+### Unsolved Problems / Major Hurdles
+
+> Our biggest hurdle was implementing the user authorization. Reading through the documents and understanding fully what is happening was challenging, but very rewarding when we figured it out!
+
+### Contributors
+
+- Andrew Kal (https://github.com/AndrewKalGit)
+- Frankz Condori (https://github.com/fcondori1)
+- Jeremiah Lee (https://github.com/leejoonli)
+- Justin Lombardi (https://github.com/thejustinlombardi)
