@@ -175,7 +175,7 @@ input:-webkit-scrollbar{
 	justify-content: space-around;
 }
 
-.loginButton, .currentlyLoggedInButton {
+.loginButton, .currentlyLoggedInButton, .tutorialbtn {
 	border: 2px solid #edf6f9;
 	border-radius: 5px;
 	background-color: #006d77;
@@ -183,16 +183,44 @@ input:-webkit-scrollbar{
 	padding: 1% 3%;
 }
 
-.loginButton:hover, .currentlyLoggedInButton:hover {
+.loginButton:hover, .currentlyLoggedInButton:hover, .tutorialbtn:hover{
 	cursor: pointer;
 	background-color: rgba(131,197,188,.5);
     color: #edf6f9;
 }
 
-/* .currentlyLoggedIn {
-	border: 1px solid red;
-	border-radius: ;
-} */
+.tutorialModal {
+	display: flex;
+	flex-direction: column;
+	/* border: 2px solid #edf6f9; */
+	border-radius: 5px;
+	background-color: #006d77;
+	padding: 5%;
+	margin: 5%;
+	box-shadow: 5px 5px rgba(131,197,188,1);
+	z-index: 1;
+	position: absolute;
+	top: 4.85%;
+	animation: fadein 0.5s;
+}
+
+.tutorialbtn {
+	width: 20%;
+	margin-top: 10px;
+}
+
+.tutorialhead {
+	font-size: 2rem;
+	font-weight: 600;
+	color: #edf6f9;
+	margin-bottom: 10px;
+}
+
+.tutorialtext {
+	color: #e29578;
+	line-height: 20px;
+	margin-bottom: 10px;
+}
 
 @media (min-width: 600px) {
 	img:hover {

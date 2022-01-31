@@ -9,9 +9,18 @@ function Home(props) {
 	// set state variables for modal conditional rendering
 	const [signUpModal, setSignUpModal] = useState(false);
 	const [loginModal, setLoginModal] = useState(false);
+	const [tutorialModal, setTutorialModal] = useState();
+
+	const handleTutorialModalClose = () => {
+		setTutorialModal(false);
+	}
 
 	// useEffect to re-render components based on state change
 	useEffect(() => {}, [props.loggedIn]);
+
+	useEffect(() => {
+		setTutorialModal(true);
+	},[])
 
 	// state variable to keep track of sign up form
 	const [signUpForm, setSignUpForm] = useState({
@@ -124,76 +133,114 @@ function Home(props) {
 
 	return (
 		<div>
+			{tutorialModal && (
+				<div className={styles.tutorialModal}>
+					<h1 className={styles.tutorialhead}>Welcome to FELP!</h1>
+					<p className={styles.tutorialtext}>
+						A place where you can explore locations as a local would with all
+						the Food and Experiences they recommend.
+					</p>
+					<h2 className={styles.tutorialhead}>How to:</h2>
+					<p className={styles.tutorialtext}>
+						To interact and post with users, sign up with your own account. No
+						worries, we won't spam you with anything. Click on a state and start
+						exploring!
+					</p>
+					<button
+						className={styles.tutorialbtn}
+						onClick={handleTutorialModalClose}>
+						Exit
+					</button>
+				</div>
+			)}
 			{/* sign up form */}
-			{signUpModal &&
-			<div className={styles.signUpModalContainer}>
-				<form onSubmit={handleSignUpFormSubmit} className={styles.signUpModal}>
-					<label htmlFor="username" className={styles.signUpLabel}>Username:</label>
-					<input
-						type="text"
-						id="username"
-						value={signUpForm.username}
-						onChange={handleSignUpChange}
-						className={styles.signUpModalUsername}
-					/>
-					<label htmlFor="email" className={styles.signUpLabel}>E-mail:</label>
-					<input
-						type="text"
-						id="email"
-						value={signUpForm.email}
-						onChange={handleSignUpChange}
-						className={styles.signUpModalEmail}
-					/>
-					<label htmlFor="password" className={styles.signUpLabel}>Password:</label>
-					<input
-						type="text"
-						id="password"
-						value={signUpForm.password}
-						onChange={handleSignUpChange}
-						className={styles.signUpModalPassword}
-					/>
-					{/* <label htmlFor="confirm_password" className={styles.signUpLabel}>Confirm Password:</label>
+			{signUpModal && (
+				<div className={styles.signUpModalContainer}>
+					<form
+						onSubmit={handleSignUpFormSubmit}
+						className={styles.signUpModal}>
+						<label htmlFor='username' className={styles.signUpLabel}>
+							Username:
+						</label>
+						<input
+							type='text'
+							id='username'
+							value={signUpForm.username}
+							onChange={handleSignUpChange}
+							className={styles.signUpModalUsername}
+						/>
+						<label htmlFor='email' className={styles.signUpLabel}>
+							E-mail:
+						</label>
+						<input
+							type='text'
+							id='email'
+							value={signUpForm.email}
+							onChange={handleSignUpChange}
+							className={styles.signUpModalEmail}
+						/>
+						<label htmlFor='password' className={styles.signUpLabel}>
+							Password:
+						</label>
+						<input
+							type='text'
+							id='password'
+							value={signUpForm.password}
+							onChange={handleSignUpChange}
+							className={styles.signUpModalPassword}
+						/>
+						{/* <label htmlFor="confirm_password" className={styles.signUpLabel}>Confirm Password:</label>
 					<input
 						type="text"
 						id="confirm_password"
 						value={signUpForm.confirm_password}
 						onChange={handleSignUpChange}
 					/> */}
-					<div className={styles.signUpFormButtons}>
-						<button type="submit" className={styles.signUpFormButton}>Sign Up</button>
-						<button
-							onClick={() => {
-								handleSignUpModalClose();
-							}}
-							className={styles.signUpFormButton}>
-							Cancel
-						</button>
-					</div>
-				</form>
-			</div>
-			}
+						<div className={styles.signUpFormButtons}>
+							<button type='submit' className={styles.signUpFormButton}>
+								Sign Up
+							</button>
+							<button
+								onClick={() => {
+									handleSignUpModalClose();
+								}}
+								className={styles.signUpFormButton}>
+								Cancel
+							</button>
+						</div>
+					</form>
+				</div>
+			)}
 			{/* log in form */}
-			{loginModal &&
+			{loginModal && (
 				<div className={styles.LoginModalContainer}>
-					<form onSubmit={handleLoginFormSubmit} className={styles.loginModalForm}>
-						<label htmlFor="email" className={styles.loginLabel}>E-mail:</label>
+					<form
+						onSubmit={handleLoginFormSubmit}
+						className={styles.loginModalForm}>
+						<label htmlFor='email' className={styles.loginLabel}>
+							E-mail:
+						</label>
 						<input
-							type="text"
-							id="email"
+							type='text'
+							id='email'
 							value={LoginForm.email}
 							onChange={handleLoginChange}
 							className={styles.loginModalEmail}
 						/>
-						<label htmlFor="password" className={styles.loginLabel}>Password:</label>
+						<label htmlFor='password' className={styles.loginLabel}>
+							Password:
+						</label>
 						<input
-							type="text"
-							id="password"
+							type='text'
+							id='password'
 							value={LoginForm.password}
 							onChange={handleLoginChange}
 							className={styles.loginModalPassword}
 						/>
 						<div className={styles.loginFormButtons}>
-							<button type="submit" className={styles.loginFormButton}>Log In</button>
+							<button type='submit' className={styles.loginFormButton}>
+								Log In
+							</button>
 							<button
 								onClick={() => {
 									handleLoginModalClose();
@@ -204,11 +251,13 @@ function Home(props) {
 						</div>
 					</form>
 				</div>
-			}
+			)}
 			{props.loggedIn ? (
 				<div className={styles.currentlyLoggedIn}>
 					<div className={styles.currentlyLoggedInBorder}>
-						<h2 className={styles.currentlyLoggedInHeader}>You Are Currently Logged In!</h2>
+						<h2 className={styles.currentlyLoggedInHeader}>
+							You Are Currently Logged In!
+						</h2>
 						<button
 							onClick={() => {
 								handleLogOut();
@@ -219,9 +268,16 @@ function Home(props) {
 					</div>
 				</div>
 			) : (
-				<div className={styles.loginHeading} style={{filter: (signUpModal || loginModal) && 'blur(4px)', pointerEvents: (signUpModal || loginModal) && 'none'}}>
+				<div
+					className={styles.loginHeading}
+					style={{
+						filter: (signUpModal || loginModal || tutorialModal) && 'blur(4px)',
+						pointerEvents: (signUpModal || loginModal || tutorialModal) && 'none',
+					}}>
 					<div className={styles.loginHeadingBackground}>
-						<h2 className={styles.loginHeader}>You Are Not Currently Logged In!</h2>
+						<h2 className={styles.loginHeader}>
+							You Are Not Currently Logged In!
+						</h2>
 						<div className={styles.loginButtons}>
 							<button
 								onClick={() => {
@@ -241,552 +297,557 @@ function Home(props) {
 					</div>
 				</div>
 			)}
-			<div className={styles.home_container} style={{filter: (signUpModal || loginModal) && 'blur(4px)', pointerEvents: (signUpModal || loginModal) && 'none'}}>
+			<div
+				className={styles.home_container}
+				style={{
+					filter: (signUpModal || loginModal || tutorialModal) && 'blur(4px)',
+					pointerEvents: (signUpModal || loginModal || tutorialModal) && 'none',
+				}}>
 				<div className={styles.home}>
-					<Link to="/AL">
+					<Link to='/AL'>
 						<img
 							className={styles.img}
-							src={require("./img/AL.png")}
-							alt="City in Alabama"
+							src={require('./img/AL.png')}
+							alt='City in Alabama'
 						/>
 						<span>Alabama</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/AK">
+					<Link to='/AK'>
 						<img
 							className={styles.img}
-							src={require("./img/AK.jpg")}
-							alt="City in Alaska"
+							src={require('./img/AK.jpg')}
+							alt='City in Alaska'
 						/>
 						<span>Alaska</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/AZ">
+					<Link to='/AZ'>
 						<img
 							className={styles.img}
-							src={require("./img/AZ.jpg")}
-							alt="City in Arizona"
+							src={require('./img/AZ.jpg')}
+							alt='City in Arizona'
 						/>
 						<span>Arizona</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/AR">
+					<Link to='/AR'>
 						<img
 							className={styles.img}
-							src={require("./img/AR.jpg")}
-							alt="City in Arkansas"
+							src={require('./img/AR.jpg')}
+							alt='City in Arkansas'
 						/>
 						<span>Arkansas</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/CA">
+					<Link to='/CA'>
 						<img
 							className={styles.img}
-							src={require("./img/CA.jpg")}
-							alt="City in California"
+							src={require('./img/CA.jpg')}
+							alt='City in California'
 						/>
 						<span>California</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/CO">
+					<Link to='/CO'>
 						<img
 							className={styles.img}
-							src={require("./img/CO.jpg")}
-							alt="City in Colorado"
+							src={require('./img/CO.jpg')}
+							alt='City in Colorado'
 						/>
 						<span>Colorado</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/CT">
+					<Link to='/CT'>
 						<img
 							className={styles.img}
-							src={require("./img/CT.jpg")}
-							alt="City in Connecticut"
+							src={require('./img/CT.jpg')}
+							alt='City in Connecticut'
 						/>
 						<span>Connecticut</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/DE">
+					<Link to='/DE'>
 						<img
 							className={styles.img}
-							src={require("./img/DE.jpg")}
-							alt="City in Delaware"
+							src={require('./img/DE.jpg')}
+							alt='City in Delaware'
 						/>
 						<span>Delaware</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/FL">
+					<Link to='/FL'>
 						<img
 							className={styles.img}
-							src={require("./img/FL.jpg")}
-							alt="City in Florida"
+							src={require('./img/FL.jpg')}
+							alt='City in Florida'
 						/>
 						<span>Florida</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/GA">
+					<Link to='/GA'>
 						<img
 							className={styles.img}
-							src={require("./img/GA.jpg")}
-							alt="City in Georgia"
+							src={require('./img/GA.jpg')}
+							alt='City in Georgia'
 						/>
 						<span>Georgia</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/HI">
+					<Link to='/HI'>
 						<img
 							className={styles.img}
-							src={require("./img/HI.jpg")}
-							alt="City in Hawaii"
+							src={require('./img/HI.jpg')}
+							alt='City in Hawaii'
 						/>
 						<span>Hawaii</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/ID">
+					<Link to='/ID'>
 						<img
 							className={styles.img}
-							src={require("./img/ID.jpg")}
-							alt="City in Idaho"
+							src={require('./img/ID.jpg')}
+							alt='City in Idaho'
 						/>
 						<span>Idaho</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/IL">
+					<Link to='/IL'>
 						<img
 							className={styles.img}
-							src={require("./img/IL.jpg")}
-							alt="City in Illinois"
+							src={require('./img/IL.jpg')}
+							alt='City in Illinois'
 						/>
 						<span>Illinois</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/IN">
+					<Link to='/IN'>
 						<img
 							className={styles.img}
-							src={require("./img/IN.jpg")}
-							alt="City in Indiana"
+							src={require('./img/IN.jpg')}
+							alt='City in Indiana'
 						/>
 						<span>Indiana</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/IA">
+					<Link to='/IA'>
 						<img
 							className={styles.img}
-							src={require("./img/IA.jpg")}
-							alt="City in Iowa"
+							src={require('./img/IA.jpg')}
+							alt='City in Iowa'
 						/>
 						<span>Iowa</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/KS">
+					<Link to='/KS'>
 						<img
 							className={styles.img}
-							src={require("./img/KS.jpg")}
-							alt="City in Kansas"
+							src={require('./img/KS.jpg')}
+							alt='City in Kansas'
 						/>
 						<span>Kansas</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/KY">
+					<Link to='/KY'>
 						<img
 							className={styles.img}
-							src={require("./img/KY.jpg")}
-							alt="City in Kentucky"
+							src={require('./img/KY.jpg')}
+							alt='City in Kentucky'
 						/>
 						<span>Kentucky</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/LA">
+					<Link to='/LA'>
 						<img
 							className={styles.img}
-							src={require("./img/LA.jpg")}
-							alt="City in Louisiana"
+							src={require('./img/LA.jpg')}
+							alt='City in Louisiana'
 						/>
 						<span>Louisiana</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/ME">
+					<Link to='/ME'>
 						<img
 							className={styles.img}
-							src={require("./img/ME.jpg")}
-							alt="City in Maine"
+							src={require('./img/ME.jpg')}
+							alt='City in Maine'
 						/>
 						<span>Maine</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/MD">
+					<Link to='/MD'>
 						<img
 							className={styles.img}
-							src={require("./img/MD.jpg")}
-							alt="City in Maryland"
+							src={require('./img/MD.jpg')}
+							alt='City in Maryland'
 						/>
 						<span>Maryland</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/MA">
+					<Link to='/MA'>
 						<img
 							className={styles.img}
-							src={require("./img/MA.jpg")}
-							alt="City in Massachusetts"
+							src={require('./img/MA.jpg')}
+							alt='City in Massachusetts'
 						/>
 						<span>Massachusetts</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/MI">
+					<Link to='/MI'>
 						<img
 							className={styles.img}
-							src={require("./img/MI.jpg")}
-							alt="City in Michigan"
+							src={require('./img/MI.jpg')}
+							alt='City in Michigan'
 						/>
 						<span>Michigan</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/MN">
+					<Link to='/MN'>
 						<img
 							className={styles.img}
-							src={require("./img/MN.jpg")}
-							alt="City in Minnesota"
+							src={require('./img/MN.jpg')}
+							alt='City in Minnesota'
 						/>
 						<span>Minnesota</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/MS">
+					<Link to='/MS'>
 						<img
 							className={styles.img}
-							src={require("./img/MS.jpg")}
-							alt="City in Mississippi"
+							src={require('./img/MS.jpg')}
+							alt='City in Mississippi'
 						/>
 						<span>Mississippi</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/MO">
+					<Link to='/MO'>
 						<img
 							className={styles.img}
-							src={require("./img/MO.jpg")}
-							alt="City in Missouri"
+							src={require('./img/MO.jpg')}
+							alt='City in Missouri'
 						/>
 						<span>Missouri</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/MT">
+					<Link to='/MT'>
 						<img
 							className={styles.img}
-							src={require("./img/MT.jpg")}
-							alt="City in Montana"
+							src={require('./img/MT.jpg')}
+							alt='City in Montana'
 						/>
 						<span>Montana</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/NE">
+					<Link to='/NE'>
 						<img
 							className={styles.img}
-							src={require("./img/NE.jpg")}
-							alt="City in Nebraska"
+							src={require('./img/NE.jpg')}
+							alt='City in Nebraska'
 						/>
 						<span>Nebraska</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/NV">
+					<Link to='/NV'>
 						<img
 							className={styles.img}
-							src={require("./img/NV.jpg")}
-							alt="City in Nevada"
+							src={require('./img/NV.jpg')}
+							alt='City in Nevada'
 						/>
 						<span>Nevada</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/NH">
+					<Link to='/NH'>
 						<img
 							className={styles.img}
-							src={require("./img/NH.jpg")}
-							alt="City in New Hampshire"
+							src={require('./img/NH.jpg')}
+							alt='City in New Hampshire'
 						/>
 						<span>New Hampshire</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/NJ">
+					<Link to='/NJ'>
 						<img
 							className={styles.img}
-							src={require("./img/NJ.jpg")}
-							alt="City in New Jersey"
+							src={require('./img/NJ.jpg')}
+							alt='City in New Jersey'
 						/>
 						<span>New Jersey</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/NM">
+					<Link to='/NM'>
 						<img
 							className={styles.img}
-							src={require("./img/NM.jpg")}
-							alt="City in New Mexico"
+							src={require('./img/NM.jpg')}
+							alt='City in New Mexico'
 						/>
 						<span>New Mexico</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/NY">
+					<Link to='/NY'>
 						<img
 							className={styles.img}
-							src={require("./img/NY.jpg")}
-							alt="City in New York"
+							src={require('./img/NY.jpg')}
+							alt='City in New York'
 						/>
 						<span>New York</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/NC">
+					<Link to='/NC'>
 						<img
 							className={styles.img}
-							src={require("./img/NC.jpg")}
-							alt="City in North Carolina"
+							src={require('./img/NC.jpg')}
+							alt='City in North Carolina'
 						/>
 						<span>North Carolina</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/ND">
+					<Link to='/ND'>
 						<img
 							className={styles.img}
-							src={require("./img/ND.jpg")}
-							alt="City in North Dakota"
+							src={require('./img/ND.jpg')}
+							alt='City in North Dakota'
 						/>
 						<span>North Dakota</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/OH">
+					<Link to='/OH'>
 						<img
 							className={styles.img}
-							src={require("./img/OH.jpg")}
-							alt="City in Ohio"
+							src={require('./img/OH.jpg')}
+							alt='City in Ohio'
 						/>
 						<span>Ohio</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/OK">
+					<Link to='/OK'>
 						<img
 							className={styles.img}
-							src={require("./img/OK.jpg")}
-							alt="City in Oklahoma"
+							src={require('./img/OK.jpg')}
+							alt='City in Oklahoma'
 						/>
 						<span>Oklahoma</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/OR">
+					<Link to='/OR'>
 						<img
 							className={styles.img}
-							src={require("./img/OR.jpg")}
-							alt="City in Oregon"
+							src={require('./img/OR.jpg')}
+							alt='City in Oregon'
 						/>
 						<span>Oregon</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/PA">
+					<Link to='/PA'>
 						<img
 							className={styles.img}
-							src={require("./img/PA.jpg")}
-							alt="City in Pennsylvania"
+							src={require('./img/PA.jpg')}
+							alt='City in Pennsylvania'
 						/>
 						<span>Pennsylvania</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/RI">
+					<Link to='/RI'>
 						<img
 							className={styles.img}
-							src={require("./img/RI.jpg")}
-							alt="City in Rhode Island"
+							src={require('./img/RI.jpg')}
+							alt='City in Rhode Island'
 						/>
 						<span>Rhode Island</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/SC">
+					<Link to='/SC'>
 						<img
 							className={styles.img}
-							src={require("./img/SC.jpg")}
-							alt="City in South Carolina"
+							src={require('./img/SC.jpg')}
+							alt='City in South Carolina'
 						/>
 						<span>South Carolina</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/SD">
+					<Link to='/SD'>
 						<img
 							className={styles.img}
-							src={require("./img/SD.jpg")}
-							alt="City in South Dakota"
+							src={require('./img/SD.jpg')}
+							alt='City in South Dakota'
 						/>
 						<span>South Dakota</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/TN">
+					<Link to='/TN'>
 						<img
 							className={styles.img}
-							src={require("./img/TN.jpg")}
-							alt="City in Tennessee"
+							src={require('./img/TN.jpg')}
+							alt='City in Tennessee'
 						/>
 						<span>Tennessee</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/TX">
+					<Link to='/TX'>
 						<img
 							className={styles.img}
-							src={require("./img/TX.jpg")}
-							alt="City in Texas"
+							src={require('./img/TX.jpg')}
+							alt='City in Texas'
 						/>
 						<span>Texas</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/UT">
+					<Link to='/UT'>
 						<img
 							className={styles.img}
-							src={require("./img/UT.jpg")}
-							alt="City in Utah"
+							src={require('./img/UT.jpg')}
+							alt='City in Utah'
 						/>
 						<span>Utah</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/VT">
+					<Link to='/VT'>
 						<img
 							className={styles.img}
-							src={require("./img/VT.jpg")}
-							alt="City in Vermont"
+							src={require('./img/VT.jpg')}
+							alt='City in Vermont'
 						/>
 						<span>Vermont</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/VA">
+					<Link to='/VA'>
 						<img
 							className={styles.img}
-							src={require("./img/VA.jpg")}
-							alt="City in Virginia"
+							src={require('./img/VA.jpg')}
+							alt='City in Virginia'
 						/>
 						<span>Virginia</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/WA">
+					<Link to='/WA'>
 						<img
 							className={styles.img}
-							src={require("./img/WA.jpg")}
-							alt="City in Washington"
+							src={require('./img/WA.jpg')}
+							alt='City in Washington'
 						/>
 						<span>Washington</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/WV">
+					<Link to='/WV'>
 						<img
 							className={styles.img}
-							src={require("./img/WV.jpg")}
-							alt="City in West Virginia"
+							src={require('./img/WV.jpg')}
+							alt='City in West Virginia'
 						/>
 						<span>West Virginia</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/WI">
+					<Link to='/WI'>
 						<img
 							className={styles.img}
-							src={require("./img/WI.jpg")}
-							alt="City in Wisconsin"
+							src={require('./img/WI.jpg')}
+							alt='City in Wisconsin'
 						/>
 						<span>Wisconsin</span>
 					</Link>
 				</div>
 
 				<div className={styles.home}>
-					<Link to="/WY">
+					<Link to='/WY'>
 						<img
 							className={styles.img}
-							src={require("./img/WY.jpg")}
-							alt="City in Wyoming"
+							src={require('./img/WY.jpg')}
+							alt='City in Wyoming'
 						/>
 						<span>Wyoming</span>
 					</Link>
