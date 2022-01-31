@@ -1,0 +1,57 @@
+- Install Frontend dependencies:
+    - r̶e̶a̶c̶t̶
+    -̶ r̶e̶a̶c̶t̶-̶d̶o̶m̶
+    -̶ r̶e̶a̶c̶t̶-̶r̶o̶u̶t̶e̶r̶-̶d̶o̶m̶
+    -̶ r̶e̶a̶c̶t̶-̶s̶c̶r̶i̶p̶t̶s̶
+    -̶ n̶a̶v̶i̶g̶a̶t̶e̶
+    -̶ j̶e̶s̶t̶
+    -̶ s̶a̶s̶s̶
+    -̶ a̶x̶i̶o̶s̶
+    -̶ m̶a̶p̶b̶o̶x̶-̶g̶l̶
+
+- Components
+    - A̶b̶o̶u̶t̶
+    -̶ C̶r̶e̶a̶t̶e̶
+    -̶ F̶o̶o̶t̶e̶r̶
+    -̶ H̶o̶m̶e̶
+    -̶ M̶a̶p̶s̶
+    -̶ N̶a̶v̶i̶g̶a̶t̶i̶o̶n̶
+    -̶ N̶a̶v̶i̶g̶a̶t̶i̶o̶n̶B̶a̶r̶
+    -̶ S̶t̶a̶t̶e̶
+    -̶ U̶s̶e̶r̶s̶
+    -̶ W̶e̶l̶c̶o̶m̶e̶
+
+Day one:
+    - C̶o̶m̶p̶l̶e̶t̶e̶ R̶e̶a̶d̶m̶e̶ a̶n̶d̶ g̶o̶a̶l̶s̶
+    -̶ S̶c̶a̶f̶f̶o̶l̶d̶ o̶u̶t̶ c̶o̶m̶p̶o̶n̶e̶n̶t̶s̶
+    -̶ A̶d̶d̶ R̶o̶u̶t̶e̶r̶ a̶n̶d̶ R̶o̶u̶t̶e̶s̶
+    -̶ N̶a̶v̶i̶g̶a̶t̶i̶o̶n̶ b̶a̶r̶ c̶r̶e̶a̶t̶e̶d̶
+    -̶ L̶i̶n̶k̶s̶ c̶r̶e̶a̶t̶e̶d̶ 
+
+Day two:
+    - A̶d̶d̶ a̶x̶i̶o̶s̶ r̶e̶q̶u̶e̶s̶t̶s̶
+    -̶ A̶t̶t̶e̶n̶d̶ A̶l̶u̶m̶n̶i̶ m̶e̶e̶t̶i̶n̶g̶
+    -̶ G̶e̶t̶ r̶e̶q̶u̶e̶s̶t̶s̶ f̶r̶o̶m̶ l̶o̶c̶a̶l̶h̶o̶s̶t̶ b̶a̶c̶k̶e̶n̶d̶
+
+Day three:
+    - C̶S̶S̶ s̶t̶y̶l̶i̶n̶g̶ w̶e̶b̶p̶a̶g̶e̶
+    -̶ A̶d̶d̶ S̶t̶a̶t̶e̶s̶ a̶n̶d̶ r̶o̶u̶t̶e̶s̶
+    -̶ L̶a̶n̶d̶i̶n̶g̶ p̶a̶g̶e̶ i̶m̶p̶l̶e̶m̶e̶n̶t̶a̶t̶i̶o̶n̶
+    -̶ G̶e̶t̶/̶ P̶o̶s̶t̶/̶ P̶a̶t̶c̶h̶/̶ D̶e̶l̶e̶t̶e̶ r̶e̶q̶u̶e̶s̶t̶s̶ f̶r̶o̶m̶ b̶a̶c̶k̶e̶n̶d̶
+    -̶ C̶r̶e̶a̶t̶e̶ p̶a̶g̶e̶ f̶o̶r̶ p̶o̶s̶t̶ r̶e̶q̶u̶e̶s̶t̶
+    -̶ A̶x̶i̶o̶s̶ r̶e̶q̶u̶e̶s̶t̶ f̶r̶o̶m̶ d̶e̶p̶l̶o̶y̶e̶d̶ H̶e̶r̶o̶k̶u̶ a̶p̶i̶
+
+Day four:
+    - C̶S̶S̶ c̶o̶n̶t̶i̶n̶u̶e̶d̶
+    -̶ C̶r̶e̶a̶t̶e̶ l̶o̶g̶o̶
+    -̶ A̶d̶d̶ h̶a̶m̶b̶u̶r̶g̶e̶r̶ m̶e̶n̶u̶ 
+    -̶ A̶d̶d̶ m̶o̶d̶a̶l̶s̶ t̶o̶ e̶d̶i̶t̶ a̶n̶d̶ d̶e̶l̶e̶t̶e̶ e̶a̶c̶h̶ P̶o̶s̶t̶
+    -̶ A̶d̶d̶ i̶m̶a̶g̶e̶s̶ f̶o̶r̶ S̶t̶a̶t̶e̶s̶
+    -̶ D̶i̶r̶e̶c̶t̶i̶o̶n̶ f̶o̶r̶ p̶a̶t̶h̶ w̶i̶t̶h̶ n̶o̶ p̶o̶s̶t̶s̶
+    -̶ A̶d̶d̶ f̶o̶o̶t̶e̶r̶ w̶i̶t̶h̶ i̶n̶f̶o̶ f̶r̶o̶m̶ d̶e̶v̶s̶
+
+
+Day five:
+    - A̶b̶o̶u̶t̶ p̶a̶g̶e̶ w̶i̶t̶h̶ o̶u̶r̶ s̶t̶o̶r̶y̶
+    -̶ A̶d̶d̶ u̶s̶e̶r̶ a̶u̶t̶h̶ f̶r̶o̶n̶t̶e̶n̶d̶ l̶o̶g̶-̶i̶n̶ a̶n̶d̶ l̶o̶g̶-̶o̶u̶t̶
+    -̶ M̶o̶d̶a̶l̶ f̶o̶r̶ l̶o̶g̶ i̶n̶ a̶n̶d̶ o̶u̶t̶ a̶n̶d̶ c̶u̶r̶r̶e̶n̶t̶ u̶s̶e̶r̶

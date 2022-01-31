@@ -44,6 +44,7 @@ a {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
+	margin-right: 15%;
 }
 
 .nav_imgb {
@@ -86,6 +87,13 @@ a {
 	color: #edf6f9;
 	border-radius: 8px;
 	cursor: pointer;
+}
+
+@media (min-width: 600px) {
+	.nav_img {
+		width: 65%;
+		margin-right: 0%;
+	}
 }
 
 @media (min-width: 1000px) {
