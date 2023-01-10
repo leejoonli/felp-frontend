@@ -1,0 +1,84 @@
+.LoginModalContainer {
+    border-radius: 5px;
+    margin: 15% 10% 5% 10%;
+    border: 5px solid rgba(0, 109, 119, .8);
+    background-color: #83c5be;
+    padding: 5%;
+    position: absolute;
+    width: 60%;
+    left: 10%;
+    z-index: 1;
+    overflow: auto;
+    animation: slideInFromTop 1s;
+}
+
+.loginModalForm {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #edf6f9;
+    border-radius: 5px;
+    background-color: #006d77;
+    padding: 5%;
+}
+
+.loginLabel {
+    font-size: 1.5rem;
+    color: #e29578;
+    margin-bottom: 2%;
+}
+
+.loginModalEmail,
+.loginModalPassword {
+    padding: 2%;
+    border: 2px solid #edf6f9;
+    border-radius: 5px;
+    background-color: #006d77;
+    outline: none;
+    color: #edf6f9;
+    margin-bottom: 2%;
+    font-family: 'exo 2', 'sans-serif';
+}
+
+.loginFormButton {
+    border: 2px solid #edf6f9;
+    border-radius: 5px;
+    background-color: #006d77;
+    color: #e29578;
+    width: 30%;
+    padding: 1%;
+    margin-top: 2%;
+    margin-right: 2%;
+}
+
+.loginFormButton:hover {
+    cursor: pointer;
+    background-color: rgba(131, 197, 188, .5);
+    color: #edf6f9;
+}
+
+@media (min-width: 600px) {
+    .LoginModalContainer {
+        margin: auto;
+        border: 10px solid rgba(0, 109, 119, .8);
+        padding: 2%;
+        width: 30%;
+        top: 10%;
+        left: 35%;
+    }
+
+    .loginLabel {
+        font-size: 2rem;
+    }
+
+    .loginModalEmail,
+    .loginModalPassword {
+        font-size: 1.2rem;
+        padding: 2%;
+    }
+
+    .loginFormButton {
+        font-size: 1.2rem;
+        margin-top: 2%;
+        margin-right: 5%;
+    }
+}

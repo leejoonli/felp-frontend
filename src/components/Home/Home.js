@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Home.module.css';
 import StateLayout from '../StateLayout/StateLayout';
+import SignUp from '../Modals/SignUp';
+import Login from '../Modals/Login';
 
 // Dependencies
 import { Link } from 'react-router-dom';
@@ -127,84 +129,11 @@ function Home(props) {
 		<div>
 			{/* sign up form */}
 			{signUpModal &&
-			<div className={styles.signUpModalContainer}>
-				<form onSubmit={handleSignUpFormSubmit} className={styles.signUpModal}>
-					<label htmlFor="username" className={styles.signUpLabel}>Username:</label>
-					<input
-						type="text"
-						id="username"
-						value={signUpForm.username}
-						onChange={handleSignUpChange}
-						className={styles.signUpModalUsername}
-					/>
-					<label htmlFor="email" className={styles.signUpLabel}>E-mail:</label>
-					<input
-						type="text"
-						id="email"
-						value={signUpForm.email}
-						onChange={handleSignUpChange}
-						className={styles.signUpModalEmail}
-					/>
-					<label htmlFor="password" className={styles.signUpLabel}>Password:</label>
-					<input
-						type="text"
-						id="password"
-						value={signUpForm.password}
-						onChange={handleSignUpChange}
-						className={styles.signUpModalPassword}
-					/>
-					{/* <label htmlFor="confirm_password" className={styles.signUpLabel}>Confirm Password:</label>
-					<input
-						type="text"
-						id="confirm_password"
-						value={signUpForm.confirm_password}
-						onChange={handleSignUpChange}
-					/> */}
-					<div className={styles.signUpFormButtons}>
-						<button type="submit" className={styles.signUpFormButton}>Sign Up</button>
-						<button
-							onClick={() => {
-								handleSignUpModalClose();
-							}}
-							className={styles.signUpFormButton}>
-							Cancel
-						</button>
-					</div>
-				</form>
-			</div>
+				<SignUp handleSignUpFormSubmit={handleSignUpFormSubmit} signUpForm={signUpForm} handleSignUpChange={handleSignUpChange} handleSignUpModalClose={handleSignUpModalClose} />
 			}
 			{/* log in form */}
 			{loginModal &&
-				<div className={styles.LoginModalContainer}>
-					<form onSubmit={handleLoginFormSubmit} className={styles.loginModalForm}>
-						<label htmlFor="email" className={styles.loginLabel}>E-mail:</label>
-						<input
-							type="text"
-							id="email"
-							value={LoginForm.email}
-							onChange={handleLoginChange}
-							className={styles.loginModalEmail}
-						/>
-						<label htmlFor="password" className={styles.loginLabel}>Password:</label>
-						<input
-							type="text"
-							id="password"
-							value={LoginForm.password}
-							onChange={handleLoginChange}
-							className={styles.loginModalPassword}
-						/>
-						<div className={styles.loginFormButtons}>
-							<button type="submit" className={styles.loginFormButton}>Log In</button>
-							<button
-								onClick={() => {
-									handleLoginModalClose();
-								}}
-								className={styles.loginFormButton}>
-								Cancel
-							</button>
-						</div>
-					</form>
-				</div>
+				<Login handleLoginFormSubmit={handleLoginFormSubmit} LoginForm={LoginForm} handleLoginChange={handleLoginChange} handleLoginModalClose={handleLoginModalClose} />
 			}
 			{props.loggedIn ? (
 				<div className={styles.currentlyLoggedIn}>
