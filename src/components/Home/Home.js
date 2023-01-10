@@ -208,7 +208,7 @@ function Home(props) {
 			{props.loggedIn ? (
 				<div className={styles.currentlyLoggedIn}>
 					<div className={styles.currentlyLoggedInBorder}>
-						<h2 className={styles.currentlyLoggedInHeader}>You Are Currently Logged In!</h2>
+						<h2 className={styles.currentlyLoggedInHeader}>You Are Currently Logged In As: {window.localStorage.getItem('username')}</h2>
 						<button
 							onClick={() => {
 								handleLogOut();

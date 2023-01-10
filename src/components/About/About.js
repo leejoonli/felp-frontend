@@ -23,7 +23,7 @@ function About(props) {
             </p>
         </div>
             <div className={styles.img_container}>
-            <img className={styles.img_felp} src="https://i.imgur.com/k8S94K4.png" alt=""/>
+            <img className={styles.img_felp} src="/logo512.png" alt="felp-logo"/>
             </div>
         </div>
     </div>

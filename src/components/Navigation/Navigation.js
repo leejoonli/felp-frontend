@@ -11,7 +11,7 @@ function Navigation(props) {
 				<Link to='/Home'>
 					<img
 						className={styles.nav_logob}
-						src='https://i.imgur.com/k8S94K4.png'
+						src='/logo512.png'
 						alt='felp-logo'
 					/>
 				</Link>
