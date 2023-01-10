@@ -44,12 +44,12 @@ function Home(props) {
 			e.preventDefault();
 			// POST request for signup
 			const res = await axios.post(
-				`https://felp-coders.herokuapp.com/api/signup`,
+				`http://localhost:3001/api/signup`,
 				signUpForm
 			);
 			// POST request for login to auto login after signup
 			const loginRes = await axios.post(
-				`https://felp-coders.herokuapp.com/api/signin`,
+				`http://localhost:3001/api/signin`,
 				signUpForm
 			);
 			// get data from login POST request response
@@ -75,7 +75,7 @@ function Home(props) {
 			e.preventDefault();
 			// POST request for login
 			const res = await axios.post(
-				`https://felp-coders.herokuapp.com/api/signin`,
+				`http://localhost:3001/api/signin`,
 				LoginForm
 			);
 			const data = res.data;

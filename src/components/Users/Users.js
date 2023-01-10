@@ -35,7 +35,7 @@ function Users(props) {
 	const getPosts = async () => {
 		try {
 			const res = await axios.get(
-				`https://felp-coders.herokuapp.com/api/posts/state/${state}`
+				`http://localhost:3001/api/posts/state/${state}`
 			);
 			// filter through frontend because we didn't know how to filter with nested username in owner property on backend
 			const data = res.data.filter((el) => el.owner.id === id);
@@ -50,7 +50,7 @@ function Users(props) {
 		try {
 			// PATCH request to partially update post
 			const res = await axios.patch(
-				`https://felp-coders.herokuapp.com/api/posts/id/${updatePost._id}`,
+				`http://localhost:3001/api/posts/id/${updatePost._id}`,
 				updatePost,
 				{headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}`}}
 			);
@@ -76,7 +76,7 @@ function Users(props) {
 		try {
 			// DELETE request to api
 			const res = await axios.delete(
-				`https://felp-coders.herokuapp.com/api/posts/id/${toDeletePostId}`,
+				`http://localhost:3001/api/posts/id/${toDeletePostId}`,
 				{headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}`}}
 			);
 			// set variable for the response data
@@ -114,7 +114,7 @@ function Users(props) {
 		try {
 			// GET request for specific post
 			const res = await axios.get(
-				`https://felp-coders.herokuapp.com/api/posts/id/${id}`
+				`http://localhost:3001/api/posts/id/${id}`
 			);
 			// find post from get request by state because we don't know how to filter with nested user schema in owner property on backend
 			// setting state to the response data
