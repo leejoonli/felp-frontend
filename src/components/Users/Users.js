@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Users.module.css';
 import Update from '../Modals/Update';
+import Delete from '../Modals/Delete';
 
 // Dependencies
 import { useEffect, useState } from 'react';
@@ -206,7 +207,8 @@ function Users(props) {
 				<Update handleSubmit={handleSubmit} handleChange={handleChange} closeUpdateModal={closeUpdateModal} updatePost={updatePost} />
 			)}
 			{deleteModal && (
-				<div className={styles.deleteModal}>
+				<Delete handleDelete={handleDelete} closeDeleteModal={closeDeleteModal} />
+				/*<div className={styles.deleteModal}>
 					<h3 className={styles.deleteModalHeader}>
 						Are you sure you want to delete?
 					</h3>
@@ -226,7 +228,7 @@ function Users(props) {
 							No
 						</button>
 					</div>
-				</div>
+				</div>*/
 			)}
 		</div>
 	);
