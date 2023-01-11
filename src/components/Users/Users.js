@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Users.module.css';
+import Update from '../Modals/Update';
 
 // Dependencies
 import { useEffect, useState } from 'react';

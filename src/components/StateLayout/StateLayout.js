@@ -5,7 +5,7 @@ import styles from './StateLayout.module.css';
 function StateLayout(props) {
     return (
         <div className={styles.home}>
-            <Link to="/AL">
+            <Link to={`/${props.state}`}>
                 <img
                     className={styles.img}
                     src={`/${props.state}.jpg`}
