@@ -6,7 +6,6 @@ import Login from '../Modals/Login';
 import Loginheader from '../LoginHeader/Loginheader';
 
 // Dependencies
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function Home(props) {
