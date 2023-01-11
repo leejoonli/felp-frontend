@@ -3,6 +3,7 @@ import styles from './Home.module.css';
 import StateLayout from '../StateLayout/StateLayout';
 import SignUp from '../Modals/SignUp';
 import Login from '../Modals/Login';
+import Loginheader from '../LoginHeader/Loginheader';
 
 // Dependencies
 import { Link } from 'react-router-dom';
@@ -135,42 +136,7 @@ function Home(props) {
 			{loginModal &&
 				<Login handleLoginFormSubmit={handleLoginFormSubmit} LoginForm={LoginForm} handleLoginChange={handleLoginChange} handleLoginModalClose={handleLoginModalClose} />
 			}
-			{props.loggedIn ? (
-				<div className={styles.currentlyLoggedIn}>
-					<div className={styles.currentlyLoggedInBorder}>
-						<h2 className={styles.currentlyLoggedInHeader}>You Are Currently Logged In As: {window.localStorage.getItem('username')}</h2>
-						<button
-							onClick={() => {
-								handleLogOut();
-							}}
-							className={styles.currentlyLoggedInButton}>
-							Log Out
-						</button>
-					</div>
-				</div>
-			) : (
-				<div className={styles.loginHeading} style={{filter: (signUpModal || loginModal) && 'blur(4px)', pointerEvents: (signUpModal || loginModal) && 'none'}}>
-					<div className={styles.loginHeadingBackground}>
-						<h2 className={styles.loginHeader}>You Are Not Currently Logged In!</h2>
-						<div className={styles.loginButtons}>
-							<button
-								onClick={() => {
-									handleLoginModal();
-								}}
-								className={styles.loginButton}>
-								Log In
-							</button>
-							<button
-								onClick={() => {
-									handleSignUpModal();
-								}}
-								className={styles.loginButton}>
-								Sign Up
-							</button>
-						</div>
-					</div>
-				</div>
-			)}
+			<Loginheader handleLogOut={handleLogOut} handleLoginModal={handleLoginModal} handleSignUpModal={handleSignUpModal} signUpModal={signUpModal} loginModal={loginModal} loggedIn={props.loggedIn}/>
 			<div className={styles.home_container} style={{filter: (signUpModal || loginModal) && 'blur(4px)', pointerEvents: (signUpModal || loginModal) && 'none'}}>
 				<StateLayout img={styles.img} state={'AL'} alt={'Alabama'} />
 				<StateLayout img={styles.img} state={'AK'} alt={'Alaska'} />

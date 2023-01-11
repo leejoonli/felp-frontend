@@ -208,27 +208,6 @@ function Users(props) {
 			)}
 			{deleteModal && (
 				<Delete handleDelete={handleDelete} closeDeleteModal={closeDeleteModal} />
-				/*<div className={styles.deleteModal}>
-					<h3 className={styles.deleteModalHeader}>
-						Are you sure you want to delete?
-					</h3>
-					<div className={styles.deleteModalButtonsContainer}>
-						<button
-							className={styles.deleteModalButton}
-							onClick={() => {
-								handleDelete();
-							}}>
-							Yes
-						</button>
-						<button
-							className={styles.deleteModalButton}
-							onClick={() => {
-								closeDeleteModal();
-							}}>
-							No
-						</button>
-					</div>
-				</div>*/
 			)}
 		</div>
 	);
