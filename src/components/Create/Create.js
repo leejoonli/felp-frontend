@@ -44,7 +44,7 @@ function Create(props) {
 		try {
 			// comment this line back in when connecting to backend
 			await axios({
-				url: `https://felp-coders.herokuapp.com/api/posts`,
+				url: `http://localhost:3001/api/posts`,
 				method: 'POST',
 				headers: {
 					'Authorization': `Bearer ${window.localStorage.getItem('token')}`

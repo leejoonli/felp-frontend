@@ -3,7 +3,7 @@
     background-color: #83c5be;
     margin: 5%;
     padding: 3% 5% 3% 5%;
-    box-shadow: 5px 5px rgba(0,109,119,.7);
+    box-shadow: 5px 5px rgba(0, 109, 119, .7);
     animation: fadein 1s;
 }
 
@@ -31,8 +31,13 @@
 }
 
 @keyframes slidein {
-    from {transform: translateX(-100%);}
-    to {transform: translateX(0%);}
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
 }
 
 .post {
@@ -41,7 +46,7 @@
     border-radius: 5px;
     padding: 5%;
     background-color: #83c5be;
-    box-shadow: 5px 5px rgba(0,109,119,.7);
+    box-shadow: 5px 5px rgba(0, 109, 119, .7);
     margin-bottom: 7%;
     animation: slidein 1s;
 }
@@ -115,128 +120,28 @@
 
 .postButton:hover {
     cursor: pointer;
-    background-color: rgba(0,109,119,.7);
+    background-color: rgba(0, 109, 119, .7);
     color: #edf6f9;
 }
 
 @keyframes fadeout {
-    from {opacity: 1;}
-    to {opacity: 0;}
-}
+    from {
+        opacity: 1;
+    }
 
-.editModal, .deleteModal {
-    border: 5px solid rgba(0,109,119,.7);
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 90%;
-    position: absolute;
-    top: 15%;
-    background-color: #83c5be;
-    z-index: 1;
-    overflow: auto;
-    padding: 3%;
-    border-radius: 5px;
-    animation: fadein .5s;
-}
-
-.deleteModal {
-    top: 21%;
-    height: 20%;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.deleteModalButtonsContainer {
-    flex-basis: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.deleteModalButton {
-    padding: 10px 20px 10px 20px;
-    background-color: #006d77;
-    border-radius: 5px;
-    color: #e29578;
-    border: 2px solid #edf6f9;
-}
-
-.deleteModalButton:hover {
-    cursor: pointer;
-    background-color: rgba(0,109,119,.7);
-    color: #edf6f9;
-}
-
-.deleteModalHeader {
-    color: #006d77;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin-bottom: 2%;
-    text-align: center;
-    flex-basis: 100%;
-}
-
-.formTitle, .formType, .formMessage {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 1.5%;
-    color: #006d77;
-}
-
-.formHeadings {
-    font-size: 1.3rem;
-    padding-bottom: 7px;
-}
-
-.titleInput, .typeInput {
-    width: 30%;
-    border: 2px solid #edf6f9;
-    border-radius: 5px;
-    padding: 3px;
-    background-color: #006d77;
-    color: #e29578;
-    outline: none;
-}
-
-.messageInput {
-    resize: none;
-    font-family: 'exo 2', 'sans-serif';
-    width: 100%;
-    height: 100px;
-    border: 2px solid #edf6f9;
-    border-radius: 5px;
-    padding: 3px;
-    background-color: #006d77;
-    color: #e29578;
-    outline: none;
-}
-
-.editModalButtons {
-    display: flex;
-    justify-content: right;
-    margin-top: 3%;
-}
-
-.submitButton, .cancelButton {
-    border-radius: 5px;
-    margin-left: 10px;
-    padding: 3px 20px 3px 20px;
-    background-color: #006d77;
-    color: #e29578;
-    border: 2px solid #edf6f9;
-}
-
-.submitButton:hover, .cancelButton:hover {
-    cursor: pointer;
-    background-color: rgba(0,109,119,.7);
-    color: #edf6f9;
+    to {
+        opacity: 0;
+    }
 }
 
 @keyframes fadein {
-    from {opacity: 0;}
-    to {opacity: 1;}
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .loading {
@@ -244,7 +149,7 @@
     text-align: center;
     border-radius: 5px;
     background-color: #006d77;
-    box-shadow: 5px 5px rgba(131,197,188,.8);
+    box-shadow: 5px 5px rgba(131, 197, 188, .8);
     color: #e29578;
     margin: 30% 5% 0% 5%;
     padding: 3%;
@@ -254,11 +159,11 @@
 @media (min-width: 600px) {
     .loading {
         margin: 5% 20%;
-        box-shadow: 10px 10px rgba(131,197,188,.8);
+        box-shadow: 10px 10px rgba(131, 197, 188, .8);
     }
 
     .nameAndYearsContainer {
-        box-shadow: 10px 10px rgba(0,109,119,.7);
+        box-shadow: 10px 10px rgba(0, 109, 119, .7);
         margin: 2% 20% 2% 20%;
         padding: 2%;
     }
@@ -276,7 +181,7 @@
     }
 
     .post {
-        box-shadow: 10px 10px rgba(0,109,119,.7);
+        box-shadow: 10px 10px rgba(0, 109, 119, .7);
         margin: 0% 20% 2% 20%;
         padding: 2%;
     }
@@ -285,7 +190,8 @@
         font-size: 2rem;
     }
 
-    .postCity, .postDate {
+    .postCity,
+    .postDate {
         font-size: 1.5rem;
     }
 
@@ -300,51 +206,12 @@
         padding: 2px;
     }
 
-    .editModal {
-        width: 30%;
-        top: 22%;
-        left: 30%;
-        padding: 2%;
-        border: 10px solid rgba(0,109,119,.7);
-    }
-
     .deleteModal {
         top: 30%;
         width: 25%;
         height: 25%;
         left: 32.5%;
         padding: 2%;
-        border: 10px solid rgba(0,109,119,.7);
-    }
-
-    .formHeadings {
-        font-size: 2rem;
-        padding-bottom: 10px;
-    }
-    
-    .deleteModalHeader {
-        font-size: 2rem;
-    }
-
-    .titleInput, .typeInput {
-        width: 50%;
-        padding: 5px;
-        font-size: 1.2rem;
-    }
-
-    .messageInput {
-        font-size: 1.2rem;
-        height: 150px;
-    }
-
-    .submitButton, .cancelButton {
-        font-size: 1.2rem;
-        margin-left: 20px;
-        padding: 2px 15px 2px 15px;
-    }
-
-    .deleteModalButton {
-        padding: 5px 30px 5px 30px;
-        font-size: 1.5rem;
+        border: 10px solid rgba(0, 109, 119, .7);
     }
 }

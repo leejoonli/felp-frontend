@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './Users.module.css';
+import Update from '../Modals/Update';
+import Delete from '../Modals/Delete';
 
 // Dependencies
 import { useEffect, useState } from 'react';
@@ -35,7 +37,7 @@ function Users(props) {
 	const getPosts = async () => {
 		try {
 			const res = await axios.get(
-				`https://felp-coders.herokuapp.com/api/posts/state/${state}`
+				`http://localhost:3001/api/posts/state/${state}`
 			);
 			// filter through frontend because we didn't know how to filter with nested username in owner property on backend
 			const data = res.data.filter((el) => el.owner.id === id);
@@ -50,7 +52,7 @@ function Users(props) {
 		try {
 			// PATCH request to partially update post
 			const res = await axios.patch(
-				`https://felp-coders.herokuapp.com/api/posts/id/${updatePost._id}`,
+				`http://localhost:3001/api/posts/id/${updatePost._id}`,
 				updatePost,
 				{headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}`}}
 			);
@@ -76,7 +78,7 @@ function Users(props) {
 		try {
 			// DELETE request to api
 			const res = await axios.delete(
-				`https://felp-coders.herokuapp.com/api/posts/id/${toDeletePostId}`,
+				`http://localhost:3001/api/posts/id/${toDeletePostId}`,
 				{headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}`}}
 			);
 			// set variable for the response data
@@ -114,7 +116,7 @@ function Users(props) {
 		try {
 			// GET request for specific post
 			const res = await axios.get(
-				`https://felp-coders.herokuapp.com/api/posts/id/${id}`
+				`http://localhost:3001/api/posts/id/${id}`
 			);
 			// find post from get request by state because we don't know how to filter with nested user schema in owner property on backend
 			// setting state to the response data
@@ -202,77 +204,10 @@ function Users(props) {
 				<h2 className={styles.loading}>No posts currently</h2>
 			) : null}
 			{updateModal && (
-				<div className={styles.editModal}>
-					<form onSubmit={handleSubmit} className={styles.editForm}>
-						<div className={styles.formTitle}>
-							<label htmlFor="title" className={styles.formHeadings}>
-								Title:
-							</label>
-							<input
-								id="title"
-								className={styles.titleInput}
-								value={updatePost.title}
-								onChange={handleChange}
-							/>
-						</div>
-						<div className={styles.formType}>
-							<label htmlFor="type" className={styles.formHeadings}>
-								Type:
-							</label>
-							<select id="type" className={styles.typeInput}>
-								<option value=""></option>
-								<option value="Food">Food</option>
-								<option value="Experience">Experience</option>
-							</select>
-						</div>
-						<div className={styles.formMessage}>
-							<label htmlFor="message" className={styles.formHeadings}>
-								Message:
-							</label>
-							<textarea
-								id="message"
-								className={styles.messageInput}
-								value={updatePost.message}
-								onChange={handleChange}
-							/>
-						</div>
-						<div className={styles.editModalButtons}>
-							<button type="submit" className={styles.submitButton}>
-								Submit
-							</button>
-							<button
-								className={styles.cancelButton}
-								onClick={() => {
-									closeUpdateModal();
-								}}>
-								Cancel
-							</button>
-						</div>
-					</form>
-				</div>
+				<Update handleSubmit={handleSubmit} handleChange={handleChange} closeUpdateModal={closeUpdateModal} updatePost={updatePost} />
 			)}
 			{deleteModal && (
-				<div className={styles.deleteModal}>
-					<h3 className={styles.deleteModalHeader}>
-						Are you sure you want to delete?
-					</h3>
-					<div className={styles.deleteModalButtonsContainer}>
-						<button
-							className={styles.deleteModalButton}
-							onClick={() => {
-								handleDelete();
-							}}>
-							Yes
-						</button>
-						<button
-							className={styles.deleteModalButton}
-							onClick={() => {
-								closeDeleteModal();
-							}}>
-							No
-						</button>
-					</div>
-				</div>
+				<Delete handleDelete={handleDelete} closeDeleteModal={closeDeleteModal} />
 			)}
 		</div>
 	);

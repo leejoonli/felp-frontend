@@ -1,0 +1,70 @@
+.deleteModal {
+    border: 5px solid rgba(0, 109, 119, .7);
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    position: absolute;
+    top: 15%;
+    background-color: #83c5be;
+    z-index: 1;
+    overflow: auto;
+    padding: 3%;
+    border-radius: 5px;
+    animation: fadein .5s;
+    top: 21%;
+    height: 25%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.deleteModalHeader {
+    color: #006d77;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    margin-bottom: 2%;
+    text-align: center;
+    flex-basis: 100%;
+}
+
+.deleteModalButtonsContainer {
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.deleteModalButton {
+    padding: 10px 20px 10px 20px;
+    background-color: #006d77;
+    border-radius: 5px;
+    color: #e29578;
+    border: 2px solid #edf6f9;
+}
+
+.deleteModalButton:hover {
+    cursor: pointer;
+    background-color: rgba(0, 109, 119, .7);
+    color: #edf6f9;
+}
+
+@media (min-width: 600px) {
+    .deleteModal {
+        top: 30%;
+        width: 25%;
+        height: 25%;
+        left: 32.5%;
+        padding: 2%;
+        border: 10px solid rgba(0, 109, 119, .7);
+    }
+
+    .deleteModalHeader {
+        font-size: 2rem;
+    }
+
+    .deleteModalButton {
+        padding: 5px 30px 5px 30px;
+        font-size: 1.5rem;
+    }
+}
