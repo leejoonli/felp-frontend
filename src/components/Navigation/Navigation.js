@@ -1,14 +1,14 @@
 // Dependencies
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 // Styling
-import styles from './Navigation.module.css';
+import styles from "./Navigation.module.css";
 
 function Navigation(props) {
 	return (
 		<div className={styles.nav}>
 			<h1 className={styles.nav_logo}>
-				<Link to='/Home'>
+				<Link to="/Home">
 					<img
 						className={styles.nav_logob}
 						src='/logo512.png'
@@ -26,15 +26,15 @@ function Navigation(props) {
 				<div>
 					<img
 						className={styles.nav_imgb}
-						src='https://img.icons8.com/windows/32/000000/menu--v3.png'
-						alt='dropdown'
+						src="https://img.icons8.com/windows/32/000000/menu--v3.png"
+						alt="dropdown"
 						onClick={() => props.openTrue()}
-						id='closeHamburgerMenu'
+						id="closeHamburgerMenu"
 					/>
 				</div>
 				{props.open && props.children}
 			</div>
-			<div id='root'></div>
+			<div id="root"></div>
 		</div>
 	);
 }
