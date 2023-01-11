@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from './Update.module.css';
 
 function Update(props) {
-    /*return (
+    return (
         <div className={styles.editModal}>
-            <form onSubmit={handleSubmit} className={styles.editForm}>
+            <form onSubmit={props.handleSubmit}>
                 <div className={styles.formTitle}>
                     <label htmlFor="title" className={styles.formHeadings}>
                         Title:
@@ -11,8 +12,8 @@ function Update(props) {
                     <input
                         id="title"
                         className={styles.titleInput}
-                        value={updatePost.title}
-                        onChange={handleChange}
+                        value={props.updatePost.title}
+                        onChange={props.handleChange}
                     />
                 </div>
                 <div className={styles.formType}>
@@ -32,8 +33,8 @@ function Update(props) {
                     <textarea
                         id="message"
                         className={styles.messageInput}
-                        value={updatePost.message}
-                        onChange={handleChange}
+                        value={props.updatePost.message}
+                        onChange={props.handleChange}
                     />
                 </div>
                 <div className={styles.editModalButtons}>
@@ -43,14 +44,14 @@ function Update(props) {
                     <button
                         className={styles.cancelButton}
                         onClick={() => {
-                            closeUpdateModal();
+                            props.closeUpdateModal();
                         }}>
                         Cancel
                     </button>
                 </div>
             </form>
         </div>
-    );*/
+    );
 }
 
 export default Update;
