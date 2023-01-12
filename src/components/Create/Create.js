@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from './Create.module.css';
+import { postsUrl } from '../../util/var';
 
 function Create(props) {
 	// reference useNavigate with const navigate
@@ -44,7 +45,7 @@ function Create(props) {
 		try {
 			// comment this line back in when connecting to backend
 			await axios({
-				url: `http://localhost:3001/api/posts`,
+				url: postsUrl,
 				method: 'POST',
 				headers: {
 					'Authorization': `Bearer ${window.localStorage.getItem('token')}`

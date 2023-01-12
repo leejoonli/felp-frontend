@@ -4,6 +4,7 @@ import StateLayout from '../StateLayout/StateLayout';
 import SignUp from '../Modals/SignUp';
 import Login from '../Modals/Login';
 import Loginheader from '../LoginHeader/Loginheader';
+import { signinUrl, signupUrl } from '../../util/var';
 
 // Dependencies
 import axios from 'axios';
@@ -47,12 +48,12 @@ function Home(props) {
 			e.preventDefault();
 			// POST request for signup
 			const res = await axios.post(
-				`http://localhost:3001/api/signup`,
+				signupUrl,
 				signUpForm
 			);
 			// POST request for login to auto login after signup
 			const loginRes = await axios.post(
-				`http://localhost:3001/api/signin`,
+				signinUrl,
 				signUpForm
 			);
 			// get data from login POST request response
@@ -78,7 +79,7 @@ function Home(props) {
 			e.preventDefault();
 			// POST request for login
 			const res = await axios.post(
-				`http://localhost:3001/api/signin`,
+				signinUrl,
 				LoginForm
 			);
 			const data = res.data;

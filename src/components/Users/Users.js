@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Users.module.css';
 import Update from '../Modals/Update';
 import Delete from '../Modals/Delete';
+import { stateUrl, postsIdUrl } from '../../util/var';
 
 // Dependencies
 import { useEffect, useState } from 'react';
@@ -37,7 +38,7 @@ function Users(props) {
 	const getPosts = async () => {
 		try {
 			const res = await axios.get(
-				`http://localhost:3001/api/posts/state/${state}`
+				`${stateUrl}${state}`
 			);
 			// filter through frontend because we didn't know how to filter with nested username in owner property on backend
 			const data = res.data.filter((el) => el.owner.id === id);
@@ -52,7 +53,7 @@ function Users(props) {
 		try {
 			// PATCH request to partially update post
 			const res = await axios.patch(
-				`http://localhost:3001/api/posts/id/${updatePost._id}`,
+				`${postsIdUrl}${updatePost._id}`,
 				updatePost,
 				{headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}`}}
 			);
@@ -78,7 +79,7 @@ function Users(props) {
 		try {
 			// DELETE request to api
 			const res = await axios.delete(
-				`http://localhost:3001/api/posts/id/${toDeletePostId}`,
+				`${postsIdUrl}${toDeletePostId}`,
 				{headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}`}}
 			);
 			// set variable for the response data
@@ -116,7 +117,7 @@ function Users(props) {
 		try {
 			// GET request for specific post
 			const res = await axios.get(
-				`http://localhost:3001/api/posts/id/${id}`
+				`${postsIdUrl}${id}`
 			);
 			// find post from get request by state because we don't know how to filter with nested user schema in owner property on backend
 			// setting state to the response data

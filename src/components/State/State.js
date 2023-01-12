@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './State.module.css';
+import { stateUrl } from '../../util/var';
 
 // Dependencies
 import { useEffect, useState } from 'react';
@@ -21,7 +22,7 @@ function State(props) {
 				setLoading(false);
 			}
 		}, 5000);
-		getUsers();
+		getUsers(state);
 	}, [state]);
 
 	// async await function for fetch request for users in location
@@ -29,7 +30,7 @@ function State(props) {
 		try {
 			// change fetch request path to localhost:3001/posts/state
 			const res = await axios.get(
-				`http://localhost:3001/api/posts/state/${state}`
+				`${stateUrl}${state}`
 			);
 			setUsers(res.data);
 		} catch (error) {
